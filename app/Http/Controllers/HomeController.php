@@ -45,5 +45,10 @@ class HomeController extends Controller
         return view('basicform');
     }
 
+    public function tambah_pegawai()
+    {
+        return view('admin.form_tambah_data_pegawai');
+    }
+
 
 }

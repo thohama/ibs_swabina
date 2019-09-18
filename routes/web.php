@@ -23,8 +23,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('cetakpdf','HomeCOntroller@cetakPdf');
-Route::get('basicform','HomeCOntroller@basicform');
+Route::get('cetakpdf','HomeController@cetakPdf');
+Route::get('basicform','HomeController@basicform');
+Route::get('admin/tambah_data_pegawai','HomeController@tambah_pegawai');
 
 Route::prefix('jobseeker')->group(function(){
     //-x regular

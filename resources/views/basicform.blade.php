@@ -6,7 +6,6 @@
 
 <style>th.dt-center, td.dt-center { text-align: center; }</style>
 
-
 @endsection
 
 @section('content')
