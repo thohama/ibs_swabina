@@ -24,9 +24,8 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => ['auth']], function() {
-    Route::resource('manajemenrole','RoleController');
-    Route::resource('manajemenuser','UserController');
-    Route::resource('products','ProductController');
+    Route::resource('roles','RoleController');
+    Route::resource('users','UserController');
 });
 
 Route::get('cetakpdf','HomeController@cetakPdf');
