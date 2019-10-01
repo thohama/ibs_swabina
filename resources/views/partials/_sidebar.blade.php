@@ -20,6 +20,11 @@
                     <span class="nav-label">Dashboards</span>
                 </a>
             </li>
+            <li class="">
+                <a href="{{url('requestpekerjaan')}}"><i class="fa fa-th-large"></i>
+                    <span class="nav-label">Request Pegawai</span>
+                </a>
+            </li>
 
 
             <li class="treeview sidebar data-master">
