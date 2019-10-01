@@ -40,7 +40,7 @@
                 <div class="ibox-content">
 
 
-             <form id="form-pekerja">
+             <form id="form-pekerja" data-parsley-validate="">
                         <div class="form-group row">
                             <label for="nik" class="col-sm-2 col-form-label">Nama</label>
                             <div class="col-sm-10">
@@ -445,7 +445,7 @@
                                 <div class="form-group row">
                                     <div class="col-sm-4 col-sm-offset-9">
                                         <a href="{{url('manajemen-pekerja/data-pekerja')}}" class="btn btn-danger btn-flat" type="button">Kembali</a>
-                                        <button class="ladda-button ladda-button-demo btn btn-primary btn-flat simpan" type="button" onclick="simpan()">
+                                        <button class="ladda-button ladda-button-demo btn btn-primary btn-flat simpan" type="submit" >
                                             Simpan
                                         </button>
                                     </div>
@@ -468,8 +468,8 @@ function append_pendidikan(p){
   var count_append = 0;
 
 
-  var append = '<button class="btn btn-default btn-sm append" onclick="remove_append_pendidikan(this)"><a class="fa fa-minus"></a></button>';
-  var append_plus = '<button class="btn btn-default btn-sm append" onclick="append_pendidikan(this)"><a class="fa fa-plus"></a></button>';
+  var append = '<button class="btn btn-default btn-sm append" onclick="remove_append_kursus(this)"><a class="fa fa-minus"></a></button>';
+  var append_plus = '<button class="btn btn-default btn-sm append" onclick="append_kursus(this)"><a class="fa fa-plus"></a></button>';
 
   $(par).find('.clone_append').html(append);
   // console.log(data);
@@ -623,6 +623,18 @@ function remove_append_keluarga(p){
 
   $(par).remove();
 }
+</script>
+<script type="text/javascript">
+$(function () {
+  $('#form-pekerja').parsley().on('field:validated', function() {
+    var ok = $('.parsley-error').length === 0;
+    $('.bs-callout-info').toggleClass('hidden', !ok);
+    $('.bs-callout-warning').toggleClass('hidden', ok);
+  })
+  .on('form:submit', function() {
+    return false; // Don't submit form for this demo
+  });
+});
 </script>
 @endsection
 

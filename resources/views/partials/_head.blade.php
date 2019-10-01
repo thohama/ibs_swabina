@@ -47,3 +47,6 @@
     <!-- datepicker -->
     <link href="{{ asset('assets/vendors/datapicker/datepicker3.css') }}" rel="stylesheet">
     <!--<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />-->
+
+    <!-- Parsley -->
+    <link href="{{asset('assets/vendors/parsleyjs/src/parsleyjs.css')}}" rel="stylesheet">

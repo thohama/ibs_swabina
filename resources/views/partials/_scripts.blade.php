@@ -61,6 +61,10 @@
     <!-- datepicker  --> 
     <script src="{{ asset('assets/vendors/datapicker/bootstrap-datepicker.js') }}"></script>
 
+    <!-- Parslyejs -->
+    <script src="{{ asset('assets/vendors/parsleyjs/src/header.js') }}"></script>
+    <script src="{{ asset('assets/vendors/parsleyjs/src/parsley.js') }}"></script>
+
     
 
      
