@@ -2,7 +2,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <title>Inspinia | @yield('title')</title>
+    <title>HRIS PT. Swabina Gatra | @yield('title')</title>
     <link rel="shortcut icon" type="image/png" href="{{ asset('assets/img/dboard/logo/faveicon.png') }}"/>
     <link href="{{ asset('assets/vendors/chosen/chosen.css') }}" rel="stylesheet">
     <!-- Bootstrap -->
@@ -48,5 +48,5 @@
     <link href="{{ asset('assets/vendors/datapicker/datepicker3.css') }}" rel="stylesheet">
     <!--<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />-->
 
-    <!-- Parsley -->
     <link href="{{asset('assets/vendors/parsleyjs/src/parsleyjs.css')}}" rel="stylesheet">
+
