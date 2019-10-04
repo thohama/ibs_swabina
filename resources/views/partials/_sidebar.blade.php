@@ -25,6 +25,25 @@
                     <span class="nav-label">Request Pegawai</span>
                 </a>
             </li>
+            <li class="">
+                <a href="{{url('datakaryawan')}}"><i class="fa fa-th-large"></i>
+                    <span class="nav-label">Data Karyawan</span>
+                </a>
+            </li>
+
+            <li class="treeview sidebar data-master">
+                <a href="#" id="step1"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Payroll</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li class=" sidebar master-akun">
+                        <a href="{{url('data_payroll')}}"><i class="" aria-hidden="true"></i><span class="nav-label">Data Payroll</span></a>
+                    </li>
+                </ul>
+                <ul class="nav nav-second-level collapse">
+                    <li class=" sidebar master-akun">
+                        <a href="{{ url('generate_payroll') }}"><i class="active" aria-hidden="true"></i><span class="nav-label">Generate Payroll</span></a>
+                    </li>
+                </ul>
+            </li>
 
 
             <li class="treeview sidebar data-master">
@@ -63,6 +82,20 @@
                 <ul class="nav nav-second-level collapse">
                     <li class=" sidebar master-akun">
                         <a href="{{ url('admin/tambah_data_pegawai') }}"><i class="" aria-hidden="true"></i><span class="nav-label">Tambah Data Pegawai</span></a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="treeview sidebar data-master">
+                <a href="#" id="step1"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Setup System</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li class=" sidebar master-akun">
+                        <a href="{{ url('setup_komponen_gaji') }}"><i class="" aria-hidden="true"></i><span class="nav-label">Setup Komponen Gaji</span></a>
+                    </li>
+                </ul>
+                <ul class="nav nav-second-level collapse">
+                    <li class=" sidebar master-akun">
+                        <a href="{{ url('setup_periode_gaji') }}"><i class="" aria-hidden="true"></i><span class="nav-label">Setup Periode Gaji</span></a>
                     </li>
                 </ul>
             </li>

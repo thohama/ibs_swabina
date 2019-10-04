@@ -27,6 +27,25 @@ Route::get('requestpekerjaan', function () {
     return view('request_pekerjaan');
 });
 
+Route::get('datakaryawan', 'HomeController@data_karyawan');
+
+Route::get('data_payroll','HomeController@data_payroll');
+
+Route::get('generate_payroll','HomeController@generate_payroll');
+Route::post('generate_payroll/simpan','HomeController@simpan_generate_payroll');
+
+Route::get('print_data_payroll/{id}','HomeController@print_data_payroll');
+
+
+Route::get('setup_komponen_gaji', 'HomeController@setup_komponen_gaji');
+Route::post('setup_komponen_gaji/simpan', 'HomeController@simpan_komponen_gaji');
+Route::post('setup_komponen_gaji/edit', 'HomeController@edit_komponen_gaji');
+Route::delete('setup_komponen_gaji/delete', 'HomeController@delete_komponen_gaji');
+
+
+Route::get('setup_periode_gaji', 'HomeController@setup_periode_gaji');
+Route::post('setup_periode_gaji/simpan', 'HomeController@simpan_periode_gaji');
+
 
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController');
