@@ -121,7 +121,7 @@
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
                         <!-- <li><a href="{{url('profil')}}">Lihat Profile</a></li> -->
-                        <li class="divider"></li>
+{{--                        <li class="divider"></li>--}}
                         <li>
                            <a class="dropdown-item" href="{{ route('logout') }}"
                              onclick="event.preventDefault();
