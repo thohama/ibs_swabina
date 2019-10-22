@@ -21,6 +21,11 @@
                 Home
               </a>
             </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{{url('apply')}}">
+                Apply
+              </a>
+            </li>
             <li class="button-group">
               <a href="{{url('login')}}" class="button btn btn-lg btn-common">Sign in</a>
             </li>

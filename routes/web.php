@@ -114,3 +114,7 @@ Route::prefix('jobseeker')->group(function(){
 
 });
 
+//recruitment
+Route::get('apply', 'RecruitmentController@create');
+
+
