@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use PDF;
 use DB;
 use Illuminate\Database\QueryException;
+use App\md_jobseeker;
+use App\User;
 // use App\md_client;
 // use App\md_karyawan;
 
@@ -207,6 +209,36 @@ class HomeController extends Controller
     public function tambah_pegawai()
     {
         return view('admin.form_tambah_data_pegawai');
+    }
+
+    public function store_pegawai(Request $request)
+    {
+        // dd($request->all());
+        $user = new User;
+        $user->email = $request->input('email');
+        $user->name = $request->input('nama');
+        $user->password = \Hash::make('111111');
+        $user->save();
+
+        $jobseeker = new md_jobseeker;
+        $jobseeker->users_id = $user->id;
+        $jobseeker->email = $request->input('email');
+        $jobseeker->nama_lengkap = $request->input('nama');
+        $jobseeker->tempat_lahir = $request->input('tempat_lahir');
+        $jobseeker->tanggal_lahir = $request->input('tgl_lahir');
+        $jobseeker->NIK = $request->input('nik');
+        $jobseeker->jenis_kelamin = $request->input('jenis_kelamin');
+        $jobseeker->agama = $request->input('agama');
+        $jobseeker->alamat_ktp = $request->input('dusun').'RT/RW '.$request->input('rt').', '.$request->input('desa').', '.$request->input('kec').', '.$request->input('kota');
+        $jobseeker->nohp = $request->input('no_hp');
+        $jobseeker->alasan_melamar = $request->input('alasan_melamar');
+        $jobseeker->radio_bersedia_sift = $request->input('radio_bersedia_sift');
+        $jobseeker->alasan_sift = $request->input('alasan_sift');
+        $jobseeker->radio_bersedia_mutasi = $request->input('radio_bersedia_mutasi');
+        $jobseeker->alasan_mutasi = $request->input('alasan_mutasi');
+        $jobseeker->save();
+
+        return redirect()->back()->with('status', 'Berhasil!');
     }
 
 

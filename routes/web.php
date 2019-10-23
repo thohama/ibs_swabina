@@ -55,6 +55,7 @@ Route::group(['middleware' => ['auth']], function() {
 Route::get('cetakpdf','HomeController@cetakPdf');
 Route::get('basicform','HomeController@basicform');
 Route::get('admin/tambah_data_pegawai','HomeController@tambah_pegawai');
+Route::post('admin/store_data_pegawai','HomeController@store_pegawai');
 
 Route::prefix('jobseeker')->group(function(){
     //-x regular
