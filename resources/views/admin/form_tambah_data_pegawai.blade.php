@@ -125,11 +125,18 @@
                   <small>Dusun harus diisi...!</small>
                 </span>
               </div>
-              <label class="col-sm-1 col-form-label">RT /RW</label>
-              <div class="col-sm-3">
-                <input type="text" class="form-control" name="rt" id="rt" placeholder="Masukkan RT / RW" required="">
+              <label class="col-sm-1 col-form-label">RT</label>
+              <div class="col-sm-1">
+                <input type="number" class="form-control" name="rt" id="rt" placeholder="RT" required="">
                 <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="rt-error">
-                  <small>RT / RW harus diisi...!</small>
+                  <small>RT harus diisi...!</small>
+                </span>
+              </div>
+              <label class="col-sm-1 col-form-label">RW</label>
+              <div class="col-sm-1">
+                <input type="number" class="form-control" name="rw" id="rw" placeholder="RW" required="">
+                <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="rt-error">
+                  <small>RW harus diisi...!</small>
                 </span>
               </div>
             </div>
@@ -163,7 +170,7 @@
             <div class="form-group row">
               <label  class="col-sm-2 col-form-label">No HP</label>
               <div class="col-sm-3">
-                <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="Masukan Nomor HP" required="">
+                <input type="number" class="form-control" name="no_hp" id="no_hp" placeholder="Masukan Nomor HP" required="">
                 <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="ho-hp-error">
                   <small>Nomor HP harus diisi...!</small>
                 </span>

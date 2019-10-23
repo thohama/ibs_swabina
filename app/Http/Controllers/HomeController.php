@@ -8,6 +8,7 @@ use DB;
 use Illuminate\Database\QueryException;
 use App\md_jobseeker;
 use App\User;
+use Excel;
 // use App\md_client;
 // use App\md_karyawan;
 
@@ -206,6 +207,12 @@ class HomeController extends Controller
 
     }
 
+    public function index_pegawai()
+    {
+        $jobseeker = md_jobseeker::all();
+        return view('admin.index_data_pegawai', compact('jobseeker'));
+    }
+
     public function tambah_pegawai()
     {
         return view('admin.form_tambah_data_pegawai');
@@ -229,7 +236,7 @@ class HomeController extends Controller
         $jobseeker->NIK = $request->input('nik');
         $jobseeker->jenis_kelamin = $request->input('jenis_kelamin');
         $jobseeker->agama = $request->input('agama');
-        $jobseeker->alamat_ktp = $request->input('dusun').'RT/RW '.$request->input('rt').', '.$request->input('desa').', '.$request->input('kec').', '.$request->input('kota');
+        $jobseeker->alamat_ktp = $request->input('dusun').' RT '.$request->input('rt').' /RW '.$request->input('rw').', '.$request->input('desa').', '.$request->input('kec').', '.$request->input('kota');
         $jobseeker->nohp = $request->input('no_hp');
         $jobseeker->alasan_melamar = $request->input('alasan_melamar');
         $jobseeker->radio_bersedia_sift = $request->input('radio_bersedia_sift');
@@ -240,6 +247,4 @@ class HomeController extends Controller
 
         return redirect()->back()->with('status', 'Berhasil!');
     }
-
-
 }

@@ -78,10 +78,13 @@
             </li>
 
             <li class="treeview sidebar data-master">
-                <a href="#" id="step1"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Master Data Pegawai</span><span class="fa arrow"></span></a>
+                <a href="#" id="step1"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Master Data Pelamar</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li class=" sidebar master-akun">
-                        <a href="{{ url('admin/tambah_data_pegawai') }}"><i class="" aria-hidden="true"></i><span class="nav-label">Tambah Data Pegawai</span></a>
+                        <a href="{{ url('admin/tambah_data_pegawai') }}"><i class="" aria-hidden="true"></i><span class="nav-label">Tambah Data Pelamar</span></a>
+                    </li>
+                    <li class=" sidebar master-akun">
+                        <a href="{{ url('admin/data_pegawai') }}"><i class="" aria-hidden="true"></i><span class="nav-label">Daftar Pelamar</span></a>
                     </li>
                 </ul>
             </li>
