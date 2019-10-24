@@ -54,7 +54,7 @@
             <div class="form-group row">
               <label for="nik" class="col-sm-2 col-form-label">Nama</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="nama" id="nik" placeholder="Masukan Nama Lengkap" required="">
+                <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukan Nama Lengkap" required="">
                 <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="nama-error">
                   <small>Nama harus diisi...!</small>
                 </span>
@@ -63,8 +63,8 @@
             <div class="form-group row">
               <label for="nik" class="col-sm-2 col-form-label">Email</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="email" id="nik" placeholder="Masukan Email" required="">
-                <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="nama-error">
+                <input type="text" class="form-control" name="email" id="email" placeholder="Masukan Email" required="">
+                <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="email-error">
                   <small>Email harus diisi...!</small>
                 </span>
               </div>
@@ -72,13 +72,13 @@
             <div class="form-group row">
               <label for="expired" class="col-sm-2 col-form-label">Tempat Tanggal  Lahir</label>
               <div class="col-sm-3">
-                <input type="text" class="form-control" name="tempat_lahir" id="expired" placeholder="Masukkan Tempat Lahir" required="">
+                <input type="text" class="form-control" name="tempat_lahir" id="tempat_lahir" placeholder="Masukkan Tempat Lahir" required="">
                 <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="tempat-lahir-error">
                   <small>Tempat Lahir harus diisi...!</small>
                 </span>
               </div>
               <div class="col-sm-3">
-                <input type="date" class="form-control" name="tgl_lahir" id="expired" placeholder="Masukkan Tanggal Lahir" required="">
+                <input type="date" class="form-control" name="tgl_lahir" id="tgl_lahir" placeholder="Masukkan Tanggal Lahir" required="">
                 <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="tgl-lahir-error">
                   <small>Tanggal Lahir harus diisi...!</small>
                 </span>
@@ -97,7 +97,7 @@
               <label for="kelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
               <div class="col-sm-10">
                 <div class="radio-inline radio radio-primary"> <input type="radio" class="radio-primary" name="jenis_kelamin" id="jk" value="Laki-Laki" required=""><label for="jk" style="cursor: pointer;">Laki-Laki</label></div>
-                <div class="radio-inline radio radio-primary"> <input type="radio" class="radio-primary" name="jenis_kelamin" id="jk2" value="Perempuan"  required=""><label for="jk2" style="cursor: pointer;">Perempuan</label></div>
+                <div class="radio-inline radio radio-primary"> <input type="radio" class="radio-primary" name="jenis_kelamin" id="jk" value="Perempuan"  required=""><label for="jk2" style="cursor: pointer;">Perempuan</label></div>
                 <span style="color:#ed5565;display: none " class="help-block m-b-none reset" id="kelamin-error">
                   <small>Jenis Kelamin harus diisi...!</small>
                 </span>
@@ -111,7 +111,7 @@
                 <div class="radio-inline radio radio-primary"> <input type="radio" class="radio-primary" name="agama" id="agama" value="Kristen Katolik" required=""><label style="cursor: pointer;">Katolik</label></div>
                 <div class="radio-inline radio radio-primary"> <input type="radio" class="radio-primary" name="agama" id="agama" value="Budha"  required=""><label style="cursor: pointer;">Budha</label></div>
                 <div class="radio-inline radio radio-primary"> <input type="radio" class="radio-primary" name="agama" id="agama" value="Hindu" required=""><label style="cursor: pointer;">Hindu</label></div>
-                <span style="color:#ed5565;display: none " class="help-block m-b-none reset" id="kelamin-error">
+                <span style="color:#ed5565;display: none " class="help-block m-b-none reset" id="agama-error">
                   <small>Agama harus diisi...!</small>
                 </span>
               </div>
@@ -135,7 +135,7 @@
               <label class="col-sm-1 col-form-label">RW</label>
               <div class="col-sm-1">
                 <input type="number" class="form-control" name="rw" id="rw" placeholder="RW" required="">
-                <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="rt-error">
+                <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="rw-error">
                   <small>RW harus diisi...!</small>
                 </span>
               </div>
@@ -161,7 +161,7 @@
               <label  class="col-sm-2 col-form-label"></label>
               <label  class="col-sm-1 col-form-label">Kecamatan</label>
               <div class="col-sm-3">
-                <input type="text" class="form-control" name="kec" id="kec" placeholder="Masukkan Kecamatan" required="">
+                <input type="text" class="form-control" name="kec" id="kec" placeholder="Masukkan Kab" required="">
                 <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="kec-error">
                   <small>Kecamatan harus diisi...!</small>
                 </span>
@@ -171,7 +171,7 @@
               <label  class="col-sm-2 col-form-label">No HP</label>
               <div class="col-sm-3">
                 <input type="number" class="form-control" name="no_hp" id="no_hp" placeholder="Masukan Nomor HP" required="">
-                <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="ho-hp-error">
+                <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="no-hp-error">
                   <small>Nomor HP harus diisi...!</small>
                 </span>
               </div>
@@ -205,8 +205,9 @@
                       <td align="center">
                         <select class="form-control chosen-select-width5" name="kota_pendidikan[]">
                           <option value="" selected disabled>Kota</option>
-                          <option value="">Gresik</option>
-                          <option value="">Surabaya</option>
+                          @foreach($kabkota as $value)
+                          <option value="{{$value->id}}">{{$value->name}}</option>
+                          @endforeach
                         </select>
                       </td>
                       <td align="center">
@@ -266,8 +267,9 @@
                       <td align="center">
                         <select class="form-control chosen-select-width5" name="kota_kursus[]">
                           <option value="" selected disabled>Kota</option>
-                          <option value="">Gresik</option>
-                          <option value="">Surabaya</option>
+                          @foreach($kabkota as $value)
+                          <option value="{{$value->id}}">{{$value->name}}</option>
+                          @endforeach
                         </select>
                       </td>
                       <td align="center" class="clone_append" width="">
@@ -297,7 +299,7 @@
                         <input type="text" name="nama_keluarga[]" value=""  class="form-control nama_keluarga" placeholder="Masukan Nama Keluarga">
                       </td>
                       <td align="center">
-                        <select class="form-control chosen-select-width5" name="hubungan_kelaurga[]">
+                        <select class="form-control chosen-select-width5" name="hubungan_keluarga[]">
                           <option value="" selected disabled>Hubungan Keluarga</option>
                           <option value="suami">Suami</option>
                           <option value="istri">Istri</option>
@@ -612,7 +614,7 @@ function append_keluarga(p){
   +'<input type="text" name="nama_keluarga[]" value=""  class="form-control nama_keluarga" placeholder="Masukan Nama Keluarga">'
   +'</td>'
   +'<td align="center">'
-  +'<select class="form-control chosen-select-width5" name="hubungan_kelaurga[]">'
+  +'<select class="form-control chosen-select-width5" name="hubungan_keluarga[]">'
   +'<option value="" selected disabled>Hubungan Keluarga</option>'
   +'<option value="suami">Suami</option>'
   +'<option value="istri">Istri</option>'
@@ -651,14 +653,8 @@ function remove_append_keluarga(p){
 </script>
 <script type="text/javascript">
   $(function () {
-    $('#form-pekerja').parsley().on('field:validated', function() {
-      var ok = $('.parsley-error').length === 0;
-      $('.bs-callout-info').toggleClass('hidden', !ok);
-      $('.bs-callout-warning').toggleClass('hidden', ok);
-    })
-    .on('form:submit', function() {
-    return false; // Don't submit form for this demo
-  });
+    const select2 = $('.chosen-select-width5');
+    select2.select2();
   });
 </script>
 @endsection

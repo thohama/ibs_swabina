@@ -46,24 +46,18 @@
           <div class="col-xs-12">
 
             <div class="box" id="seragam_box">
-              <div class="col-sm-6" style="float: right;">
-                <form method="POST" class="form-horizontal" action="" enctype="multipart/form-data">
+              <div class="col-sm-6">
+                <form method="POST" class="form-horizontal" action="{{ route('pegawai.import') }}" enctype="multipart/form-data">
                   @csrf
                   <fieldset>
-                    <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-                      <div class="form-control" data-trigger="fileinput">
-                        <i class="glyphicon glyphicon-file fileinput-exists"></i>
-                        <span class="fileinput-filename"></span>
-                      </div>
-                      <span class="input-group-addon btn btn-default btn-file">
-                        <span class="fileinput-new">Pilih File Excel</span>
-                        <span class="fileinput-exists">Change</span>
-                        <input type="file" name="..."/>
-                      </span>
-                      <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                      <span class="btn btn-default btn-file"><span class="fileinput-new">Pilih File Excel</span>
+                      <span class="fileinput-exists">Change</span><input type="file" name="file"/></span>
+                      <span class="fileinput-filename"></span>
+                      <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">×</a>
                     </div> 
                   </fieldset>
-                  <button class="btn btn-primary" type="submit" style="float: right;">Import</button>
+                  <button class="btn btn-primary" type="submit">Import</button>
                 </form>
               </div>
               <div class="col-md-10 col-sm-10 col-xs-10" style="padding-bottom: 10px;">
@@ -83,6 +77,7 @@
                   <th style="text-align : center;"> NIK </th>
                   <th style="text-align : center;"> Nama </th>
                   <th style="text-align : center;"> Alamat </th>
+                  <th style="text-align : center;"> Aksi </th>
                 </tr>
               </thead>
               <tbody>
@@ -96,22 +91,26 @@
                   <td><center>{{$u->NIK}}</center></td>
                   <td><center>{{$u->nama_lengkap}}</center></td>
                   <td><center>{{$u->alamat_ktp}}</center></td>
-                  @php
-                  $i++;
-                  @endphp
-                  @endforeach
-                </tr>
-              </tbody>
-            </table>
-          </div>
+                  <td><center>
+                    <a href="{{url('detail_pelamar')}}/{{$u->users_id}}" target="_blank" class="btn btn-info">Detail</a>
+                  </center>
+                </td>
+                @php
+                $i++;
+                @endphp
+                @endforeach
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-          <div class="box-footer">
-            <h5></h5>
-          </div><!-- /.box-footer --> 
-        </div><!-- /.box -->
-      </div><!-- /.col -->
-    </div><!-- /.row -->
-  </div>
+        <div class="box-footer">
+          <h5></h5>
+        </div><!-- /.box-footer --> 
+      </div><!-- /.box -->
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+</div>
 </div>
 </div>
 </div>

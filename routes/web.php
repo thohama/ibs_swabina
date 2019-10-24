@@ -29,7 +29,6 @@ Route::get('requestpekerjaan', function () {
 
 Route::get('datakaryawan', 'HomeController@data_karyawan');
 
-
 Route::get('data_payroll','HomeController@data_payroll');
 
 Route::get('generate_payroll','HomeController@generate_payroll');
@@ -56,8 +55,10 @@ Route::group(['middleware' => ['auth']], function() {
 Route::get('cetakpdf','HomeController@cetakPdf');
 Route::get('basicform','HomeController@basicform');
 Route::get('admin/tambah_data_pegawai','HomeController@tambah_pegawai');
-Route::get('admin/data_pegawai','HomeController@index_pegawai');
+Route::get('admin/data_pegawai','HomeController@index_pegawai')->name('pegawai.index');
+Route::post('admin/import_data_pegawai', 'HomeController@import_excel')->name('pegawai.import');
 Route::post('admin/store_data_pegawai','HomeController@store_pegawai');
+Route::get('detail_pelamar/{id}','HomeController@detail_pelamar');
 
 Route::prefix('jobseeker')->group(function(){
     //-x regular

@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\JobseekerImport;
 use Illuminate\Http\Request;
 use PDF;
 use DB;
 use Illuminate\Database\QueryException;
 use App\md_jobseeker;
 use App\User;
+use App\st_Kabkota;
+use App\st_Kecamatan;
 use Excel;
 // use App\md_client;
 // use App\md_karyawan;
@@ -215,7 +218,9 @@ class HomeController extends Controller
 
     public function tambah_pegawai()
     {
-        return view('admin.form_tambah_data_pegawai');
+        $kabkota = st_Kabkota::all();
+        $kecamatan = st_Kecamatan::all();
+        return view('admin.form_tambah_data_pegawai',compact('kabkota','kecamatan'));
     }
 
     public function store_pegawai(Request $request)
@@ -246,5 +251,27 @@ class HomeController extends Controller
         $jobseeker->save();
 
         return redirect()->back()->with('status', 'Berhasil!');
+    }
+
+    public function import_excel(Request $request) {
+        try {            
+            Excel::import(new JobseekerImport(), request()->file('file'));
+        } catch (\Exception $e) {
+            if ($e->getCode() == 0) {
+                return redirect()->route('pegawai.index')
+                ->with(['error' => 'Data gagal diimport! Pastikan kode registrasi sudah terdaftar']);
+            } else {
+                return redirect()->route('pegawai.index')
+                ->with(['error' => 'Data gagal diimport']);
+            }
+        }
+
+        return redirect()->route('pegawai.index')->with(['success' => 'Data berhasil diimport']);
+    }
+
+    public function detail_pelamar($id){
+        $jobseeker = md_jobseeker::findorFail($id);
+
+        return view('admin.show_data_pegawai', compact('jobseeker'));
     }
 }

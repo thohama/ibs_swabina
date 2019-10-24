@@ -16,6 +16,6 @@ class st_Provinsi extends Model
         return $this->hasMany('App\st\Kabkota','id');
   }
   public function negara(){
-        return $this->belongsTo('App\st\Negara','id','coutry_id');
+        return $this->belongsTo('App\st\Negara','id','country_id');
   }
 }

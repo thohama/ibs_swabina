@@ -46,7 +46,7 @@
     
     <script src="{{ asset('assets/vendors/idle-timer/idle-timer.min.js') }}"></script>
     
-    <script src="{{ asset('assets/vendors/select2/dist/js/select2.full.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/select2/dist/js/select2.min.js') }}"></script>
     
     <script src="{{ asset('assets/dist/js/app.min.js') }}"></script>
     
@@ -63,7 +63,9 @@
 
     <!-- Parslyejs -->
     <script src="{{ asset('assets/vendors/parsleyjs/src/header.js') }}"></script>
-    <script src="{{ asset('assets/vendors/parsleyjs/src/parsley.js') }}"></script>
+    <script src="{{ asset('assets/vendors/parsleyjs/dist/parsley.min.js') }}"></script>
+    <script src="{{asset('assets/vendors/jasny/jasny-bootstrap.min.js')}}"></script>
+
 
     
 
