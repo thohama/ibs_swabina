@@ -13,7 +13,7 @@ class st_jobseeker_pengalamanorganisasi extends Model
     public $timestamps = false;
     public $incrementing = false;
     protected $fillable = [
-        'id','user_id','organisasi','tanggal_mulai','tanggal_akhir','tempat','posisi','keterangan'
+        'id','user_id','organisasi','jenis_organisasi','tahun','jabatan'
       ];
 
       protected static function boot(){

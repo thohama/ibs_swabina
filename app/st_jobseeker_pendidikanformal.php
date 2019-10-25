@@ -13,7 +13,7 @@ class st_jobseeker_pendidikanformal extends Model
     public $timestamps = false;
     public $incrementing = false;
     protected $fillable = [
-      'id','user_id','tingkat_pendidikan','tanggal_mulai','tanggal_akhir','institusi','tempat','fakultas','jurusan','IPK','keterangan'
+      'id','user_id','tingkat_pendidikan','tahun_lulus','nama_sekolah','id_kabkota','jurusan','keterangan'
       ];
   
     public function user_id(){
@@ -22,6 +22,10 @@ class st_jobseeker_pendidikanformal extends Model
 
     public function st_tingkatpendidikan(){
       return $this->hasOne('App\st_Tingkatpendidikan','id','tingkat_pendidikan');
+    }
+
+    public function st_Kabkota(){
+      return $this->hasOne('App\st_Kabkota','id','id_kabkota');
     }
 
      protected static function boot(){

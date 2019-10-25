@@ -1,4 +1,4 @@
-@extends('public.template.index')
+@extends('public.template.index_recruitment')
 
 @section('content')
 <div class="container">
@@ -6,463 +6,555 @@
     <div class="col-lg-12">
       <div class="ibox float-e-margins">
         <div class="ibox-title">
-          <h5 align="center">Pendaftaran Recruitment</h5>
+          <h5 align="center">Formulir Lamaran Kerja</h5>
         </div>
         <div class="ibox-content">
-          <form method="POST" class="form-horizontal" action="#" enctype="multipart/form-data">
+          <form method="POST" class="form-horizontal" action="{{url('recruitment/store')}}" enctype="multipart/form-data">
             @csrf
-            <fieldset>
-              @if(count($errors)>0)
-              @foreach($errors->all() as $error)
-              <div class="alert alert-danger">{{$error}}</div>
-              @endforeach
-              @elseif(session('alert'))
-              <div class="alert alert-danger">
-                {{ session('alert') }}
+            @if(count($errors)>0)
+            @foreach($errors->all() as $error)
+            <div class="alert alert-danger">{{$error}}</div>
+            @endforeach
+            @elseif(session('alert'))
+            <div class="alert alert-danger">
+              {{ session('alert') }}
+            </div>
+            @endif
+            <div class="form-group row">
+              <label for="nik" class="col-sm-2 col-form-label">Nama</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukan Nama Lengkap" required="">
+                <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="nama-error">
+                  <small>Nama harus diisi...!</small>
+                </span>
               </div>
-              @endif
-              <h6><strong>Data Pribadi</strong></h6>
-              <div class="form-group">
-                <label class="col-sm-2 control-label">Nama Lengkap (KTP)<span style="color: red">*</span></label>
-                <div class="col-sm-12"><input type="text" class="form-control" name="nama" placeholder="Masukkan Nama"></div>
+            </div>
+            <div class="form-group row">
+              <label for="nik" class="col-sm-2 col-form-label">Email</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="email" id="email" placeholder="Masukan Email" required="">
+                <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="email-error">
+                  <small>Email harus diisi...!</small>
+                </span>
               </div>
-              <div class="form-group">
-                <label class="col-sm-2 control-label">Tempat Lahir<span style="color: red">*</span></label>
-                <div class="col-sm-12"><input type="text" class="form-control" name="tempat_lahir" placeholder="Masukkan Tempat Lahir"></div>
+            </div>
+            <div class="form-group row">
+              <label for="expired" class="col-sm-2 col-form-label">Tempat Tanggal  Lahir</label>
+              <div class="col-sm-3">
+                <input type="text" class="form-control" name="tempat_lahir" id="tempat_lahir" placeholder="Masukkan Tempat Lahir" required="">
+                <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="tempat-lahir-error">
+                  <small>Tempat Lahir harus diisi...!</small>
+                </span>
               </div>
-              <div class="form-group">
-                <label class="col-sm-2 control-label">Tanggal Lahir<span style="color: red">*</span></label>
-                <div class="col-sm-12"><input type="date" class="form-control" name="tgl_lahir" placeholder="Masukkan Tanggal Lahir (mm/dd/yyyy)"></div>
+              <div class="col-sm-3">
+                <input type="date" class="form-control" name="tgl_lahir" id="tgl_lahir" placeholder="Masukkan Tanggal Lahir" required="">
+                <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="tgl-lahir-error">
+                  <small>Tanggal Lahir harus diisi...!</small>
+                </span>
               </div>
-              <div class="form-group">
-                <label class="col-sm-2 control-label">Nomor KTP<span style="color: red">*</span></label>
-                <div class="col-sm-12"><input type="number" class="form-control" name="no_ktp" placeholder="Masukkan Nomor KTP"></div>
+            </div>
+            <div class="form-group row">
+              <label for="nik" class="col-sm-2 col-form-label">Nomor KTP</label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control" name="nik" id="nik" placeholder="Masukan Nomor KTP" required="">
+                <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="nik-error">
+                  <small>Nik harus diisi...!</small>
+                </span>
               </div>
-              <div class="form-group">
-                <label class="col-sm-2 control-label">Usia<span style="color: red">*</span></label>
-                <div class="col-sm-12"><input type="number" class="form-control" name="usia" placeholder="Masukkan Usia"></div>
+            </div>
+            <div class="form-group row">
+              <label for="kelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
+              <div class="col-sm-10">
+                <div class="radio-inline radio radio-primary"> <input type="radio" class="radio-primary" name="jenis_kelamin" id="jk" value="Laki-Laki" required=""><label for="jk" style="cursor: pointer;">Laki-Laki</label></div>
+                <div class="radio-inline radio radio-primary"> <input type="radio" class="radio-primary" name="jenis_kelamin" id="jk" value="Perempuan"  required=""><label for="jk2" style="cursor: pointer;">Perempuan</label></div>
+                <span style="color:#ed5565;display: none " class="help-block m-b-none reset" id="kelamin-error">
+                  <small>Jenis Kelamin harus diisi...!</small>
+                </span>
               </div>
-              <div class="form-group">
-                <label class="col-sm-2 control-label">Jenis Kelamin<span style="color: red">*</span></label>
-                <div class="col-sm-12">
-                  <label class="checkbox-inline"> <input type="radio" value="Laki-Laki" id="jenis_kelamin" name="jenis_kelamin">Laki-Laki</label>
-                  <label class="checkbox-inline"> <input type="radio" value="Perempuan" id="jenis_kelamin" name="jenis_kelamin">Perempuan</label>
-                </div>
+            </div>
+            <div class="form-group row">
+              <label for="kelamin" class="col-sm-2 col-form-label">Agama</label>
+              <div class="col-sm-10">
+                <div class="radio-inline radio radio-primary"> <input type="radio" class="radio-primary" name="agama" id="agama" value="Islam" required=""><label style="cursor: pointer;">Islam</label></div>
+                <div class="radio-inline radio radio-primary"> <input type="radio" class="radio-primary" name="agama" id="agama" value="Kristen Protestan"  required=""><label style="cursor: pointer;">Protestan</label></div>
+                <div class="radio-inline radio radio-primary"> <input type="radio" class="radio-primary" name="agama" id="agama" value="Kristen Katolik" required=""><label style="cursor: pointer;">Katolik</label></div>
+                <div class="radio-inline radio radio-primary"> <input type="radio" class="radio-primary" name="agama" id="agama" value="Budha"  required=""><label style="cursor: pointer;">Budha</label></div>
+                <div class="radio-inline radio radio-primary"> <input type="radio" class="radio-primary" name="agama" id="agama" value="Hindu" required=""><label style="cursor: pointer;">Hindu</label></div>
+                <span style="color:#ed5565;display: none " class="help-block m-b-none reset" id="agama-error">
+                  <small>Agama harus diisi...!</small>
+                </span>
               </div>
-              <div class="form-group">
-                <label class="col-sm-2 control-label">Agama<span style="color: red">*</span></label>
-                <div class="col-sm-12">
-                  <label class="checkbox-inline"> <input type="radio" value="Islam" id="agama" name="agama">Islam</label>
-                  <label class="checkbox-inline"> <input type="radio" value="Kristen Protestan" id="agama" name="agama">Protestan</label>
-                  <label class="checkbox-inline"> <input type="radio" value="Kristen Katolik" id="agama" name="agama">Katolik</label>
-                  <label class="checkbox-inline"> <input type="radio" value="Budha" id="agama" name="agama">Budha</label>
-                  <label class="checkbox-inline"> <input type="radio" value="Hindu" id="agama" name="agama">Hindu</label>
-                </div>
+            </div>
+            <div class="form-group row">
+              <label  class="col-sm-2 col-form-label">Alamat Sesuai KTP</label>
+              <label  class="col-sm-1 col-form-label">Dsn / Jl</label>
+              <div class="col-sm-3">
+                <input type="text" class="form-control" name="dusun" id="dusun" placeholder="Masukkan Dusun / Jln" required="">
+                <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="dusun-error">
+                  <small>Dusun harus diisi...!</small>
+                </span>
               </div>
-              <div class="form-group">
-                <label class="col-sm-2 control-label">Alamat Sesuai KTP<span style="color: red">*</span></label>
-                <div class="col-sm-12"><input type="text" class="form-control" name="alamat" placeholder="Masukkan Alamat"></div>
+              <label class="col-sm-1 col-form-label">RT</label>
+              <div class="col-sm-1">
+                <input type="number" class="form-control" name="rt" id="rt" placeholder="RT" required="">
+                <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="rt-error">
+                  <small>RT harus diisi...!</small>
+                </span>
               </div>
-              <div class="form-group">
-                <label class="col-sm-2 control-label">No. HP<span style="color: red">*</span></label>
-                <div class="col-sm-12"><input type="number" class="form-control" name="no_hp" placeholder="Masukkan No. HP"></div>
+              <label class="col-sm-1 col-form-label">RW</label>
+              <div class="col-sm-1">
+                <input type="number" class="form-control" name="rw" id="rw" placeholder="RW" required="">
+                <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="rw-error">
+                  <small>RW harus diisi...!</small>
+                </span>
               </div>
-              <h6><strong>Pendidikan Formal</strong></h6>
-              <table class="table table-bordered">
+            </div>
+            <div class="form-group row">
+              <label  class="col-sm-2 col-form-label"></label>
+              <label  class="col-sm-1 col-form-label">Desa / Kel</label>
+              <div class="col-sm-3">
+                <input type="text" class="form-control" name="desa" id="desa" placeholder="Masukkan Desa" required="">
+                <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="desa-error">
+                  <small>Desa harus diisi...!</small>
+                </span>
+              </div>
+              <label class="col-sm-1 col-form-label">Kab / Kota</label>
+              <div class="col-sm-3">
+                <input type="text" class="form-control" name="kota" id="kota" placeholder="Masukkan Kabupaten/Kota" required="">
+                <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="kota-error">
+                  <small>Kab / Kota harus diisi...!</small>
+                </span>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label  class="col-sm-2 col-form-label"></label>
+              <label  class="col-sm-1 col-form-label">Kecamatan</label>
+              <div class="col-sm-3">
+                <input type="text" class="form-control" name="kec" id="kec" placeholder="Masukkan Kaecamatan" required="">
+                <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="kec-error">
+                  <small>Kecamatan harus diisi...!</small>
+                </span>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label  class="col-sm-2 col-form-label">No HP</label>
+              <div class="col-sm-3">
+                <input type="number" class="form-control" name="no_hp" id="no_hp" placeholder="Masukan Nomor HP" required="">
+                <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="no-hp-error">
+                  <small>Nomor HP harus diisi...!</small>
+                </span>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label  class="col-sm-2 col-form-label">Pendidikan Formal</label>
+              <div class="col-sm-10">
+                <table class="table tabel_pendidikan table-bordered table-striped" >
+                  <thead >
+                    <th style="text-align: center;" class="warna">Tingkat Pendidikan</th>
+                    <th style="text-align: center;" class="warna">Nama Sekolah</th>
+                    <th style="text-align: center;" class="warna">Kota</th>
+                    <th style="text-align: center;" class="warna">Jurusan</th>
+                    <th style="text-align: center;" class="warna">Lulus</th>
+                    <th style="text-align: center;" class="warna">Tahun Lulus</th>
+                    <th style="text-align: center;" class="warna">Kelas Terakhir</th>
+                    <th style="text-align: center;" class="warna">Aksi</th>
+                  </thead>
+                  <tbody class="clone_pendidikan">
+                    <tr>
+                      <td align="center">
+                        <select class="form-control chosen-select-width5 tingakt_pendidikan" name="tingkat_pendidikan[]" value="Tingkat Pendidikan">
+                          <option value="" selected disabled>Tingkat Pendidikan</option>
+                          @foreach($tingkat_pendidikan as $value)
+                          <option value="{{$value->id}}">{{$value->strata}}</option>
+                          @endforeach
+                        </select>
+                      </td>
+                      <td align="center">
+                        <input type="text" name="nama_sekolah[]" value=""  class="form-control nama_sekolah" placeholder="Masukan Nama Sekolah">
+                      </td>
+                      <td align="center">
+                        <select class="form-control chosen-select-width5" name="kota_pendidikan[]">
+                          <option value="" selected disabled>Kota</option>
+                          @foreach($kabkota as $value)
+                          <option value="{{$value->id}}">{{$value->name}}</option>
+                          @endforeach
+                        </select>
+                      </td>
+                      <td align="center">
+                        <input type="text" name="jurusan_pendidikan[]" class="form-control jurusan_pendidikan" placeholder="Masukan Jurusan">
+                      </td>
+                      <td align="center">
+                        <input type="checkbox" value="lulus" name="lulus[]">
+                      </td>
+                      <td align="center">
+                        <select class="form-control chosen-select-width5" name="tahun_lulus_pendidikan[]">
+                          <option value="" selected disabled>Tahun Lulus</option>
+                          @php
+                          $currently_selected = date('Y'); 
+                          $earliest_year = 1970; 
+                          $latest_year = date('Y'); 
+                          foreach(range( $latest_year, $earliest_year ) as $i )
+                          print '<option value="'.$i.'"'.($i === $currently_selected ? ' selected="selected"' : '').'>'.$i.'</option>';
+                          @endphp
+                        </select>
+                      </td>
+                      <td align="center">
+                        <input type="text" name="kelas_terakhir_pendidikan[]" value=""  class="form-control kelas_terakhir_pendidikan" placeholder="Masukan kelas terkahir pendidikan">
+                      </td>
+                      <td align="center" class="clone_append" width="">
+                        <button class="btn btn-default btn-sm append" onclick="append_pendidikan(this)"><a class="fa fa-plus"></a></button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label  class="col-sm-2 col-form-label">Pendidikan Non-Formal / Kursus</label>
+              <div class="col-sm-10">
+                <table class="table tabel_pendidikan table-bordered table-striped" >
+                  <thead >
+                    <th style="text-align: center;" class="warna">Nama & Jenis Kursus</th>
+                    <th style="text-align: center;" class="warna">Nama Lembaga Pendidikan</th>
+                    <th style="text-align: center;" class="warna">Lama Pendidikan</th>
+                    <th style="text-align: center;" class="warna">Tahun Lulus</th>
+                    <th style="text-align: center;" class="warna">Kota</th>
+                    <th style="text-align: center;" class="warna">Aksi</th>
+                  </thead>
+                  <tbody class="clone_kursus">
+                    <tr>
+                      <td align="center">
+                        <input type="text" name="nama_kursus[]" value=""  class="form-control nama_kursus" placeholder="Masukan Nama Kursus">
+                      </td>
+                      <td align="center">
+                        <input type="text" name="nama_lembaga_kursus[]" value=""  class="form-control nama_lembaga_kursus" placeholder="Masukan Nama lembaga kursus">
+                      </td>
+                      <td align="center">
+                        <input type="text" name="lama_pendidikan_kursus[]" value=""  class="form-control lama_pendidikan_kursus" placeholder="Masukan lama pendidikan kursus">
+                      </td>
+                      <td align="center">
+                        <select class="form-control chosen-select-width5" name="tahun_lulus_kursus[]">
+                          <option value="" selected disabled>Tahun Lulus</option>
+                          @php
+                          $currently_selected = date('Y'); 
+                          $earliest_year = 1970; 
+                          $latest_year = date('Y'); 
+                          foreach(range( $latest_year, $earliest_year ) as $i )
+                          print '<option value="'.$i.'"'.($i === $currently_selected ? ' selected="selected"' : '').'>'.$i.'</option>';
+                          @endphp
+                        </select>
+                      </td>
+                      <td align="center">
+                        <select class="form-control chosen-select-width5" name="kota_kursus[]">
+                          <option value="" selected disabled>Kota</option>
+                          @foreach($kabkota as $value)
+                          <option value="{{$value->id}}">{{$value->name}}</option>
+                          @endforeach
+                        </select>
+                      </td>
+                      <td align="center" class="clone_append" width="">
+                        <button class="btn btn-default btn-sm append" onclick="append_kursus(this)"><a class="fa fa-plus"></a></button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label  class="col-sm-2 col-form-label">Data Keluarga(Jika Sudah Menikah)</label>
+              <div class="col-sm-10">
+                <table class="table tabel_pendidikan table-bordered table-striped" >
+                  <thead >
+                    <th style="text-align: center;" class="warna">Nama Anggota Keluarga</th>
+                    <th style="text-align: center;" class="warna">Hubungan Keluarga</th>
+                    <th style="text-align: center;" class="warna">Jenis Kelamin</th>
+                    <th style="text-align: center;" class="warna">Tempat Lahir</th>
+                    <th style="text-align: center;" class="warna">Tanggal Lahir</th>
+                    <th style="text-align: center;" class="warna">Bekerja</th>
+                    <th style="text-align: center;" class="warna">Aksi</th>
+                  </thead>
+                  <tbody class="clone_keluarga">
+                    <tr>
+                      <td align="center">
+                        <input type="text" name="nama_keluarga[]" value=""  class="form-control nama_keluarga" placeholder="Masukan Nama Keluarga">
+                      </td>
+                      <td align="center">
+                        <select class="form-control chosen-select-width5" name="hubungan_keluarga[]">
+                          <option value="" selected disabled>Hubungan Keluarga</option>
+                          <option value="suami">Suami</option>
+                          <option value="istri">Istri</option>
+                          @php
+                          $i = 1;
+                          while ($i<=9){
+                          print '<option value="Anak ke-'.$i.'">Anak Ke-'.$i.'</option>';
+                          $i++;
+                        }
+                        @endphp
+                      </select>
+                    </td>
+                    <td align="center">
+                      <select class="form-control chosen-select-width5" name="jenis_kelamin_keluarga[]">
+                        <option value="" selected disabled>Jenis Kelamin</option>
+                        <option value="Laki-laki">Laki - Laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                      </select>
+                    </td>
+                    <td align="center">
+                      <input type="text" name="tempat_lahir_keluarga[]" class="form-control tempat_lahir_keluarga" placeholder="Masukan tempat lahir">
+                    </td>
+                    <td align="center">
+                      <input type="date" name="tgl_lahir_keluarga" class="form-control tgl_lahir_keluarga" placeholder="YYYY-MM-DD">
+                    </td>
+                    <td align="center">
+                      <input type="checkbox" value="bekerja" name="bekerja_keluarga">
+                    </td>
+                    <td align="center" class="clone_append" width="">
+                      <button class="btn btn-default btn-sm append" onclick="append_keluarga(this)"><a class="fa fa-plus"></a></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label  class="col-sm-2 col-form-label">SUSUNAN KELUARGA</label>
+            <div class="col-sm-10">
+              <table class="table tabel_pendidikan table-bordered table-striped" >
+                <thead >
+                  <th style="text-align: center;" class="warna">Keanggotaan</th>
+                  <th style="text-align: center;" class="warna">Nama</th>
+                  <th style="text-align: center;" class="warna">Jenis Kelamin</th>
+                  <th style="text-align: center;" class="warna">Usia</th>
+                  <th style="text-align: center;" class="warna">Pendidikan</th>
+                  <th style="text-align: center;" class="warna">Pekerjaan</th>
+                  <th style="text-align: center;" class="warna">Perusahaan</th>
+                  <th style="text-align: center;" class="warna">Aksi</th>
+                </thead>
+                <tbody class="clone_susunan_keluarga">
+                  <tr>
+                    <td align="center">
+                      <select class="form-control chosen-select-width5" name="anggota_keluarga[]">
+                        <option value="" selected disabled>Keanggotaan</option>
+                        <option value="Ayah">Ayah</option>
+                        <option value="Ibu">Ibu</option>
+                        @php
+                        $i = 1;
+                        while ($i<=9){
+                        print '<option value="Anak ke-'.$i.'">Anak Ke-'.$i.'</option>';
+                        $i++;
+                      }
+                      @endphp
+                    </select>
+                  </td>
+                  <td align="center">
+                    <input type="text" name="nama_susunan_keluarga[]" class="form-control nama_susunan_keluarga" placeholder="Masukan nama">
+                  </td>
+                  <td align="center">
+                    <select class="form-control chosen-select-width5" name="jenis_kelamin_susunan_keluarga[]">
+                      <option value="" selected disabled>Jenis Kelamin</option>
+                      <option value="Laki-laki">Laki - Laki</option>
+                      <option value="Perempuan">Perempuan</option>
+                    </select>
+                  </td>
+                  <td align="center">
+                    <input type="text" name="usia_susunan_keluarga[]" class="form-control usia_susunan_keluarga" placeholder="Masukan usia">
+                  </td>
+                  <td align="center">
+                    <input type="text" name="pendidikan_susunan_keluarga[]" class="form-control pendidikan_susunan_keluarga" placeholder="Masukan pendidikan terakhir">
+                  </td>
+                  <td align="center">
+                    <input type="text" name="pekerjaan_susunan_keluarga[]" class="form-control pekerjaan_susunan_keluarga" placeholder="Masukan pekerjaan terakhir">
+                  </td>
+                  <td align="center">
+                    <input type="text" name="perusahaan_susunan_keluarga[]" class="form-control perusahaan_susunan_keluarga" placeholder="Masukan perusahaan terakhir">
+                  </td>
+                  <td align="center" class="clone_append" width="">
+                    <button class="btn btn-default btn-sm append" onclick="append_susunan_keluarga(this)"><a class="fa fa-plus"></a></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label  class="col-sm-2 col-form-label">Pekerjaan dan Pengalaman</label>
+          <div class="col-sm-10">
+            <table class="table tabel_pendidikan table-bordered table-striped" >
+              <tbody class="clone_pengalaman_kerja">
                 <tr>
-                  <td><label>Tingkat Pendidikan</label></td>
-                  <td><label>Nama Sekolah</label></td>
-                  <td><label>Kota</label></td>
-                  <td><label>Jurusan</label></td>
-                  <td><label>Lulus</label></td>
-                  <td><label>Tahun Lulus</label></td>
-                  <td><label>Kelas Terakhir</label></td>
-                  <td><label>Aksi</label></td>
+                  <td><label class="col-sm-2">Nama Perusahaan</label></td>
+                  <td>
+                    <input type="text" class="form-control" name="nama_perusahaan_riwayat[]" id="nama_perusahaan_riwayat[]" placeholder="Masukkan nama perusahaan">
+                  </td>
+                  <td><label class="col-sm-2">Alamat Perusahaan</label></td>
+                  <td>
+                    <input type="text" class="form-control" name="alamat_perusahaan_riwayat[]" id="alamat_perusahaan_riwayat[]" placeholder="Masukkan alamat perusahaan">
+                  </td>
+                  <td align="center" rowspan="3" class="clone_append" width="">
+                    <button class="btn btn-default btn-sm append" onclick="append_pengalaman_kerja(this)"><a class="fa fa-plus"></a></button>
+                  </td>
                 </tr>
                 <tr>
+                  <td><label class="col-sm-2">Jabatan</label></td>
                   <td>
-                    <div class="col-sm-12">
-                      <input type="text" class="form-control" name="tingkat_pendidikan[]" id="tingkat_pendidikan"/>
-                    </div>
+                    <input type="text" class="form-control" name="jabatan_perusahaan_riwayat[]" id="jabatan_perusahaan_riwayat[]" placeholder="Masukkan jabatan">
                   </td>
+                  <td><label class="col-sm-2">Alasan Berhenti/Masih Bekerja</label></td>
                   <td>
-                    <div class="col-sm-12">
-                      <input type="text" class="form-control" name="nama_sekolah[]" id="nama_sekolah"/>
-                    </div>
+                    <input type="text" rows="1" class="form-control" name="alasan_berhenti_perusahaan_riwayat[]" id="alasan_berhenti_perusahaan_riwayat[]" placeholder="Masukkan alasan anda berhenti">
                   </td>
+                </tr>
+                <tr>
+                  <td><label class="col-sm-2">Masuk</label></td>
                   <td>
-                    <div class="col-sm-12">
-                      <input type="text" class="form-control" name="kota_sekolah[]" id="kota_sekolah"/>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="col-sm-12">
-                      <input type="text" class="form-control" name="jurusan[]" id="jurusan"/>
-                    </div>
-                  </td>
-                  <td><div class="col-sm-12">
-                    <input type="text" class="form-control" name="lulus[]" id="lulus"/>
+                    <div class="col-sm-6">
+                      <select class="form-control chosen-select-width5" name="bulan_masuk_pekerjaan_riwayat[]">
+                        <option value="" selected disabled>Bulan</option>
+                        @php
+                        for ($i = 1; $i <= 12; $i++) {
+                        $timestamp = mktime(0, 0, 0, $i);
+                        $label = date("F", $timestamp);
+                        print '<option value="' . $label . '">' . $label . '</option>"n"';
+                      }
+                      @endphp
+                    </select>
+                  </div>
+                  <div class="col-sm-6">
+                    <select class="form-control chosen-select-width5" name="tahun_masuk_pekerjaan_riwayat[]">
+                      <option value="" selected disabled>Tahun</option>
+                      @php
+                      $currently_selected = date('Y'); 
+                      $earliest_year = 1970; 
+                      $latest_year = date('Y'); 
+                      foreach(range( $latest_year, $earliest_year ) as $i )
+                      print '<option value="'.$i.'"'.($i === $currently_selected ? ' selected="selected"' : '').'>'.$i.'</option>';
+                      @endphp
+                    </select>
                   </div>
                 </td>
+                <td><label class="col-sm-2">Keluar</label></td>
                 <td>
-                  <div class="col-sm-12">
-                    <input type="text" class="form-control" name="tahun_lulus_sekolah[]" id="tahun_lulus"/>
-                  </div>
-                </td>
-                <td>
-                  <div class="col-sm-12">
-                    <input type="text" class="form-control" name="kelas_terakhir[]" id="kelas_terakhir"/>
-                  </div>
-                </td>
-                <td>
-                  <div class="text-right">
-                    <button class="btn btn-primary add-btn">Tambah</button>
-                  </div>
-                </td>
-              </tr>
-            </table>
-            <h6><strong>Pendidikan Non-Formal/Kursus</strong></h6>
-            <table class="table table-bordered">
-              <tr>
-                <td><label>Nama&Jenis Kursus</label></td>
-                <td><label>Nama Lembaga Pendidikan</label></td>
-                <td><label>Lama Pendidikan</label></td>
-                <td><label>Tahun Lulus</label></td>
-                <td><label>Kota</label></td>
-                <td><label>Aksi</label></td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="col-sm-12">
-                    <input type="text" class="form-control" name="nama_kursus[]" id="nama_kursus"/>
-                  </div>
-                </td>
-                <td>
-                  <div class="col-sm-12">
-                    <input type="text" class="form-control" name="nama_lembaga_pendidikan[]" id="nama_lembaga_pendidikan"/>
-                  </div>
-                </td>
-                <td>
-                  <div class="col-sm-12">
-                    <input type="text" class="form-control" name="lama_pendidikan[]" id="lama_pendidikan"/>
-                  </div>
-                </td>
-                <td>
-                  <div class="col-sm-12">
-                    <input type="text" class="form-control" name="tahun_lulus_kursus[]" id="tahun_lulus_kursus"/>
-                  </div>
-                </td>
-                <td><div class="col-sm-12">
-                  <input type="text" class="form-control" name="kota_kursus[]" id="kota_kursus"/>
+                  <div class="col-sm-6">
+                    <select class="form-control chosen-select-width5" name="bulan_keluar_pekerjaan_riwayat[]">
+                      <option value="" selected disabled>Bulan</option>
+                      @php
+                      for ($i = 1; $i <= 12; $i++) {
+                      $timestamp = mktime(0, 0, 0, $i);
+                      $label = date("F", $timestamp);
+                      print '<option value="' . $label . '">' . $label . '</option>"n"';
+                    }
+                    @endphp
+                  </select>
                 </div>
-              </td>
-              <td>
-                <div class="text-right">
-                  <button class="btn btn-primary add-btn">Tambah</button>
+                <div class="col-sm-6">
+                  <select class="form-control chosen-select-width5" name="tahun_keluar_pekerjaan_riwayat[]">
+                    <option value="" selected disabled>Tahun</option>
+                    @php
+                    $currently_selected = date('Y'); 
+                    $earliest_year = 1970; 
+                    $latest_year = date('Y'); 
+                    foreach(range( $latest_year, $earliest_year ) as $i )
+                    print '<option value="'.$i.'"'.($i === $currently_selected ? ' selected="selected"' : '').'>'.$i.'</option>';
+                    @endphp
+                  </select>
                 </div>
               </td>
             </tr>
-          </table>
-          <h6><strong>Data Keluarga Pelamar (diisi bila sudah menikah)</strong></h6>
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Status Perkawinan<span style="color: red">*</span></label>
-            <div class="col-sm-12">
-              <label class="checkbox-inline"> <input type="radio" value="Lajang" id="status_keluarga" name="status_keluarga">Lajang</label>
-              <label class="checkbox-inline"> <input type="radio" value="Menikah" id="status_keluarga" name="status_keluarga">Menikah</label>
-              <label class="checkbox-inline"> <input type="radio" value="Sudah Bercerai" id="status_keluarga" name="status_keluarga">Sudah Bercerai</label>
-            </div>
-          </div>
-          <table class="table table-bordered">
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label  class="col-sm-2 col-form-label">Pengalaman Organisasi</label>
+      <div class="col-sm-10">
+        <table class="table tabel_pendidikan table-bordered table-striped" >
+          <thead >
+            <th style="text-align: center;" class="warna">Nama Organisasi</th>
+            <th style="text-align: center;" class="warna">Jenis Organisasi</th>
+            <th style="text-align: center;" class="warna">Tahun</th>
+            <th style="text-align: center;" class="warna">Jabatan</th>
+            <th style="text-align: center;" class="warna">Aksi</th>
+          </thead>
+          <tbody class="clone_organisasi">
             <tr>
-              <td><label>Nama Anggota Keluarga</label></td>
-              <td><label>Hubungan Keluarga</label></td>
-              <td><label>Jenis Kelamin</label></td>
-              <td><label>Tempat Lahir</label></td>
-              <td><label>Tanggal Lahir</label></td>
-              <td><label>Bekerja</label></td>
-              <td><label>Aksi</label></td>
+              <td align="center">
+                <input type="text" name="nama_organisasi[]" value=""  class="form-control nama_organisasi" placeholder="Masukan Nama Organisasi">
+              </td>
+              <td align="center">
+                <select class="form-control chosen-select-width5" name="jenis_organisasi[]">
+                  <option value="" selected disabled>Jenis Organisasi</option>
+                  <option value="Politik">Politik</option>
+                  <option value="Sosial">Sosial</option>
+                  <option value="Olahraga">Olahraga</option>
+                  <option value="Kesenian">Kesenian</option>
+                </select>
+              </td>
+              <td align="center">
+                <select class="form-control chosen-select-width5" name="tahun_organisasi[]">
+                  <option value="" selected disabled>Tahun</option>
+                  @php
+                  $currently_selected = date('Y'); 
+                  $earliest_year = 1970; 
+                  $latest_year = date('Y'); 
+                  foreach(range( $latest_year, $earliest_year ) as $i )
+                  print '<option value="'.$i.'"'.($i === $currently_selected ? ' selected="selected"' : '').'>'.$i.'</option>';
+                  @endphp
+                </select>
+              </td>
+              <td align="center">
+                <input type="text" name="jabatan_organisasi[]" class="form-control jabatan_organisasi" placeholder="Masukan Jabatan">
+              </td>
+              <td align="center" class="clone_append" width="">
+                <button class="btn btn-default btn-sm append" onclick="append_organisasi(this)"><a class="fa fa-plus"></a></button>
+              </td>
             </tr>
-            <tr>
-              <td>
-                <div class="col-sm-12">
-                  <input type="text" class="form-control" name="nama_anggota_keluarga[]" id="nama_anggota_keluarga"/>
-                </div>
-              </td>
-              <td>
-                <div class="col-sm-12">
-                  <input type="text" class="form-control" name="hubungan_keluarga[]" id="hubungan_keluarga"/>
-                </div>
-              </td>
-              <td>
-                <div class="col-sm-12">
-                  <input type="text" class="form-control" name="jenis_kelamin_keluarga[]" id="jenis_kelamin_keluarga"/>
-                </div>
-              </td>
-              <td>
-                <div class="col-sm-12">
-                  <input type="text" class="form-control" name="tempat_lahir_keluarga[]" id="tempat_lahir_keluarga"/>
-                </div>
-              </td>
-              <td><div class="col-sm-12">
-                <input type="text" class="form-control" name="tanggal_lahir_keluarga[]" id="tanggal_lahir_keluarga"/>
-              </div>
-            </td>
-            <td><div class="col-sm-12">
-              <input type="text" class="form-control" name="bekerja[]" id="bekerja"/>
-            </div>
-          </td>
-          <td>
-            <div class="text-right">
-              <button class="btn btn-primary add-btn">Tambah</button>
-            </div>
-          </td>
-        </tr>
-      </table>
-      <h6><strong>Susunan Keluarga (Ayah, Ibu dan Saudara sekandung termasuk anda sendiri anak ke berapa)</strong></h6>
-      <table class="table table-bordered">
-        <tr>
-          <td><label>Nama</label></td>
-          <td><label>L/P</label></td>
-          <td><label>Usia</label></td>
-          <td><label>Pendidikan</label></td>
-          <td><label>Pekerjaan</label></td>
-          <td><label>Perusahaan</label></td>
-          <td><label>Aksi</label></td>
-        </tr>
-        <tr>
-          <td>
-            <div class="col-sm-12">
-              <input type="text" class="form-control" name="nama_keluarga[]" id="nama_keluarga"/>
-            </div>
-          </td>
-          <td>
-            <div class="col-sm-12">
-              <input type="text" class="form-control" name="jenis_kelamin_keluarga[]" id="jenis_kelamin_keluarga"/>
-            </div>
-          </td>
-          <td>
-            <div class="col-sm-12">
-              <input type="text" class="form-control" name="usia_keluarga[]" id="usia_keluarga"/>
-            </div>
-          </td>
-          <td>
-            <div class="col-sm-12">
-              <input type="text" class="form-control" name="pendidikan_keluarga[]" id="pendidikan_keluarga"/>
-            </div>
-          </td>
-          <td><div class="col-sm-12">
-            <input type="text" class="form-control" name="pekerjaan_keluarga[]" id="pekerjaan_keluarga"/>
-          </div>
-        </td>
-        <td><div class="col-sm-12">
-          <input type="text" class="form-control" name="perusahaan_keluarga[]" id="perusahaan_keluarga"/>
-        </div>
-      </td>
-      <td>
-        <div class="text-right">
-          <button class="btn btn-primary add-btn">Tambah</button>
-        </div>
-      </td>
-    </tr>
-  </table>
-  <p>(bila sudah meninggal dunia, sebutkan pendidikan dan pekerjaan ketika masa hidupnya)</p>
-  <div class="form-group">
-    <label class="col-sm-2 control-label">Kemampuan berbahasa asing<span style="color: red">*</span></label>
-    <div class="col-sm-12"><input type="text" class="form-control" name="bahasa_asing" placeholder="Masukkan Bahasa Asing"></div>
-  </div>
-  <div class="form-group">
-    <label class="col-sm-2 control-label">Kemampuan berbahasa daerah<span style="color: red">*</span></label>
-    <div class="col-sm-12"><input type="text" class="form-control" name="bahasa_daerah" placeholder="Masukkan Bahasa Daerah"></div>
-  </div>
-  <h6><strong>Pekerja dan Pengalaman</strong></h6>
-  <table class="table table-bordered">
-    <tr>
-      <td><label>Nama dan Alamat Perusahaan</label></td>
-      <td><label>Jabatan/Bagian</label></td>
-      <td><label>Lama Bekerja</label></td>
-      <td><label>Bulan dan Tahun Berapa</label></td>
-      <td><label>Alasan Berhenti/Masih Bekerja</label></td>
-      <td><label>Aksi</label></td>
-    </tr>
-    <tr>
-      <td>
-        <div class="col-sm-12">
-          <input type="text" class="form-control" name="nama_alamat_perusahaan[]" id="nama_alamat_perusahaan"/>
-        </div>
-      </td>
-      <td>
-        <div class="col-sm-12">
-          <input type="text" class="form-control" name="jabatan_bagian[]" id="jabatan_bagian"/>
-        </div>
-      </td>
-      <td>
-        <div class="col-sm-12">
-          <input type="text" class="form-control" name="lama_bekerja[]" id="lama_bekerja"/>
-        </div>
-      </td>
-      <td>
-        <div class="col-sm-12">
-          <input type="text" class="form-control" name="bulan_tahun[]" id="bulan_tahun"/>
-        </div>
-      </td>
-      <td><div class="col-sm-12">
-        <input type="text" class="form-control" name="alasan[]" id="alasan"/>
+          </tbody>
+        </table>
       </div>
-    </td>
-    <td>
-      <div class="text-right">
-        <button class="btn btn-primary add-btn">Tambah</button>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Alasan Melamar di PT Swabina Gatra ?</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="alasan_melamar" id="alasan_melamar" placeholder="Masukan alasan melamar di PT Swabina Gatra" required="">
       </div>
-    </td>
-  </tr>
-</table>
-<div class="form-group">
-  <label class="col-sm-12 control-label">Apakah alasan anda melamar di PT. Swabina Gatra?<span style="color: red">*</span></label>
-  <div class="col-sm-12"><input type="text" class="form-control" name="alasan_lamar"></div>
-</div>
-<div class="form-group">
-  <label class="col-sm-12 control-label">Bersedia/sanggupkah anda apabila di dalam bekerja nantinya terkena giliran (shift) sesuai dengan schedule kerja yang ditetapkan oleh Perusahaan?<span style="color: red">*</span></label>
-  <div class="col-sm-12"><input type="text" class="form-control" name="kesanggupan"></div>
-</div>
-<div class="form-group">
-  <label class="col-sm-12 control-label">Apabila tidak sanggup, apakah alasan anda?<span style="color: red">*</span></label>
-  <div class="col-sm-12"><input type="text" class="form-control" name="alasan_tidak_sanggup"></div>
-</div>
-<div class="form-group">
-  <label class="col-sm-12 control-label">Bersedia/sanggupkah anda apabila sesuai dengan kebutuhan Perusahaan atau karena alasan lain Perusahaan memutasi/memindah anda di Unit kerja lain?<span style="color: red">*</span></label>
-  <div class="col-sm-12"><input type="text" class="form-control" name="kesanggupan_pindah"></div>
-</div>
-<div class="form-group">
-  <label class="col-sm-12 control-label">Apabila tidak sanggup, apakah alasan anda?<span style="color: red">*</span></label>
-  <div class="col-sm-12"><input type="text" class="form-control" name="alasan_tidak_sanggup_pindah"></div>
-</div>
-<h6><strong>Kegiatan Lainnya</strong></h6>
-<div class="form-group">
-  <label class="col-sm-2 control-label">Kegemaran/Hobby<span style="color: red">*</span></label>
-  <div class="col-sm-12"><input type="text" class="form-control" name="hobby" placeholder="Masukkan Kegemaran/Hobby"></div>
-</div>
-<div class="form-group">
-  <label class="col-sm-2 control-label">Prestasi yang pernah dicapai<span style="color: red">*</span></label>
-  <div class="col-sm-12"><input type="text" class="form-control" name="prestasi" placeholder="Masukkan Prestasi"></div>
-</div>
-<h6><strong>Organisasi Politik, Sosial, Olahraga dan Kesenian</strong></h6>
-<table class="table table-bordered">
-  <tr>
-    <td><label>Nama Organisasi</label></td>
-    <td><label>Jenis Organisasi</label></td>
-    <td><label>Tahun</label></td>
-    <td><label>Jabatan</label></td>
-    <td><label>Aksi</label></td>
-  </tr>
-  <tr>
-    <td>
-      <div class="col-sm-12">
-        <input type="text" class="form-control" name="nama_organisasi[]" id="nama_organisasi"/>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Apakah Sanggup bekerja shift ?</label>
+      <div class="col-sm-10">
+        <div class="radio-inline radio radio-primary"> <input type="radio" class="radio-primary" name="radio_bersedia_sift" id="radio_bersedia_sift" value="IYA" required=""><label style="cursor: pointer;">IYA</label></div>
+        <div class="radio-inline radio radio-primary"> <input type="radio" class="radio-primary" name="radio_bersedia_sift" id="radio_bersedia_sift" value="TIDAK"  required=""><label style="cursor: pointer;">TIDAK</label></div>
       </div>
-    </td>
-    <td>
-      <div class="col-sm-12">
-        <input type="text" class="form-control" name="jenis_organisasi[]" id="jenis_organisasi"/>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Apabila tidak sanggup sift, apa alasan anda ?</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="alasan_sift" id="alasan_sift" placeholder="Alasan tidak sanggup kerja sift" required="">
       </div>
-    </td>
-    <td>
-      <div class="col-sm-12">
-        <input type="text" class="form-control" name="tahun_menjabat[]" id="tahun_menjabat"/>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Apakah anda bersedia jika perusahaan memutasi / memindah anda di unit kerja lain? </label>
+      <div class="col-sm-10">
+        <div class="radio-inline radio radio-primary"> <input type="radio" class="radio-primary" name="radio_bersedia_mutasi" id="radio_bersedia_mutasi" value="IYA" required=""><label style="cursor: pointer;">Bersedia / Sanggup</label></div>
+        <div class="radio-inline radio radio-primary"> <input type="radio" class="radio-primary" name="radio_bersedia_mutasi" id="radio_bersedia_mutasi" value="TIDAK"  required=""><label style="cursor: pointer;">Tidak Bersedia / Tidak Sanggup</label></div>
       </div>
-    </td>
-    <td>
-      <div class="col-sm-12">
-        <input type="text" class="form-control" name="jabatan_organisasi[]" id="jabatan_organisasi"/>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Apabilah tidak sanggup mutasi, apakah alasan anda? </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="alasan_mutasi" id="alasan_mutasi" placeholder="masukan Alasan tidak sanggup dipindah / dimutasi" required="">
       </div>
-    </td>
-    <td>
-      <div class="text-right">
-        <button class="btn btn-primary add-btn">Tambah</button>
+    </div>
+
+
+    <div class="hr-line-dashed"></div>
+    <div class="form-group row">
+      <div class="col-sm-4 col-sm-offset-9">
+        <button class="ladda-button ladda-button-demo btn btn-primary btn-flat simpan" type="submit" >
+          Simpan
+        </button>
       </div>
-    </td>
-  </tr>
-</table>
-<h6><strong>Keterangan Lain-lain</strong></h6>
-<div class="form-group">
-  <label class="col-sm-2 control-label">Berat Badan<span style="color: red">*</span></label>
-  <div class="col-sm-12"><input type="text" class="form-control" name="berat_badan" placeholder="Masukkan Berat Badan (kg)"></div>
-</div>
-<div class="form-group">
-  <label class="col-sm-2 control-label">Tinggi Badan<span style="color: red">*</span></label>
-  <div class="col-sm-12"><input type="text" class="form-control" name="tinggi_badan" placeholder="Masukkan Tinggi Badan (cm)"></div>
-</div>
-<div class="form-group">
-  <label class="col-sm-12 control-label">Apakah anda pernah menderita sakit berat sampai dirawat di Rumah Sakit atau menderita sakit yang lama sembuh?<span style="color: red">*</span></label>
-  <div class="col-sm-12"><input type="text" class="form-control" name="keterangan_sakit"></div>
-</div>
-<div class="form-group">
-  <label class="col-sm-2 control-label">Apabila pernah:</label>
-</div>
-<div class="form-group">
-  <label class="col-sm-2 control-label">Tahun Berapa<span style="color: red">*</span></label>
-  <div class="col-sm-12"><input type="text" class="form-control" name="tahun_sakit"></div>
-</div>
-<div class="form-group">
-  <label class="col-sm-2 control-label">Berapa Lama<span style="color: red">*</span></label>
-  <div class="col-sm-12"><input type="text" class="form-control" name="lama_sakit"></div>
-</div>
-<div class="form-group">
-  <label class="col-sm-2 control-label">Sakit Apa<span style="color: red">*</span></label>
-  <div class="col-sm-12"><input type="text" class="form-control" name="nama_sakit"></div>
-</div>
-<div class="form-group">
-  <label class="col-sm-2 control-label">Dirawat Dimana<span style="color: red">*</span></label>
-  <div class="col-sm-12"><input type="text" class="form-control" name="dirawat_dimana"></div>
-</div>
-<h6><strong>Apabila terjadi sesuatu terhadap diri anda, perusahaan dapat memperoleh informasi dan rekomendasi dari</strong></h6>
-<table class="table table-bordered">
-  <tr>
-    <td><label>Nama</label></td>
-    <td><label>Alamat Lengkap</label></td>
-    <td><label>No. Handphone</label></td>
-    <td><label>Hubungan dengan anda</label></td>
-    <td><label>Aksi</label></td>
-  </tr>
-  <tr>
-    <td>
-      <div class="col-sm-12">
-        <input type="text" class="form-control" name="nama_rekomendasi[]" id="nama_rekomendasi"/>
-      </div>
-    </td>
-    <td>
-      <div class="col-sm-12">
-        <input type="text" class="form-control" name="alamat_rekomendasi[]" id="nama_rekomendasi"/>
-      </div>
-    </td>
-    <td>
-      <div class="col-sm-12">
-        <input type="text" class="form-control" name="no_hp_rekomendasi[]" id="no_hp_rekomendasi"/>
-      </div>
-    </td>
-    <td>
-      <div class="col-sm-12">
-        <input type="text" class="form-control" name="hubungan[]" id="hubungan"/>
-      </div>
-    </td>
-    <td>
-      <div class="text-right">
-        <button class="btn btn-primary add-btn">Tambah</button>
-      </div>
-    </td>
-  </tr>
-</table>
-<p>Dengan ini saya menyatakan bahwa data yang tertera di dalam formulir ini adalah benar. Apabila ternyata saya memberikan keterangan yang tidak benar/palsu, saya bersedia dituntut/menerima sanksi sesuai dengan peraturan perusahaan yang berlaku</p>
-</fieldset>
-<div class="hr-line-dashed"></div>
-<div class="form-group">
-  <div class="col-sm-4 col-sm-offset-2">
-    <a href="/">
-      <button type="button" class="btn btn-white">Cancel</button>
-    </a>
-    <button class="btn btn-primary" type="submit">Save changes</button>
-  </div>
-</div>
-</form>
+    </div>
+  </form>
 </div>
 </div>
 </div>
@@ -474,26 +566,421 @@
 
 
 @section('extra_scripts')
+<script>
+  function append_pendidikan(p){
+
+    var par = p.parentNode.parentNode;
+    var count_append = 0;
+
+
+    var append = '<button class="btn btn-default btn-sm append" onclick="remove_append_kursus(this)"><a class="fa fa-minus"></a></button>';
+    var append_plus = '<button class="btn btn-default btn-sm append" onclick="append_kursus(this)"><a class="fa fa-plus"></a></button>';
+
+    $(par).find('.clone_append').html(append);
+  // console.log(data);
+  // tabel_barang.row.add(data);
+  var html    ='<tr>'
+  +'<td align="center">'
+  +'<select class="form-control chosen-select-width5 tingakt_pendidikan" name="tingkat_pendidikan[]">'
+  +'<option value="" selected disabled >Tingkat Pendidikan</option>'
+  +'@foreach($tingkat_pendidikan as $value)'
+  +'<option value="{{$value->id}}">{{$value->strata}}</option>'
+  +'@endforeach'
+  +'</select>'
+  +'</td>'
+  +'<td align="center">'
+  +'<input type="text" name="nama_sekolah[]" value=""  class="form-control nama_sekolah" placeholder="Masukan Nama Sekolah">'
+  +'</td>'
+  +'<td align="center">'
+  +'<select class="form-control chosen-select-width5" name="kota_pendidikan[]">'
+  +'<option value="" selected disabled>Kota</option>'
+  +'@foreach ($kabkota as $value)'
+  +'<option value="{{$value->id}}">{{$value->name}}</option>'
+  +'@endforeach'
+  +'</select>'
+  +'</td>'
+  +'<td align="center">'
+  +'<input type="text" name="jurusan_pendidikan[]" class="form-control jurusan_pendidikan" placeholder="Masukan Jurusan">'
+  +'</td>'
+  +'<td align="center">'
+  +'<input type="checkbox" value="lulus" name="lulus[]">'
+  +'</td>'
+  +'<td align="center">'
+  +'<select class="form-control chosen-select-width5" name="tahun_lulus_pendidikan[]">'
+  +'<option value="" selected disabled>Tahun Lulus</option>'
+  +'<?php 
+  $currently_selected = date('Y'); 
+  $earliest_year = 1970;
+  $latest_year = date('Y');
+  foreach(range( $latest_year, $earliest_year ) as $i )
+  print '<option value="'.$i.'"'.($i === $currently_selected ? ' selected="selected"' : '').'>'.$i.'</option>';
+  ?>'+
+  +'</select>'
+  +'</td>'
+  +'<td align="center">'
+  +'<input type="text" name="kelas_terakhir_pendidikan[]" value=""  class="form-control kelas_terakhir_pendidikan" placeholder="Masukan kelas terkahir pendidikan">'
+  +'</td>'
+  +'<td align="center" class="clone_append" width="">'
+  +'<button class="btn btn-default btn-sm append" onclick="append_pendidikan(this)"><a class="fa fa-plus"></a></button>'
+  +'</td>'
+  +'</tr>'
+
+  $('.clone_pendidikan').append(html);
+  const select2 = $('.chosen-select-width5');
+  select2.select2();
+}
+
+function remove_append_pendidikan(p){
+  var par = p.parentNode.parentNode;
+
+  $(par).remove();
+}
+
+function append_kursus(p){
+
+  var par = p.parentNode.parentNode;
+  var count_append = 0;
+
+  var append = '<button class="btn btn-default btn-sm append" onclick="remove_append_kursus(this)"><a class="fa fa-minus"></a></button>';
+  var append_plus = '<button class="btn btn-default btn-sm append" onclick="append_kursus(this)"><a class="fa fa-plus"></a></button>';
+
+  $(par).find('.clone_append').html(append);
+  // console.log(data);
+  // tabel_barang.row.add(data);
+  var html    ='<tr>'
+  +'<td align="center">'
+  +'<input type="text" name="nama_kursus[]" value=""  class="form-control nama_kursus" placeholder="Masukan Nama Kursus">'
+  +'</td>'
+  +'<td align="center">'
+  +'<input type="text" name="nama_lembaga_kursus[]" value=""  class="form-control nama_lembaga_kursus" placeholder="Masukan Nama lembaga kursus">'
+  +'</td>'
+  +'<td align="center">'
+  +'<input type="text" name="lama_pendidikan_kursus[]" value=""  class="form-control lama_pendidikan_kursus" placeholder="Masukan lama pendidikan kursus">'
+  +'</td>'
+  +'<td align="center">'
+  +'<select class="form-control chosen-select-width5" name="tahun_lulus_kursus[]">'
+  +'<option value="" selected disabled>Tahun Lulus</option>'
+  +'<?php 
+  $currently_selected = date('Y'); 
+  $earliest_year = 1970;
+  $latest_year = date('Y');
+  foreach(range( $latest_year, $earliest_year ) as $i )
+  print '<option value="'.$i.'"'.($i === $currently_selected ? ' selected="selected"' : '').'>'.$i.'</option>';
+  ?>'+
+  +'</select>'
+  +'</td>'
+  +'<td align="center">'
+  +'<select class="form-control chosen-select-width5" name="kota_kursus[]">'
+  +'<option value="" selected disabled>Kota</option>'
+  +'@foreach ($kabkota as $value)'
+  +'<option value="{{$value->id}}">{{$value->name}}</option>'
+  +'@endforeach'
+  +'</select>'
+  +'</td>'
+  +'<td align="center" class="clone_append" width="">'
+  +'<button class="btn btn-default btn-sm append" onclick="append_kursus(this)"><a class="fa fa-plus"></a></button>'
+  +'</td>'
+  +'</tr>'
+
+  $('.clone_kursus').append(html);
+  const select2 = $('.chosen-select-width5');
+  select2.select2();
+}
+
+function remove_append_kursus(p){
+  var par = p.parentNode.parentNode;
+
+  $(par).remove();
+}
+
+function append_keluarga(p){
+
+  var par = p.parentNode.parentNode;
+  var count_append = 0;
+
+  var append = '<button class="btn btn-default btn-sm append" onclick="remove_append_keluarga(this)"><a class="fa fa-minus"></a></button>';
+  var append_plus = '<button class="btn btn-default btn-sm append" onclick="append_keluarga(this)"><a class="fa fa-plus"></a></button>';
+
+  $(par).find('.clone_append').html(append);
+  // console.log(data);
+  // tabel_barang.row.add(data);
+  var html    ='<tr>'
+  +'<td align="center">'
+  +'<input type="text" name="nama_keluarga[]" value=""  class="form-control nama_keluarga" placeholder="Masukan Nama Keluarga">'
+  +'</td>'
+  +'<td align="center">'
+  +'<select class="form-control chosen-select-width5" name="hubungan_keluarga[]">'
+  +'<option value="" selected disabled>Hubungan Keluarga</option>'
+  +'<option value="suami">Suami</option>'
+  +'<option value="istri">Istri</option>'
+  +'<?php
+  $i = 1;
+  while ($i<=9){
+    print '<option value="Anak ke-'.$i.'">Anak Ke-'.$i.'</option>';
+    $i++;
+  }
+  ?>'
+  +'<option value="Anak ke-1">Anak Ke-1</option>'
+  +'</select>'
+  +'</td>'
+  +'<td align="center">'
+  +'<select class="form-control chosen-select-width5" name="jenis_kelamin_keluarga[]">'
+  +'<option value="" selected disabled>Jenis Kelamin</option>'
+  +'<option value="Laki-Laki">Laki - Laki</option>'
+  +'<option value="Perempuan">Perempuan</option>'
+  +'</select>'
+  +'</td>'
+  +'<td align="center">'
+  +'<input type="text" name="tempat_lahir_keluarga[]" class="form-control tempat_lahir_keluarga" placeholder="Masukan tempat lahir">'
+  +'</td>'
+  +'<td align="center">'
+  +'<input type="date" name="tgl_lahir_keluarga" class="form-control tgl_lahir_keluarga" placeholder="YYYY-MM-DD">'
+  +'</td>'
+  +'<td align="center">'
+  +'<input type="checkbox" value="bekerja" name="bekerja_keluarga">'
+  +'</td>'
+  +'<td align="center" class="clone_append" width="">'
+  +'<button class="btn btn-default btn-sm append" onclick="append_keluarga(this)"><a class="fa fa-plus"></a></button>'
+  +'</td>'
+  +'</tr>'
+
+  $('.clone_keluarga').append(html);
+  const select2 = $('.chosen-select-width5');
+  select2.select2();
+}
+
+function remove_append_keluarga(p){
+  var par = p.parentNode.parentNode;
+
+  $(par).remove();
+}
+
+function append_susunan_keluarga(p){
+
+  var par = p.parentNode.parentNode;
+  var count_append = 0;
+
+  var append = '<button class="btn btn-default btn-sm append" onclick="remove_append_susunan_keluarga(this)"><a class="fa fa-minus"></a></button>';
+  var append_plus = '<button class="btn btn-default btn-sm append" onclick="append_susunan_keluarga(this)"><a class="fa fa-plus"></a></button>';
+
+  $(par).find('.clone_append').html(append);
+  // console.log(data);
+  // tabel_barang.row.add(data);
+  var html    ='<tr>'
+  +'<td align="center">'
+  +'<select class="form-control chosen-select-width5" name="anggota_keluarga[]">'
+  +'<option value="" selected disabled>Keanggotaan</option>'
+  +'<option value="Ayah">Ayah</option>'
+  +'<option value="Ibu">Ibu</option>'
+  +'<?php
+  $i = 1;
+  while ($i<=9){
+    print '<option value="Anak ke-'.$i.'">Anak Ke-'.$i.'</option>';
+    $i++;
+  }?>'
+  +'</select>'
+  +'</td>'
+  +'<td align="center">'
+  +'<input type="text" name="nama_susunan_keluarga[]" class="form-control nama_susunan_keluarga" placeholder="Masukan nama">'
+  +'</td>'
+  +'<td align="center">'
+  +'<select class="form-control chosen-select-width5" name="jenis_kelamin_susunan_keluarga[]">'
+  +'<option value="" selected disabled>Jenis Kelamin</option>'
+  +'<option value="Laki-laki">Laki - Laki</option>'
+  +'<option value="Perempuan">Perempuan</option>'
+  +'</select>'
+  +'</td>'
+  +'<td align="center">'
+  +'<input type="text" name="usia_susunan_keluarga[]" class="form-control usia_susunan_keluarga" placeholder="Masukan usia">'
+  +'</td>'
+  +'<td align="center">'
+  +'<input type="text" name="pendidikan_susunan_keluarga[]" class="form-control pendidikan_susunan_keluarga" placeholder="Masukan pendidikan terakhir">'
+  +'</td>'
+  +'<td align="center">'
+  +'<input type="text" name="pekerjaan_susunan_keluarga[]" class="form-control pekerjaan_susunan_keluarga" placeholder="Masukan pekerjaan terakhir">'
+  +'</td>'
+  +'<td align="center">'
+  +'<input type="text" name="perusahaan_susunan_keluarga[]" class="form-control perusahaan_susunan_keluarga" placeholder="Masukan perusahaan terakhir">'
+  +'</td>'
+  +'<td align="center" class="clone_append" width="">'
+  +'<button class="btn btn-default btn-sm append" onclick="append_susunan_keluarga(this)"><a class="fa fa-plus"></a></button>'
+  +'</td>'
+  +'</tr>'
+
+  $('.clone_susunan_keluarga').append(html);
+  const select2 = $('.chosen-select-width5');
+  select2.select2();
+}
+
+function remove_append_susunan_keluarga(p){
+  var par = p.parentNode.parentNode;
+
+  $(par).remove();
+}
+
+function append_pengalaman_kerja(p){
+
+  var par = p.parentNode.parentNode;
+  var count_append = 0;
+
+  var append = '<button class="btn btn-default btn-sm append" onclick="remove_append_pengalaman_kerja(this)"><a class="fa fa-minus"></a></button>';
+  var append_plus = '<button class="btn btn-default btn-sm append" onclick="remove_append_pengalaman_kerja(this)"><a class="fa fa-plus"></a></button>';
+
+  $(par).find('.clone_append').html(append);
+  // console.log(data);
+  // tabel_barang.row.add(data);
+  var html    ='<tr>'
+  +'<td><label class="col-sm-2">Nama Perusahaan</label></td>'
+  +'<td>'
+  +'<input type="text" class="form-control" name="nama_perusahaan_riwayat[]" id="nama_perusahaan_riwayat[]" placeholder="Masukkan nama perusahaan">'
+  +'</td>'
+  +'<td><label class="col-sm-2">Alamat Perusahaan</label></td>'
+  +'<td>'
+  +'<input type="text" class="form-control" name="alamat_perusahaan_riwayat[]" id="alamat_perusahaan_riwayat[]" placeholder="Masukkan alamat perusahaan">'
+  +'</td>'
+  +'<td align="center" rowspan="3" class="clone_append" width="">'
+  +'<button class="btn btn-default btn-sm append" onclick="append_pengalaman_kerja(this)"><a class="fa fa-plus"></a></button>'
+  +'</td>'
+  +'</tr>'
+  +'<tr>'
+  +'<td><label class="col-sm-2">Jabatan</label></td>'
+  +'<td>'
+  +'<input type="text" class="form-control" name="jabatan_perusahaan_riwayat[]" id="jabatan_perusahaan_riwayat[]" placeholder="Masukkan jabatan">'
+  +'</td>'
+  +'<td><label class="col-sm-2">Alasan Berhenti/Masih Bekerja</label></td>'
+  +'<td>'
+  +'<input type="text" rows="1" class="form-control" name="alasan_berhenti_perusahaan_riwayat[]" id="alasan_berhenti_perusahaan_riwayat[]" placeholder="Masukkan alasan anda berhenti">'
+  +'</td>'
+  +'</tr>'
+  +'<tr>'
+  +'<td><label class="col-sm-2">Masuk</label></td>'
+  +'<td>'
+  +'<div class="col-sm-6">'
+  +'<select class="form-control chosen-select-width5" name="bulan_masuk_pekerjaan_riwayat[]">'
+  +'<option value="" selected disabled>Bulan</option>'
+  +'<?php
+  for ($i = 1; $i <= 12; $i++) {
+    $timestamp = mktime(0, 0, 0, $i);
+    $label = date("F", $timestamp);
+    print '<option value="' . $label . '">' . $label . '</option>"n"';
+  }
+  ?>'
+  +'</select>'
+  +'</div>'
+  +'<div class="col-sm-6">'
+  +'<select class="form-control chosen-select-width5" name="tahun_masuk_pekerjaan_riwayat[]">'
+  +'<option value="" selected disabled>Tahun</option>'
+  +'<?php
+  $currently_selected = date('Y'); 
+  $earliest_year = 1970; 
+  $latest_year = date('Y'); 
+  foreach(range( $latest_year, $earliest_year ) as $i )
+  print '<option value="'.$i.'"'.($i === $currently_selected ? ' selected="selected"' : '').'>'.$i.'</option>';
+  ?>'
+  +'</select>'
+  +'</div>'
+  +'</td>'
+  +'<td><label class="col-sm-2">Keluar</label></td>'
+  +'<td>'
+  +'<div class="col-sm-6">'
+  +'<select class="form-control chosen-select-width5" name="bulan_keluar_pekerjaan_riwayat[]">'
+  +'<option value="" selected disabled>Bulan</option>'
+  +'<?php
+  for ($i = 1; $i <= 12; $i++) {
+    $timestamp = mktime(0, 0, 0, $i);
+    $label = date("F", $timestamp);
+    print '<option value="' . $label . '">' . $label . '</option>"n"';
+  }
+  ?>'
+  +'</select>'
+  +'</div>'
+  +'<div class="col-sm-6">'
+  +'<select class="form-control chosen-select-width5" name="tahun_keluar_pekerjaan_riwayat[]">'
+  +'<option value="" selected disabled>Tahun</option>'
+  +'<?php
+  $currently_selected = date('Y'); 
+  $earliest_year = 1970; 
+  $latest_year = date('Y'); 
+  foreach(range( $latest_year, $earliest_year ) as $i )
+  print '<option value="'.$i.'"'.($i === $currently_selected ? ' selected="selected"' : '').'>'.$i.'</option>';
+  ?>'
+  +'</select>'
+  +'</div>'
+  +'</td>'
+  +'</tr>'
+
+  $('.clone_pengalaman_kerja').append(html);
+  const select2 = $('.chosen-select-width5');
+  select2.select2();
+}
+
+function remove_append_pengalaman_kerja(p){
+  var par = p.parentNode.parentNode;
+
+  $(par).remove();
+}
+
+function append_organisasi(p){
+
+  var par = p.parentNode.parentNode;
+  var count_append = 0;
+
+  var append = '<button class="btn btn-default btn-sm append" onclick="remove_append_organisasi(this)"><a class="fa fa-minus"></a></button>';
+  var append_plus = '<button class="btn btn-default btn-sm append" onclick="remove_append_organisasi(this)"><a class="fa fa-plus"></a></button>';
+
+  $(par).find('.clone_append').html(append);
+  // console.log(data);
+  // tabel_barang.row.add(data);
+  var html    ='<tr>'
+  +'<td align="center">'
+  +'<input type="text" name="nama_organisasi[]" value=""  class="form-control nama_organisasi" placeholder="Masukan Nama Organisasi">'
+  +'</td>'
+  +'<td align="center">'
+  +'<select class="form-control chosen-select-width5" name="jenis_organisasi[]">'
+  +'<option value="" selected disabled>Jenis Organisasi</option>'
+  +'<option value="Politik">Politik</option>'
+  +'<option value="Sosial">Sosial</option>'
+  +'<option value="Olahraga">Olahraga</option>'
+  +'<option value="Kesenian">Kesenian</option>'
+  +'</select>'
+  +'</td>'
+  +'<td align="center">'
+  +'<select class="form-control chosen-select-width5" name="tahun_organisasi[]">'
+  +'<option value="" selected disabled>Tahun</option>'
+  +'<?php
+  $currently_selected = date('Y'); 
+  $earliest_year = 1970; 
+  $latest_year = date('Y'); 
+  foreach(range( $latest_year, $earliest_year ) as $i )
+  print '<option value="'.$i.'"'.($i === $currently_selected ? ' selected="selected"' : '').'>'.$i.'</option>';
+  ?>'
+  +'</select>'
+  +'</td>'
+  +'<td align="center">'
+  +'<input type="text" name="jabatan_organisasi[]" class="form-control jabatan_organisasi" placeholder="Masukan Jabatan">'
+  +'</td>'
+  +'<td align="center" class="clone_append" width="">'
+  +'<button class="btn btn-default btn-sm append" onclick="append_organisasi(this)"><a class="fa fa-plus"></a></button>'
+  +'</td>'
+  +'</tr>'
+
+  $('.clone_organisasi').append(html);
+  const select2 = $('.chosen-select-width5');
+  select2.select2();
+}
+
+function remove_append_organisasi(p){
+  var par = p.parentNode.parentNode;
+
+  $(par).remove();
+}
+
+</script>
 <script type="text/javascript">
-  $(document).ready(function() {
-
-    $('[data-toggle="tooltip"]').tooltip();
-
-    $('#addColumn1').DataTable({
-      "paging": true,
-      "lengthChange": true,
-      "searching": true,
-      "ordering": true,
-      "info": false,
-      "responsive": true,
-      "autoWidth": false,
-      "pageLength": 10,
-      "retrieve" : true,
-    });
-
+  $(function () {
+    const select2 = $('.chosen-select-width5');
+    select2.select2();
   });
-
-
 </script>
 @endsection
 

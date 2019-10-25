@@ -120,5 +120,6 @@ Route::prefix('jobseeker')->group(function(){
 
 //recruitment
 Route::get('apply', 'RecruitmentController@create');
+Route::post('recruitment/store', 'RecruitmentController@store');
 
 
