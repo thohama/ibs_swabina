@@ -334,10 +334,10 @@
                       <input type="text" name="tempat_lahir_keluarga[]" class="form-control tempat_lahir_keluarga" placeholder="Masukan tempat lahir">
                     </td>
                     <td align="center">
-                      <input type="date" name="tgl_lahir_keluarga" class="form-control tgl_lahir_keluarga" placeholder="YYYY-MM-DD">
+                      <input type="date" name="tgl_lahir_keluarga[]" class="form-control tgl_lahir_keluarga" placeholder="YYYY-MM-DD">
                     </td>
                     <td align="center">
-                      <input type="checkbox" value="bekerja" name="bekerja_keluarga">
+                      <input type="checkbox" value="bekerja" name="bekerja_keluarga[]">
                     </td>
                     <td align="center" class="clone_append" width="">
                       <button class="btn btn-default btn-sm append" onclick="append_keluarga(this)"><a class="fa fa-plus"></a></button>
@@ -388,7 +388,7 @@
                     </select>
                   </td>
                   <td align="center">
-                    <input type="text" name="usia_susunan_keluarga[]" class="form-control usia_susunan_keluarga" placeholder="Masukan usia">
+                    <input type="number" name="usia_susunan_keluarga[]" class="form-control usia_susunan_keluarga" placeholder="Masukan usia">
                   </td>
                   <td align="center">
                     <input type="text" name="pendidikan_susunan_keluarga[]" class="form-control pendidikan_susunan_keluarga" placeholder="Masukan pendidikan terakhir">
@@ -765,10 +765,10 @@ function append_keluarga(p){
   +'<input type="text" name="tempat_lahir_keluarga[]" class="form-control tempat_lahir_keluarga" placeholder="Masukan tempat lahir">'
   +'</td>'
   +'<td align="center">'
-  +'<input type="date" name="tgl_lahir_keluarga" class="form-control tgl_lahir_keluarga" placeholder="YYYY-MM-DD">'
+  +'<input type="date" name="tgl_lahir_keluarga[]" class="form-control tgl_lahir_keluarga" placeholder="YYYY-MM-DD">'
   +'</td>'
   +'<td align="center">'
-  +'<input type="checkbox" value="bekerja" name="bekerja_keluarga">'
+  +'<input type="checkbox" value="bekerja" name="bekerja_keluarga[]">'
   +'</td>'
   +'<td align="center" class="clone_append" width="">'
   +'<button class="btn btn-default btn-sm append" onclick="append_keluarga(this)"><a class="fa fa-plus"></a></button>'
@@ -822,7 +822,7 @@ function append_susunan_keluarga(p){
   +'</select>'
   +'</td>'
   +'<td align="center">'
-  +'<input type="text" name="usia_susunan_keluarga[]" class="form-control usia_susunan_keluarga" placeholder="Masukan usia">'
+  +'<input type="number" name="usia_susunan_keluarga[]" class="form-control usia_susunan_keluarga" placeholder="Masukan usia">'
   +'</td>'
   +'<td align="center">'
   +'<input type="text" name="pendidikan_susunan_keluarga[]" class="form-control pendidikan_susunan_keluarga" placeholder="Masukan pendidikan terakhir">'

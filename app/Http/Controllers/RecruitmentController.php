@@ -31,6 +31,8 @@ use App\st_Bahasa;
 
 //--st support md
 use App\st_jobseeker_riwayatpenyakit;
+use App\st_jobseeker_susunankeluarga;
+use App\st_jobseeker_datakeluarga;
 use App\st_jobseeker_pengalamanorganisasi;
 use App\st_jobseeker_pengalamankerja;
 use App\st_jobseeker_pendidikanformal;
@@ -130,6 +132,35 @@ class RecruitmentController extends Controller
                 $organisasi->jabatan = $request->jabatan_organisasi[$key];
                 $organisasi->tahun = $request->tahun_organisasi[$key];
                 $organisasi->save();
+            }
+        }
+
+        if($request->nama_keluarga != null){
+            foreach($request->nama_keluarga as $key => $value){
+                $data_keluarga = new st_jobseeker_datakeluarga();
+                $data_keluarga->user_id = $user->id;
+                $data_keluarga->nama_anggota_keluarga = $request->nama_keluarga[$key];
+                $data_keluarga->hubungan_keluarga = $request->hubungan_keluarga[$key];
+                $data_keluarga->jenis_kelamin = $request->jenis_kelamin_keluarga[$key];
+                $data_keluarga->tempat_lahir = $request->tempat_lahir_keluarga[$key];
+                $data_keluarga->tanggal_lahir = $request->tgl_lahir_keluarga[$key];
+                $data_keluarga->bekerja = $request->bekerja_keluarga[$key];
+                $data_keluarga->save();
+            }
+        }
+
+        if($request->nama_susunan_keluarga != null){
+            foreach($request->nama_susunan_keluarga as $key => $value){
+                $susunan_keluarga = new st_jobseeker_susunankeluarga();
+                $susunan_keluarga->user_id = $user->id;
+                $susunan_keluarga->nama_anggota_keluarga = $request->nama_susunan_keluarga[$key];
+                $susunan_keluarga->keanggotaan = $request->anggota_keluarga[$key];
+                $susunan_keluarga->jenis_kelamin = $request->jenis_kelamin_susunan_keluarga[$key];
+                $susunan_keluarga->usia = $request->usia_susunan_keluarga[$key];
+                $susunan_keluarga->pendidikan = $request->pendidikan_susunan_keluarga[$key];
+                $susunan_keluarga->pekerjaan = $request->pekerjaan_susunan_keluarga[$key];
+                $susunan_keluarga->perusahaan = $request->perusahaan_susunan_keluarga[$key];
+                $susunan_keluarga->save();
             }
         }
 
