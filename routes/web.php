@@ -56,6 +56,7 @@ Route::get('cetakpdf','HomeController@cetakPdf');
 Route::get('basicform','HomeController@basicform');
 Route::get('admin/tambah_data_pegawai','HomeController@tambah_pegawai');
 Route::get('admin/data_pegawai','HomeController@index_pegawai')->name('pegawai.index');
+Route::get('getkecamatan/{id}', 'HomeController@getkecamatan');
 Route::post('admin/import_data_pegawai', 'HomeController@import_excel')->name('pegawai.import');
 Route::post('admin/store_data_pegawai','HomeController@store_pegawai');
 Route::get('detail_pelamar/{id}','HomeController@detail_pelamar');
@@ -121,5 +122,7 @@ Route::prefix('jobseeker')->group(function(){
 //recruitment
 Route::get('apply', 'RecruitmentController@create');
 Route::post('recruitment/store', 'RecruitmentController@store');
+Route::get('getkcmtn/{id}', 'RecruitmentController@getkecamatan');
+
 
 

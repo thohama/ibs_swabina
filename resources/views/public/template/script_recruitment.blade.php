@@ -85,7 +85,8 @@
     <script src="{{ asset('assets/vendors/parsleyjs/src/header.js') }}"></script>
     <script src="{{ asset('assets/vendors/parsleyjs/dist/parsley.min.js') }}"></script>
     <script src="{{asset('assets/vendors/jasny/jasny-bootstrap.min.js')}}"></script>
-
+    <script src="{{asset('assets/vendors/dynamic_select_alamat_jobseeker.js')}}"></script>
+    
 
     
 

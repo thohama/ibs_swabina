@@ -120,20 +120,24 @@
               </div>
               <label class="col-sm-1 col-form-label">Kab / Kota</label>
               <div class="col-sm-3">
-                <input type="text" class="form-control" name="kota" id="kota" placeholder="Masukkan Kabupaten/Kota" required="">
-                <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="kota-error">
-                  <small>Kab / Kota harus diisi...!</small>
-                </span>
+                <select class="form-control chosen-select-width5" name="kota" id="kota" required="">
+                  <option value="" selected disabled>Kota</option>
+                  @foreach($kabkota as $value)
+                  <option value="{{$value->id}}">{{$value->name}}</option>
+                  @endforeach
+                </select>
               </div>
             </div>
             <div class="form-group row">
               <label  class="col-sm-2 col-form-label"></label>
               <label  class="col-sm-1 col-form-label">Kecamatan</label>
               <div class="col-sm-3">
-                <input type="text" class="form-control" name="kec" id="kec" placeholder="Masukkan Kaecamatan" required="">
-                <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="kec-error">
-                  <small>Kecamatan harus diisi...!</small>
-                </span>
+                <select class="form-control chosen-select-width5" name="kec" id="kec" required="">
+                  <option value="" selected disabled>Kecamatan</option>
+                  @foreach($kecamatan as $value)
+                  <option value="{{$value->id}}">{{$value->name}}</option>
+                  @endforeach
+                </select>
               </div>
             </div>
             <div class="form-group row">
@@ -303,7 +307,7 @@
                       <input type="text" name="tempat_lahir_keluarga[]" class="form-control tempat_lahir_keluarga" placeholder="Masukan tempat lahir">
                     </td>
                     <td align="center">
-                      <input type="date" name="tgl_lahir_keluarga" class="form-control tgl_lahir_keluarga" placeholder="YYYY-MM-DD">
+                      <input type="date" name="tgl_lahir_keluarga[]" class="form-control tgl_lahir_keluarga" placeholder="YYYY-MM-DD">
                     </td>
                     <td align="center">
                       <input type="checkbox" value="bekerja" name="bekerja_keluarga">
@@ -734,7 +738,7 @@ function append_keluarga(p){
   +'<input type="text" name="tempat_lahir_keluarga[]" class="form-control tempat_lahir_keluarga" placeholder="Masukan tempat lahir">'
   +'</td>'
   +'<td align="center">'
-  +'<input type="date" name="tgl_lahir_keluarga" class="form-control tgl_lahir_keluarga" placeholder="YYYY-MM-DD">'
+  +'<input type="date" name="tgl_lahir_keluarga[]" class="form-control tgl_lahir_keluarga" placeholder="YYYY-MM-DD">'
   +'</td>'
   +'<td align="center">'
   +'<input type="checkbox" value="bekerja" name="bekerja_keluarga">'
@@ -977,9 +981,20 @@ function remove_append_organisasi(p){
 
 </script>
 <script type="text/javascript">
-  $(function () {
+  $(document).ready(function () {
     const select2 = $('.chosen-select-width5');
     select2.select2();
+
+
+    const provinsi = $('#kota');
+    const kabkota = $('#kec');
+
+    const urlKabkota = '{{ url("/getkcmtn") }}';
+
+    provinsi.select2();
+    kabkota.select2();
+
+    dynamicSelect2(provinsi, urlKabkota, kabkota);
   });
 </script>
 @endsection

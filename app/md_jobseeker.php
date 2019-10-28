@@ -16,14 +16,16 @@ class md_jobseeker extends Model
 {
   protected $table = 'md_jobseeker';
   protected $primaryKey = 'users_id';
+  protected $foreignKey1 = 'kecamatan_ktp';
+  protected $foreignKey2 = 'kabkota_ktp';
   public $timestamps = false;
   public $incrementing = false;
   protected $guarded = ['users_id'];
 
   protected $identitas = ["NIK","nama_lengkap","nama_panggilan","tempat_lahir","tanggal_lahir",
-                          "jenis_kelamin","agama","alamat_ktp","alamat_domisili","negara_ktp","negara_domisili",
-                          "provinsi_ktp","provinsi_domisili","kabkota_ktp","kabkota_domisili","kecamatan_ktp","kecamatan_domisili",
-                          "kode_pos_ktp","kode_pos_domisili","email","notelp","nohp","kategori_idcard","nomor_idcard","alasan_melamar","radio_bersedia_sift","alasan_sift","radio_bersedia_mutasi","alasan_mutasi"];
+  "jenis_kelamin","agama","alamat_ktp","alamat_domisili","negara_ktp","negara_domisili",
+  "provinsi_ktp","provinsi_domisili","kabkota_ktp","kabkota_domisili","kecamatan_ktp","kecamatan_domisili",
+  "kode_pos_ktp","kode_pos_domisili","email","notelp","nohp","kategori_idcard","nomor_idcard","alasan_melamar","radio_bersedia_sift","alasan_sift","radio_bersedia_mutasi","alasan_mutasi"];
 
   public function setStatusIdentitas(){
     $data = $this->attributes;
@@ -43,12 +45,12 @@ class md_jobseeker extends Model
   }
 
   public function setStatusPendidikan(){
-      $formal   = st_jobseeker_pendidikanformal::where("user_id",$this->attributes['users_id'])->count();
-      $informal = st_jobseeker_pendidikaninformal::where("user_id",$this->attributes['users_id'])->count();
-      $bahasa   = st_jobseeker_pendidikanbahasa::where("user_id",$this->attributes['users_id'])->count();
-      $this->update(["status_data_pendidikan"=>$formal]);
-      
-      return $formal;
+    $formal   = st_jobseeker_pendidikanformal::where("user_id",$this->attributes['users_id'])->count();
+    $informal = st_jobseeker_pendidikaninformal::where("user_id",$this->attributes['users_id'])->count();
+    $bahasa   = st_jobseeker_pendidikanbahasa::where("user_id",$this->attributes['users_id'])->count();
+    $this->update(["status_data_pendidikan"=>$formal]);
+
+    return $formal;
   }
 
   public function setStatusPekerjaan(){
@@ -91,7 +93,7 @@ class md_jobseeker extends Model
   }
 
   public function md_lowongan_pekerjaan(){
-      return $this->hasMany('App\md_lowongan_pekerjaan');
+    return $this->hasMany('App\md_lowongan_pekerjaan');
   }
 
   public function st_idcard(){
@@ -107,11 +109,11 @@ class md_jobseeker extends Model
   }
 
   public function st_kabkota(){
-    return $this->hasOne('App\st_Kabkota','id','kabkota');
+    return $this->hasOne('App\st_Kabkota',$this->foreignKey2);
   }
 
   public function st_kecamatan(){
-    return $this->hasOne('App\st_Kecamatan','id','kecamatan');
+    return $this->hasOne('App\st_Kecamatan',$this->foreignKey1);
   }
 
 }

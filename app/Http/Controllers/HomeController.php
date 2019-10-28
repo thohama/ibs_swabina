@@ -231,6 +231,11 @@ class HomeController extends Controller
         return view('admin.form_tambah_data_pegawai',compact('kabkota','kecamatan','tingkat_pendidikan'));
     }
 
+    public function getKecamatan($id) {
+        $kecamatan = st_Kecamatan::where('regency_id', '=', $id)->get();
+        return response()->json($kecamatan, 200);
+    }
+
     public function store_pegawai(Request $request)
     {
         // dd($request->all());
@@ -249,7 +254,9 @@ class HomeController extends Controller
         $jobseeker->NIK = $request->input('nik');
         $jobseeker->jenis_kelamin = $request->input('jenis_kelamin');
         $jobseeker->agama = $request->input('agama');
-        $jobseeker->alamat_ktp = $request->input('dusun').' RT '.$request->input('rt').' /RW '.$request->input('rw').', '.$request->input('desa').', '.$request->input('kec').', '.$request->input('kota');
+        $jobseeker->alamat_ktp = $request->input('dusun').' RT '.$request->input('rt').' /RW '.$request->input('rw').', '.$request->input('desa');
+        $jobseeker->kabkota_ktp = $request->input('kota');
+        $jobseeker->kecamatan_ktp = $request->input('kec');
         $jobseeker->nohp = $request->input('no_hp');
         $jobseeker->alasan_melamar = $request->input('alasan_melamar');
         $jobseeker->radio_bersedia_sift = $request->input('radio_bersedia_sift');
@@ -258,7 +265,7 @@ class HomeController extends Controller
         $jobseeker->alasan_mutasi = $request->input('alasan_mutasi');
         $jobseeker->save();
 
-        if($request->tingkat_pendidikan != null){
+        if($request->tingkat_pendidikan[0] != null){
             foreach($request->tingkat_pendidikan as $key => $value){
                 $pendidikan_formal = new st_jobseeker_pendidikanformal();
                 $pendidikan_formal->user_id = $user->id;
@@ -273,7 +280,7 @@ class HomeController extends Controller
             }
         }
         
-        if($request->nama_kursus != null){
+        if($request->nama_kursus[0] != null){
                 foreach($request->nama_kursus as $key => $value){
                 $pendidikan_informal = new st_jobseeker_pendidikaninformal();
                 $pendidikan_informal->user_id = $user->id;
@@ -285,7 +292,7 @@ class HomeController extends Controller
                 $pendidikan_informal->save();
             }
         }
-        if($request->nama_perusahaan_riwayat != null){
+        if($request->nama_perusahaan_riwayat[0] != null){
             foreach($request->nama_perusahaan_riwayat as $key => $value){
                 $kerja = new st_jobseeker_pengalamankerja();
                 $kerja->user_id = $user->id;
@@ -301,7 +308,7 @@ class HomeController extends Controller
             }
         }
 
-        if($request->nama_organisasi != null){
+        if($request->nama_organisasi[0] != null){
             foreach($request->nama_organisasi as $key => $value){
                 $organisasi = new st_jobseeker_pengalamanorganisasi();
                 $organisasi->user_id = $user->id;
@@ -313,7 +320,7 @@ class HomeController extends Controller
             }
         }
 
-        if($request->nama_keluarga != null){
+        if($request->nama_keluarga[0] != null){
             foreach($request->nama_keluarga as $key => $value){
                 $data_keluarga = new st_jobseeker_datakeluarga();
                 $data_keluarga->user_id = $user->id;
@@ -327,7 +334,7 @@ class HomeController extends Controller
             }
         }
 
-        if($request->nama_susunan_keluarga != null){
+        if($request->nama_susunan_keluarga[0] != null){
             foreach($request->nama_susunan_keluarga as $key => $value){
                 $susunan_keluarga = new st_jobseeker_susunankeluarga();
                 $susunan_keluarga->user_id = $user->id;
@@ -363,7 +370,13 @@ class HomeController extends Controller
 
     public function detail_pelamar($id){
         $jobseeker = md_jobseeker::findorFail($id);
-
-        return view('admin.show_data_pegawai', compact('jobseeker'));
+        $pendidikan_formal = st_jobseeker_pendidikanformal::where('user_id',$id)->get();
+        $pendidikan_informal = st_jobseeker_pendidikaninformal::where('user_id',$id)->get();
+        $kerja = st_jobseeker_pengalamankerja::where('user_id',$id)->get();
+        $organisasi = st_jobseeker_pengalamanorganisasi::where('user_id',$id)->get();
+        $data_keluarga = st_jobseeker_datakeluarga::where('user_id',$id)->get();
+        $susunan_keluarga = st_jobseeker_susunankeluarga::where('user_id',$id)->get();
+        // dd($pendidikan_formal);
+        return view('admin.show_data_pegawai', compact('jobseeker','pendidikan_formal','pendidikan_informal','kerja','organisasi','data_keluarga','susunan_keluarga'));
     }
 }
