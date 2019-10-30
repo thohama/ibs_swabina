@@ -43,7 +43,7 @@
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>Form Tambah Data Request Pekerjaanr</h5>
+                    <h5>Form Tambah Data Request Pekerjaan</h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
                             <i class="fa fa-chevron-up"></i>
@@ -124,7 +124,7 @@
                             <label for="nik" class="col-sm-7 col-form-label">Hari kerja dalam seminggu sesuai schedule</label>
                         </div>
                         <div class="form-group row">
-                            <h4 style="color: brown">Hak-hak yang diterima Tenaga kerja :</h4>    
+                            <h4 style="color: brown">Hak-hak yang diterima Tenaga kerja :</h4>
                         </div>
                         <div class="form-group row">
                             <label for="nik" class="col-sm-3 col-form-label">Gaji Bulanan</label>
@@ -167,7 +167,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <h4 style="color: brown">Kelengkapan APD tiap tenaga kerja :</h4>    
+                            <h4 style="color: brown">Kelengkapan APD tiap tenaga kerja :</h4>
                         </div>
                         <div class="form-group row">
                             <table class="table tabel_pendidikan table-bordered table-striped" >
@@ -196,7 +196,7 @@
                                         <option value="gr">gr</option>
                                       </select>
                                     </td>
-                                    <td align="center"> 
+                                    <td align="center">
                                       <a class="btn btn-default" onclick="tambah()">Tambah</a>
                                     </td>
                                   </tr>
@@ -215,7 +215,7 @@
                                     </table>
                                 </div>
                         </div>
-                        
+
 
                         <div class="hr-line-dashed"></div>
                         <div class="form-group row">

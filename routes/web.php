@@ -27,15 +27,25 @@ Route::get('requestpekerjaan', function () {
     return view('request_pekerjaan');
 });
 
+Route::get('sp_lembur', 'SPLController@index');
+Route::post('sp_lembur/submit', 'SPLController@spl_submit');
+
+
 Route::get('datakaryawan', 'HomeController@data_karyawan');
-
 Route::get('data_payroll','HomeController@data_payroll');
-
 Route::get('generate_payroll','HomeController@generate_payroll');
 Route::post('generate_payroll/simpan','HomeController@simpan_generate_payroll');
-
 Route::get('print_data_payroll/{id}','HomeController@print_data_payroll');
 
+Route::get('payroll','HomeController@getPayroll');
+Route::get('payroll/generate','HomeController@generatePayroll');
+Route::get('payroll/slipgaji/{id}','HomeController@getSlipGaji');
+
+Route::get('presensi','HomeController@getPresensi');
+Route::get('presensi/generate','HomeController@getGeneratePresensi');
+
+Route::get('penglembur','HomeController@Penglembur');
+Route::get('penglembur/daftar','HomeController@PenglemburDaftar');
 
 Route::get('setup_komponen_gaji', 'HomeController@setup_komponen_gaji');
 Route::post('setup_komponen_gaji/simpan', 'HomeController@simpan_komponen_gaji');

@@ -160,7 +160,7 @@ class HomeController extends Controller
       //dd($request);
       DB::beginTransaction();
       try {
-          
+
           $md_karyawan = DB::table('md_karyawan')->select('md_karyawan.*')->get();
           $arr_karyawan = array();
           foreach ($md_karyawan as $r) {
@@ -279,7 +279,7 @@ class HomeController extends Controller
                 $pendidikan_formal->save();
             }
         }
-        
+
         if($request->nama_kursus[0] != null){
                 foreach($request->nama_kursus as $key => $value){
                 $pendidikan_informal = new st_jobseeker_pendidikaninformal();
@@ -353,7 +353,7 @@ class HomeController extends Controller
     }
 
     public function import_excel(Request $request) {
-        try {            
+        try {
             Excel::import(new JobseekerImport(), request()->file('file'));
         } catch (\Exception $e) {
             if ($e->getCode() == 0) {
@@ -402,5 +402,117 @@ class HomeController extends Controller
     {
         $jobseeker = md_jobseeker::where('status_diterima','=','2')->get();
         return view('admin.index_pelamar_lulus', compact('jobseeker'));
+    }
+
+    public function getPayroll(){
+        $data = DB::table('user')
+            ->join('tbl_gaji_shelter_hdr','tbl_gaji_shelter_hdr.nik','=','user.id')
+            ->select('user.id','user.nama','tbl_gaji_shelter_hdr.bln','tbl_gaji_shelter_hdr.thn','tbl_gaji_shelter_hdr.kode_gaji')
+            ->where('user.iskaryawan','=','1')
+            ->orderby('user.nama')
+            ->orderby('tbl_gaji_shelter_hdr.thn')
+            ->orderby('tbl_gaji_shelter_hdr.bln')
+            ->orderby('user.id')
+            ->paginate(10);
+        return view ('payroll.index',compact('data'));
+    }
+
+    public function getSlipGaji($kode_gaji){
+        $id = strtok( $kode_gaji, '_' );
+//        $kar = user_indra::all()->where('id','=',$id)->first();
+        $kar = DB::table('user')
+            ->where('id','=',$id)->first();
+        $client = "PT. Swabina Gatra";
+        $gaji = DB::table('tbl_gaji_shelter_dtl')
+            ->join('st_komponen_gaji','st_komponen_gaji.kode_komponen_gaji','tbl_gaji_shelter_dtl.kode_komponen_gaji')
+            ->select('st_komponen_gaji.num','tbl_gaji_shelter_dtl.*')
+            ->where('tbl_gaji_shelter_dtl.kode_gaji','=',$kode_gaji)
+            ->orderby('st_komponen_gaji.num')
+            ->get();
+//        return $gaji;
+
+        $index = 0;
+        $total_pen = 0;
+        if(count($gaji)>0){
+            foreach ($gaji as $x){
+                if ($x->id_pendapatan == 1){
+                    $total_pen = $total_pen + $x->nilai_gaji;
+
+                    $label[$index] = $x->label_slip_gaji;
+                    $nilai[$index] = $x->nilai_gaji;
+
+                    $index++;
+                }
+            }
+        }
+        $tot = $total_pen;
+
+        $potongan = DB::table('st_pot_bpjs')->get();
+        $index_pot = 0;
+        $tot_pot = 0;
+        foreach ($potongan as $pot){
+            $label_pot[$index_pot] = $pot->deskripsi;
+            $nilai_potongan = (($pot->prosen_potongan)/100)*$total_pen;
+            $nilai_pot[$index_pot] = $nilai_potongan;
+
+            $tot = $tot - $nilai_potongan;
+            $tot_pot = $tot_pot + $nilai_potongan;
+
+            $index_pot++;
+        }
+
+        return view ('payroll.slip',compact('client',
+            'kar',
+            'gaji',
+            'kode_gaji',
+            'total_pen',
+            'label',
+            'nilai',
+            'index',
+            'label_pot',
+            'nilai_pot',
+            'index_pot',
+            'tot',
+            'tot_pot'
+        ));
+    }
+
+    public function getPresensi()
+    {
+        $presensi = DB::table('absensi_online')
+            ->join('user', 'absensi_online.karyawan_id', '=', 'user.id')
+            ->select('absensi_online.*', 'user.nama')
+            ->orderByRaw('scan_date DESC')
+            ->paginate(10);
+        return view('presensi.index', compact('presensi'));
+    }
+
+    public function getGeneratePresensi(Request $request){
+        $presensi = DB::table('tbl_presensi')->select('*')->orderby('tgl_jadwal')->paginate(15);
+        return view('presensi.generate', compact('presensi'));
+    }
+
+    public function PengLembur(){
+//        $kar = user_indra::all()
+//            ->where('iskaryawan','=',1)
+//            ->sortBy('nama');
+        $kar = DB::table('user')
+            ->where('iskaryawan','=',1)
+            ->orderBy('nama')
+            ->get();
+//        $client = md_client::all()->sortBy('nama_client');
+        return view('penglembur.index',compact('kar'));
+    }
+
+    public function pengLemburDaftar(){
+        $lembur = DB::table('lembur')
+            ->join('user','lembur.karyawan_id','=','user.id')
+            ->where('lembur.acc','=',0)
+            ->select('lembur.*','user.nama')
+            ->orderby('lembur.waktu_awal')
+            ->orderby('user.nama')
+            ->get();
+//      return $lembur;
+        return view('penglembur.daftar',compact('lembur'));
     }
 }

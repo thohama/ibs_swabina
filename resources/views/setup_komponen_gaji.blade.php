@@ -43,18 +43,18 @@
                 <div class="ibox-content">
                         <div class="row">
             <div class="col-xs-12">
-              
+
               <div class="box">
                 <div class="col-md-10 col-sm-10 col-xs-10" style="padding-bottom: 10px;">
                   <div class="form-group">
 
                     <div class="col-lg-2">
-                      
+
                     </div>
                   </div>
                 </div>
                 <div class="box-body">
-                
+
                   <table id="addColumn1" class="table table-bordered table-striped tabel_opname1">
                       <thead>
                            <tr>
@@ -71,21 +71,24 @@
                               @foreach($setup_komponen_gaji as $u)
 
                               <tr>
-                                  <td class="text-center">{{$i}}</td>
-                                  <td><center>{{$u->name}}</td>
-                                  <td><center>{{$u->deskripsi}}</center></td>
+                                  <td class="text-center">{{$u->num}}</td>
+                                  <td><center>{{$u->kode_komponen_gaji}}</td>
+                                  <td><center>{{$u->desc_komponen_gaji}}</center></td>
                                   <td>
                                   <center>
                                     <button class="btn btn-default btn-circle"
-                                          data-id="{{$u->id}}"
-                                          data-name="{{$u->name}}"
-                                          data-deskripsi="{{$u->deskripsi}}"
+                                            data-num="{{$u->num}}"
+                                            data-kode="{{$u->kode_komponen_gaji}}"
+                                            data-desc="{{$u->desc_komponen_gaji}}"
                                           data-toggle="modal" data-target="#edit"><i class="fa fa-pencil-square-o"></i>
                                     </button>
                                     <button class="btn btn-default btn-circle"
-                                          data-id="{{$u->id}}"
-                                          data-name="{{$u->name}}"
-                                          data-deskripsi="{{$u->deskripsi}}"
+{{--                                          data-id="{{$u->id}}"--}}
+{{--                                          data-name="{{$u->name}}"--}}
+{{--                                          data-deskripsi="{{$u->deskripsi}}"--}}
+                                            data-num="{{$u->num}}"
+                                            data-kode="{{$u->kode_komponen_gaji}}"
+                                            data-desc="{{$u->desc_komponen_gaji}}"
                                           data-toggle="modal" data-target="#delete"><i class="fa fa-trash"></i>
                                     </button>
                                   </center>
@@ -102,7 +105,7 @@
 
                 <div class="box-footer">
                     <h5></h5>
-                  </div><!-- /.box-footer --> 
+                  </div><!-- /.box-footer -->
               </div><!-- /.box -->
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -226,28 +229,28 @@ $(document).ready(function() {
 $('#edit').on('show.bs.modal', function (event) {
                         var button = $(event.relatedTarget) // Button that triggered the modal
 
-                        var id = button.data('id')
-                        var name = button.data('name')
-                        var deskripsi = button.data('deskripsi')
+                        var num = button.data('num')
+                        var kode = button.data('kode')
+                        var desc = button.data('desc')
 
                         var modal = $(this)
-                        modal.find('.modal-body #id').val(id);
-                        modal.find('.modal-body #name').val(name);
-                        modal.find('.modal-body #deskripsi').val(deskripsi);
+                        modal.find('.modal-body #num').val(num);
+                        modal.find('.modal-body #kode').val(kode);
+                        modal.find('.modal-body #desc').val(desc);
                     })
 $('#delete').on('show.bs.modal', function (event) {
                         var button = $(event.relatedTarget) // Button that triggered the modal
 
-                        var id = button.data('id')
-                        var name = button.data('name')
-                        var deskripsi = button.data('deskripsi')
+                        var num = button.data('num')
+                        var kode = button.data('kode')
+                        var desc = button.data('desc')
 
                         var modal = $(this)
-                        modal.find('.modal-body #id').val(id);
-                        modal.find('.modal-body #name').val(name);
-                        modal.find('.modal-body #deskripsi').val(deskripsi);
+                        modal.find('.modal-body #num').val(num);
+                        modal.find('.modal-body #kode').val(kode);
+                        modal.find('.modal-body #desc').val(desc);
                     })
-      
+
 </script>
 @endsection
 
