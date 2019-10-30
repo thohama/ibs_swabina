@@ -92,7 +92,9 @@
                   <td><center>{{$u->nama_lengkap}}</center></td>
                   <td><center>{{$u->alamat_ktp}}</center></td>
                   <td><center>
-                    <a href="{{url('detail_pelamar')}}/{{$u->users_id}}" target="_blank" class="btn btn-info">Detail</a>
+                    <a href="{{url('detail_pelamar')}}/{{$u->users_id}}" target="_blank"><button class="btn btn-primary btn-circle" type="button"><i class="fa fa-list"></i></button></a>
+                    <a href="{{url('terima_pelamar')}}/{{$u->users_id}}" target="_blank"><button class="btn btn-info btn-circle" type="button"><i class="fa fa-check"></i></button></a>
+                    <a href="{{url('tolak_pelamar')}}/{{$u->users_id}}" target="_blank"><button class="btn btn-warning btn-circle" type="button"><i class="fa fa-times"></i></button></a>
                   </center>
                 </td>
                 @php

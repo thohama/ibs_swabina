@@ -219,7 +219,7 @@ class HomeController extends Controller
 
     public function index_pegawai()
     {
-        $jobseeker = md_jobseeker::all();
+        $jobseeker = md_jobseeker::where('status_diterima','=','1')->get();
         return view('admin.index_data_pegawai', compact('jobseeker'));
     }
 
@@ -378,5 +378,29 @@ class HomeController extends Controller
         $susunan_keluarga = st_jobseeker_susunankeluarga::where('user_id',$id)->get();
         // dd($pendidikan_formal);
         return view('admin.show_data_pegawai', compact('jobseeker','pendidikan_formal','pendidikan_informal','kerja','organisasi','data_keluarga','susunan_keluarga'));
+    }
+
+    public function terima_pelamar(Request $request, $id)
+    {
+        md_jobseeker::where('users_id',$id)->update(array(
+            'status_diterima'=>2
+            ));
+
+        return redirect()->back()->with('status', 'Berhasil!');
+    }
+
+    public function tolak_pelamar(Request $request, $id)
+    {
+        md_jobseeker::where('users_id',$id)->update(array(
+            'status_diterima'=>0
+            ));
+
+        return redirect()->back()->with('status', 'Berhasil!');
+    }
+
+    public function index_pelamar_lulus()
+    {
+        $jobseeker = md_jobseeker::where('status_diterima','=','2')->get();
+        return view('admin.index_pelamar_lulus', compact('jobseeker'));
     }
 }

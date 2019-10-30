@@ -54,12 +54,17 @@ Route::group(['middleware' => ['auth']], function() {
 
 Route::get('cetakpdf','HomeController@cetakPdf');
 Route::get('basicform','HomeController@basicform');
+
+//KEPEGAWAIAN
 Route::get('admin/tambah_data_pegawai','HomeController@tambah_pegawai');
 Route::get('admin/data_pegawai','HomeController@index_pegawai')->name('pegawai.index');
+Route::get('admin/data_pegawai_lulus','HomeController@index_pelamar_lulus')->name('pegawai.index');
 Route::get('getkecamatan/{id}', 'HomeController@getkecamatan');
 Route::post('admin/import_data_pegawai', 'HomeController@import_excel')->name('pegawai.import');
 Route::post('admin/store_data_pegawai','HomeController@store_pegawai');
 Route::get('detail_pelamar/{id}','HomeController@detail_pelamar');
+Route::get('terima_pelamar/{id}','HomeController@terima_pelamar');
+Route::get('tolak_pelamar/{id}','HomeController@tolak_pelamar');
 
 Route::prefix('jobseeker')->group(function(){
     //-x regular

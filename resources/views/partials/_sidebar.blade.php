@@ -59,14 +59,17 @@
             </li>
         </ul>
     </li> -->
-    <li class="treeview sidebar data-master">
-        <a href="#" id="step1"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Master Data Pelamar</span><span class="fa arrow"></span></a>
+    <li class="@if(url('admin/tambah_data_pegawai') == request()->url() or url('admin/data_pegawai') or url('admin/data_pegawai_lulus') == request()->url()) active  @endif treeview">
+        <a href="#" id="step1"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Kepegawaian</span><span class="fa arrow"></span></a>
         <ul class="nav nav-second-level collapse">
-            <li class=" sidebar master-akun">
-                <a href="{{ url('admin/tambah_data_pegawai') }}"><i class="" aria-hidden="true"></i><span class="nav-label">Tambah Data Pelamar</span></a>
+            <li class="@if(url('admin/tambah_data_pegawai') == request()->url()) active @endif">
+                <a href="{{ url('admin/tambah_data_pegawai') }}"><i class="" aria-hidden="true"></i><span class="nav-label">Input Data Pelamar</span></a>
             </li>
-            <li class=" sidebar master-akun">
-                <a href="{{ url('admin/data_pegawai') }}"><i class="" aria-hidden="true"></i><span class="nav-label">Daftar Pelamar</span></a>
+            <li class="@if(url('admin/data_pegawai') == request()->url()) active @endif">
+                <a href="{{ url('admin/data_pegawai') }}"><i class="" aria-hidden="true"></i><span class="nav-label">Kelola Pelamar</span></a>
+            </li>
+            <li class="@if(url('admin/data_pegawai_lulus') == request()->url()) active @endif">
+                <a href="{{url('admin/data_pegawai_lulus')}}"><i class="" aria-hidden="true"></i><span class="nav-label">Daftar Pelamar Lulus Seleksi</span></a>
             </li>
         </ul>
     </li>
