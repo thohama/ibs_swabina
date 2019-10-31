@@ -61,7 +61,7 @@ class HomeController extends Controller
     }
 
     public function data_karyawan(){
-        $data_karyawan = DB::select(DB::raw("SELECT * FROM md_karyawan"));
+        $data_karyawan = DB::select(DB::raw("SELECT * FROM user where iskaryawan = 1"));
         return view('data_karyawan', compact('data_karyawan'));
     }
 

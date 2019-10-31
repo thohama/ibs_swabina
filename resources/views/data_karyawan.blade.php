@@ -39,18 +39,18 @@
                     <h5> Data Karyawan
                      <!-- {{Session::get('comp_year')}} -->
                      </h5>
-                     
+
                 </div>
                 <div class="ibox-content">
                         <div class="row">
             <div class="col-xs-12">
-              
+
               <div class="box" id="seragam_box">
                 <div class="col-md-10 col-sm-10 col-xs-10" style="padding-bottom: 10px;">
                   <div class="form-group">
 
                     <div class="col-lg-2">
-                      
+
                     </div>
                   </div>
                 </div>
@@ -62,9 +62,11 @@
                               <th style="text-align : center;"> No </th>
                               <th style="text-align : center;"> NIK </th>
                               <th style="text-align : center;"> Nama </th>
-                              <th style="text-align : center;"> Gaji Pokok </th>
-                              <th style="text-align : center;"> Tunj Transport </th>
-                              <th style="text-align : center;"> Tunj Makan </th>
+                              <th style="text-align : center;"> Email </th>
+                              <th style="text-align : center;"> No. KTP </th>
+                              <th style="text-align : center;"> Alamat </th>
+                              <th style="text-align : center;"> Tempat/Tanggal Lahir </th>
+                              <th style="text-align : center;"> Jenis Kelamin </th>
                           </tr>
                           </thead>
                       <tbody>
@@ -75,11 +77,17 @@
 
                               <tr>
                                   <td class="text-center">{{$i}}</td>
-                                  <td><center>{{$u->nik}}</td>
+                                  <td><center>{{$u->id}}</td>
                                   <td><center>{{$u->nama}}</center></td>
-                                  <td><center>{{$u->gp}}</center></td>
-                                  <td><center>{{$u->tunj_transport}}</center></td>
-                                  <td><center>{{$u->tunj_makan}}</center></td>
+                                  <td><center>{{$u->email}}</center></td>
+                                  <td><center>{{$u->no_ktp}}</center></td>
+                                  <td><center>{{$u->alamat}}</center></td>
+                                  <td><center>{{$u->tempat_lahir}}, {{$u->tanggal_lahir}}</center></td>
+                                  @if($u->jenis_kelamin == 0)
+                                  <td><center>Perempuan</center></td>
+                                  @else
+                                  <td><center>Laki-laki</center></td>
+                                  @endif
 
                               @php
                                 $i++;
@@ -92,7 +100,7 @@
 
                 <div class="box-footer">
                     <h5></h5>
-                  </div><!-- /.box-footer --> 
+                  </div><!-- /.box-footer -->
               </div><!-- /.box -->
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -131,7 +139,7 @@ $(document).ready(function() {
 
     });
 
-      
+
 </script>
 @endsection
 
