@@ -65,6 +65,12 @@ Route::group(['middleware' => ['auth']], function() {
 Route::get('cetakpdf','HomeController@cetakPdf');
 Route::get('basicform','HomeController@basicform');
 
+//UNITKERJA
+Route::get('admin/form/permintaan_tenaga_kerja','UnitKerjaController@create');
+Route::post('admin/form/store_permintaan_tenaga_kerja','UnitKerjaController@store');
+Route::get('admin/daftar_permintaan_tenaga_kerja','UnitKerjaController@index');
+Route::get('permintaan_tenaga_kerja/{id}','UnitKerjaController@show');
+
 //KEPEGAWAIAN
 Route::get('admin/tambah_data_pegawai','HomeController@tambah_pegawai');
 Route::get('admin/data_pegawai','HomeController@index_pegawai')->name('pegawai.index');

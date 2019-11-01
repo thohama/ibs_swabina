@@ -84,6 +84,18 @@
                 </ul>
             </li>
 
+            <li class="@if(url('admin/form/permintaan_tenaga_kerja') or url('admin/daftar_permintaan_tenaga_kerja') == request()->url()) active  @endif treeview">
+                <a href="#"><i class="fa fa-th"></i> <span class="nav-label">Unit Kerja</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li class="@if(url('admin/form/permintaan_tenaga_kerja') == request()->url()) active @else '' @endif">
+                        <a href="{{ url('admin/form/permintaan_tenaga_kerja') }}">Input Permintaan Tenaga Kerja</a>
+                    </li>
+                    <li class="@if(url('admin/daftar_permintaan_tenaga_kerja') == request()->url()) active @else '' @endif">
+                        <a href="{{ url('admin/daftar_permintaan_tenaga_kerja') }}">Permintaan Tenaga Kerja</a>
+                    </li>
+                </ul>
+            </li>
+
             <li class="@if(url('admin/tambah_data_pegawai') == request()->url()
                 or url('admin/data_pegawai') == request()->url()
                 or url('admin/data_pegawai_lulus') == request()->url()) active  @endif treeview">
