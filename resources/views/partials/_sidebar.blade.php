@@ -112,6 +112,14 @@
                     </li>
                 </ul>
             </li>
+            <li class="@if(url('hubnaker/data_pegawai_lulus') == request()->url()) active  @endif treeview">
+                <a href="#"><i class="fa fa-th"></i> <span class="nav-label">Hubnaker</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li class="@if(url('hubnaker/data_pegawai_lulus') == request()->url()) active @else '' @endif">
+                        <a href="{{url('hubnaker/data_pegawai_lulus')}}">Daftar Pelamar Lulus Seleksi</a>
+                    </li>
+                </ul>
+            </li>
 {{--            <li class="treeview sidebar data-master">--}}
 {{--                <a href="#"><i class="fa fa-gavel"></i> <span class="nav-label">Manajemen Hak Akses</span><span class="fa arrow"></span></a>--}}
 {{--                @can('users-list')--}}

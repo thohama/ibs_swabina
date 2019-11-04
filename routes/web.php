@@ -73,14 +73,19 @@ Route::get('permintaan_tenaga_kerja/{id}','UnitKerjaController@show');
 
 //KEPEGAWAIAN
 Route::get('admin/tambah_data_pegawai','HomeController@tambah_pegawai');
-Route::get('admin/data_pegawai','HomeController@index_pegawai')->name('pegawai.index');
-Route::get('admin/data_pegawai_lulus','HomeController@index_pelamar_lulus')->name('pegawai.index');
+Route::get('admin/data_pegawai','HomeController@index_pegawai');
+Route::get('admin/data_pegawai_lulus','HomeController@index_pelamar_lulus');
 Route::get('getkecamatan/{id}', 'HomeController@getkecamatan');
 Route::post('admin/import_data_pegawai', 'HomeController@import_excel')->name('pegawai.import');
 Route::post('admin/store_data_pegawai','HomeController@store_pegawai');
 Route::get('detail_pelamar/{id}','HomeController@detail_pelamar');
 Route::get('terima_pelamar/{id}','HomeController@terima_pelamar');
 Route::get('tolak_pelamar/{id}','HomeController@tolak_pelamar');
+
+//HUBNAKER
+Route::get('hubnaker/data_pegawai_lulus','HubnakerController@index_pelamar_lulus');
+Route::get('hubnaker/pkwt','HubnakerController@pkwt_pelamar_lulus');
+
 
 Route::prefix('jobseeker')->group(function(){
     //-x regular

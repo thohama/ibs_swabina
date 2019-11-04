@@ -54,7 +54,7 @@ class UnitKerjaController extends Controller
 
     public function show($id){
         $permintaan = tbl_permintaan_tenaga_kerja::findorFail($id);
-        return view('admin.show_permintaan_tenaga_kerja', compact('permintaan'));
+        return view('unit_kerja.show_permintaan_tenaga_kerja', compact('permintaan'));
     }
 
     function generateIdPermintaan()
@@ -103,11 +103,9 @@ class UnitKerjaController extends Controller
 
     public function store(Request $request)
     {
-        $month = Carbon::now()->startOfMonth()->format('m');
-        $year = Carbon::now()->startOfYear()->format('Y');
         // dd($request->all());
         $permintaan = new tbl_permintaan_tenaga_kerja();
-        $permintaan->id_permintaan = $this->generateIdPermintaan().'/Person/1221/'.$month.'.'.$year;
+        $permintaan->id_permintaan = $this->generateIdPermintaan();
         $permintaan->tanggal_permintaan = $request->tanggal_permintaan;
         $permintaan->tanggal_dibutuhkan = $request->tanggal_dibutuhkan;
         $permintaan->jumlah_tenaga_kerja = $request->jumlah_yg_dibutuhkan;

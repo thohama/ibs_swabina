@@ -72,7 +72,7 @@
 
                 <tr>
                   <td class="text-center">{{$i}}</td>
-                  <td><center>{{$u->id_permintaan}}</center></td>
+                  <td><center>{{$u->id_permintaan}}/Person/1221/{{Carbon\Carbon::parse($u->tanggal_permintaan)->startOfMonth()->format('m')}}.{{Carbon\Carbon::parse($u->tanggal_permintaan)->startOfYear()->format('Y')}}</center></td>
                   <td><center>
                     <a href="{{url('permintaan_tenaga_kerja')}}/{{$u->id_permintaan}}" target="_blank"><button class="btn btn-primary btn-circle" type="button"><i class="fa fa-list"></i></button></a>
                   </center>
