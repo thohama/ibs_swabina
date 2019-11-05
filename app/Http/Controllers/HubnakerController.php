@@ -30,9 +30,10 @@ class HubnakerController extends Controller
         return view('hubnaker.index_pelamar_lulus_seleksi', compact('jobseeker'));
     }
 
-    public function pkwt_pelamar_lulus()
+    public function pkwt_pelamar_lulus($id)
     {
-    	$pdf = PDF::loadView('hubnaker.pkwt');
+        $jobseeker = md_jobseeker::findorFail($id);
+    	$pdf = PDF::loadView('hubnaker.pkwt', compact('jobseeker'));
                 return $pdf->stream();
         // return view('hubnaker.pkwt');
     }

@@ -8,6 +8,7 @@ use PDF;
 use DB;
 use Illuminate\Database\QueryException;
 use App\md_jobseeker;
+use App\md_karyawan;
 use App\st_Tingkatpendidikan;
 use App\st_jobseeker_pendidikanformal;
 use App\st_jobseeker_pendidikaninformal;
@@ -382,9 +383,17 @@ class HomeController extends Controller
 
     public function terima_pelamar(Request $request, $id)
     {
+        $jobseeker = md_jobseeker::findorFail($id);
         md_jobseeker::where('users_id',$id)->update(array(
             'status_diterima'=>2
             ));
+        $karyawan = new md_karyawan();
+        $karyawan->nik = $jobseeker->NIK;
+        $karyawan->nama = $jobseeker->nama_lengkap;
+        $karyawan->gp = '3800000';
+        $karyawan->tunj_transport = '600000';
+        $karyawan->tunj_makan = '500000';
+        $karyawan->save(); 
 
         return redirect()->back()->with('status', 'Berhasil!');
     }

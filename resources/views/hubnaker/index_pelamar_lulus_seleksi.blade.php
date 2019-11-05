@@ -78,7 +78,7 @@
                     <td><center>{{$u->alamat_ktp}}</center></td>
                     <td><center>{{$u->nohp}}</center></td>
                     <td><center>
-                      <a href="{{url('hubnaker/pkwt')}}" target="_blank"><button class="btn btn-primary btn-circle" type="button"><i class="fa fa-list"></i></button></a>
+                      <a href="{{url('hubnaker/pkwt')}}/{{$u->users_id}}" target="_blank"><button class="btn btn-primary btn-circle" type="button"><i class="fa fa-list"></i></button></a>
                     </center></td>
                   </td>
                   @php

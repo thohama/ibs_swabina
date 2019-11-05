@@ -5,156 +5,216 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+	<img src="http://www.swabinagatra.co.id/image/logosbgfull.gif" style="width:100px;height:50px;">
+	<br>
 	<center>
-		<img src="http://selarasmitraintegra.com/smicms/img/smi-logo.png" style="width:100px;height:50px;">
-		<h5 style="font-family: "Times New Roman", Times, serif"><b>PT Selaras Mitra Integra</b></h5>
-		<p style="font-family: "Times New Roman", Times, serif">Jl Ketintang Madya 80 Surabaya Telp 031 8285737</p>
-		<br>
-		<h5 style="font-family: "Times New Roman", Times, serif"><b>PERJANJIAN KERJA UNTUK WAKTU TERTENTU</b></h5>
-		<h6 style="font-family: "Times New Roman", Times, serif"><i><b>Pengantaran Dan Pemerataan Produk ( Motoris )</b></i></h6>
-		<p style="font-family: "Times New Roman", Times, serif">Nomor : 0217/PKWT/ARTENG/SMI/II/2019</p>
+		<h5 style="font-family: "Times New Roman", Times, serif"><b>PERJANJIAN</b></h5>
+		<h5 style="font-family: "Times New Roman", Times, serif"><b><u>KERJA WAKTU TERTENTU</u></b></h5>
+		<p style="font-family: "Times New Roman", Times, serif">Nomor : 1955/KP.00.01/2350/06.2019</p>
 	</center>
 	<br>
 	<p style="font-family: "Times New Roman", Times, serif">Yang bertanda-tangan di bawah ini :</p>
 	<pre style="font-family: "Times New Roman", Times, serif">
-		<b>I. 								Nama lengkap : </b>
-		<b>    			Jabatan			         : </b>
+		Nama : <b>WIWIK PRADIANA, SE., MM</b>
+		Jabatan : <b>Manager SDM & Umum</b>
+		Alamat : <b>Jalan R.A. Kartini No. 21A Gresik</b>
 	</pre>
-	<p style="font-family: "Times New Roman", Times, serif">Bertindak untuk dan atas nama <b>PT. SELARAS MITRA INTEGRA</b>, yang berdomisili di Jln Ketintang Madya 80 Surabaya, yang selanjutnya dalam perjanjian kerja ini disebut SMI.</p>
+	<p style="font-family: "Times New Roman", Times, serif">Berdasarkan Surat Kuasa Direksi Nomor : <b>2108/HK.03/2350/10.2018</b>, bertindak untuk dan atas nama PT. Swabina Gatra yang selanjutnya dalam Perjanjian Kerja Waktu Tertentu ini disebut <b>PIHAK KESATU</b></p>
 	<pre style="font-family: "Times New Roman", Times, serif">
-		II. 	Nama lengkap		:
-		Jenis Kelamin		:
-		Nomor KTP		:
-		Tempat/Tanggal Lahir	:
-		Agama			:
-		Nomor HP		:
-		Alamat			:
+		Nama lengkap : <b>{{$jobseeker->nama_lengkap}}</b>
+		Jenis Kelamin : <b>{{$jobseeker->jenis_kelamin}}</b>
+		Nomor KTP : <b>{{$jobseeker->NIK}}</b>
+		Tempat/Tanggal Lahir : <b>{{$jobseeker->tempat_lahir}}/{{ date('d F Y', strtotime($jobseeker->tanggal_lahir)) }}</b>
+		Agama : <b>{{$jobseeker->agama}}</b>
+		Nomor HP : <b>{{$jobseeker->nohp}}</b>
+		Alamat : <b>{{$jobseeker->alamat_ktp}}</b>
 	</pre>
-	<p style="font-family: "Times New Roman", Times, serif">Bertindak untuk dan atas nama diri sendiri yang selanjutnya dalam perjanjian kerja ini disebut <b>PEKERJA</b>.
-		<b>SMI</b> dan <b>PEKERJA</b> telah saling bersepakat untuk mengadakan Perjanjian Kerja Waktu Tertentu, dengan terlebih dahulu menjelaskan beberapa hal sebagai berikut :
+	<p style="font-family: "Times New Roman", Times, serif">Bertindak untuk dan atas nama diri sendiri yang selanjutnya dalam Perjanjian Kerja Waktu Tertentu ini disebut <b>PIHAK KEDUA</b>.
+		<br>
+		Kedua belah Pihak sepakat mengikatkan diri secara hukum dalam suatu <b>Perjanjian Kerja Waktu Tertentu (PKWT)</b>
+		Dengan syarat dan ketentuan sebagaimana diatur dalam pasal-pasal sebagai berikut:
 	</p>
-	<pre style="font-family: "Times New Roman", Times, serif">
-		1.	Perjanjian Kerja Waktu Tertentu ini dibuat untuk pemenuhan penyediaan tenaga kerja permintaan dari Klien SMI.
-		2.	Bahwa SMI adalah Perusahaan yang bergerak di bidang penyedia / alih daya tenaga kerja.
-		3.	PEKERJA adalah individu pribadi yang telah dewasa dan memenuhi syarat sebagai subjek hukum
-		4.	Bahwa SMI menerima bekerja PEKERJA sebagai karyawan untuk dipekerjakan dalam waktu tertentu atau selama masa
-		Berlakunya kontrak atau project SMI dengan klien SMI (untuk selanjutnya disebut sebagai “Klien”)
-		5.	PEKERJA menyadari sepenuhnya bahwa Perjanjian Kerja Waktu Tertentu ini sangat tergantung dengan masa kontrak SMI dengan Klien.
-		6.	Untuk itu, adanya alasan berakhirnya perjanjian ini karena berakhirnya kontrak SMI dengan Klien serta konsekuensi
-		Sebagaimana poin 3 diatas disetujui oleh PEKERJA.
-		7.	Syarat-syarat dan ketentuan-ketentuan yang telah disepakati / disetujui oleh kedua belah pihak adalah sebagai berikut :
-	</pre>
 	<br>
 	<center style="font-family: "Times New Roman", Times, serif">
-		<h5><b>PASAL 1</b></h5>
-		PENEMPATAN & MASA KERJA
+		<b>PASAL 1</b><br>
+		<b>MASA BERLAKU PERJANJIAN</b>
 	</center>
 	<pre style="font-family: "Times New Roman", Times, serif">
-		1.	SMI menerima PEKERJA untuk  dipekerjakan sebagai «Jabatan» di wilayah kerja Klien, di Kota «Kota_Penempatan».
-		2.	Penempatan PEKERJA adalah hak sepenuhnya dari SMI dan wajib ditaati oleh PEKERJA.
-		3.	SMI menerima PEKERJA untuk dipekerjakan mulai tanggal «Tanggal_Mulai_Kontrak» sampai dengan tanggal «Tanggal_Akhir_Kontrak».
-		4.	Seandainya perjanjian kerjasama atau project antara SMI dengan Klien berakhir sebelum berakhirnya masa kontrak PEKERJA, maka Perjanjian ini pun dengan sendirinya akan berakhir.
-		5.	Apabila masa PKWT berakhir sesuai pasal 1 point 4 maka, kedua belah pihak sepakat mufakat untuk tidak akan melakukan tuntutan dalam bentuk apapun di kemudian hari, baik secara perdata, pidana, ketenagakerjaan atau bentuk lainnya.
+		<b>Perjanjian Kerja Waktu Tertentu (PKWT)</b> ini berlaku terhitung sejak tanggal <b>06 Juni 2019</b> dan akan berakhir pada tanggal <b>05 Juni 2020</b>
 	</pre>
 	<center style="font-family: "Times New Roman", Times, serif">
-		<h5><b>PASAL 2</b></h5>
-		PENGUPAHAN
+		<b>PASAL 2</b><br>
+		<b>PENEMPATAN</b>
 	</center>
 	<pre style="font-family: "Times New Roman", Times, serif">
-		1.	PEKERJA berhak atas :
-
-		a)	Upah sebesar		: «GAJI_POKOK» / Hari Kehadiran
-		b)	BPJS Kesehatan & Ketenagakerjaan
-
-		2.	Pembayaran Upah PEKERJA malalui transfer bank ke nomor rekening PEKERJA
-		3.	Apabila ada kebijakkan perubahan package salary, maka akan otomatis dilakukan.
+		1.	PIHAK KEDUA diterima dan ditempatkan oleh PIHAK KESATU sebagai tenaga <b>FI-2</b> di wilayah kerja / unit kerja: <b><< Nama Unit Kerja >></b>
+		2.	PIHAK KESATU berhak menempatkan / memutasikan PIHAK KEDUA untuk melaksanakan tugas / pekerjaan lain / unit kerja lain dengan syarat tetap berada dalam Wilayah / lingkup dan kewenangan PIHAK KESATU.
 	</pre>
 	<center style="font-family: "Times New Roman", Times, serif">
-		<h5><b>PASAL 3</b></h5>
-		KEWAJIBAN & HAK PEKERJA
+		<b>PASAL 3</b><br>
+		<b>PEMBAYARAN GAJI DAN UPAH LEMBUR</b>
 	</center>
 	<pre style="font-family: "Times New Roman", Times, serif">
-		1.	PEKERJA wajib melakukan presensi manual & finger maksimal 30 menit sebelum jam kerja.
-		2.	PEKERJA wajib menjalankan pekerjaan sehari-hari dengan sebaik-baiknya, mencurahkan segala keahlian dan pengetahuan, berusaha untuk mempertinggi prestasi kerja dan mencapai standar pretasi kerja yang telah ditentukan oleh SMI sehingga Klien merasa sangat puas karena menerima pelayanan yang sangat baik.
-		3.	PEKERJA wajib mentaati semua peraturan dan ketentuan yang berlaku di SMI, Klien & Customer sesuai tempat PEKERJA bekerja.
-		4.	PEKERJA wajib turut menjaga / memelihara harta milik SMI dan atau Klien dan apabila PEKERJA merusak dan atau menghilangkannya maka PEKERJA wajib menggantinya sesuai dengan aturan yang diberlakukan oleh SMI dan Klien.
-		5.	PEKERJA wajib mengusahakan kerjasama yang harmonis dengan SMI dan Klien maupun dengan pekerja lainnya, bertingkah laku yang baik di tempat kerja maupun di tengah masyarakat.
-		6.	PEKERJA wajib menjalankan tugas sesuai dengan petunjuk & target kerja yang telah ditentukan.
-		7.	PEKERJA wajib melaporkan segala kejadian yang berpotensi merugikan SMI dan Klien kepada pimpinan SMI dan Klien.
-		8.	Apabila PEKERJA mengakhiri hubungan kerja sebelum berakhirnya jangka waktu yang ditetapkan dalam perjanjian kerja waktu tertentu (PKWT), maka PEKERJA diwajibkan membayar ganti rugi kepada pihak lainnya (SMI)  sebesar upah pekerja sampai batas waktu berakhirnya jangka waktu perjanjian kerja.
-		9.	PEKERJA berhak atas pembayaran pengupahan sesuai kesepakatan dalam Perjanjian ini, setiap tanggal 5 dan jika tanggal pengupahan jatuh pada hari Sabtu/Minggu maka pengupahan akan dilakukan pada tanggal berikutnya (bukan di hari libur) dan untuk pembayaran lembur, mengikuti ketentuan yang berlaku.
-		10.	PEKERJA berhak menjalankan ibadah agama dengan sewajarnya sesuai dengan agama yang dianutnya.
+		1.	Besarnya gaji setiap bulan adalah : << Gaji >> per bulan
+		2.	Apabila PIHAK KEDUA tidak masuk kerja dengan alasan yang tidak dapat diterima atau dibenarkan oleh Undang-Undang Ketenagakerjaan yang berlaku, maka PIHAK KESATU akan melakukan pemotongan gaji PIHAK KEDUA secara proporsional dari gaji per bulan.
+		3.	Kerja lembur adalah kerja yang dilakukan PIHAK KEDUA di luar hari kerja dan jam kerja sebagaimana tersebut dalam pasal 4 ayat 1.
+		4.	Dasar perhitungan upah lembur adalah peraturan perundangan yang berlaku.
+		5.	Pembayaran Gaji dan Upah Lembur oleh PIHAK KESATU sebagaimana dimaksud pada ayat 1 dan 3 dalam pasal ini diatur sebagai berikut:
+		a.	Pembayaran Gaji dilaksanakan pada tanggal 26 setiap bulannya.
+		b.	Apabila pada tanggal tersebut bertepatan dengan hari libur, maka pembayaran dilaksanakan satu hari sebelum hari libur tersebut melalui transfer ke nomor rekening Bank Mandiri / BNI Kantor Bank setempat - PIHAK KEDUA.
 	</pre>
 	<center style="font-family: "Times New Roman", Times, serif">
-		<h5><b>PASAL 4</b></h5>
-		KEWAJIBAN & HAK SMI
+		<b>PASAL 4</b><br>
+		<b>HARI KERJA DAN JAM KERJA</b>
 	</center>
 	<pre style="font-family: "Times New Roman", Times, serif">
-		1.	SMI wajib membayar upah PEKERJA sesuai kesepakatan dalam Perjanjian ini.
-		2.	SMI wajib memberikan kesempatan yang sepatutnya untuk beribadah dengan sewajarnya sesuai dengan agama yang dianutnya.
-		3.	SMI berhak dan berkewajiban menjalankan, mengatur dan menegakkan ketentuan disiplin kerja sesuai dengan Peraturan / Ketentuan Perusahaan yang ditetapkan maupun syarat-syarat kerja yang diatur dalam peraturan perundang-undangan yang berlaku.
-		4.	SMI berhak memberikan kesempatan pada PEKERJA untuk kearah usaha – usaha mendapat keterampilan menurut bakat, kemampuan, dan prestasi dari PEKERJA.
-		5.	SMI berhak melaporkan PEKERJA kepada pihak yang berwajib apabila PEKERJA terindikasi melakukan perbuatan melanggar hukum pidana, perdata dan atau peraturan lainnya.
+		1.	Hari kerja, jam kerja, jam istirahat dan hari libur minggun menyesuaikan kebutuhan PIHAK KESATU atau schedule kerja Pemberi Kerja
 	</pre>
 	<center style="font-family: "Times New Roman", Times, serif">
-		<h5><b>PASAL 5</b></h5>
-		HARI KERJA DAN JAM KERJA
+		<b>PASAL 5</b><br>
+		<b>JAMINAN SOSIAL TENAGA KERJA DAN PEMELIHARAAN KESEHATAN</b>
 	</center>
 	<pre style="font-family: "Times New Roman", Times, serif">
-		1.	Mengikuti jadwal dan atau jam kerja di area kerja masing-masing.
+		1.	PIHAK KESATU memberikan fasilitas Jaminan Sosial Tenaga Kerja kepada PIHAK KEDUA dalam program BPJS Ketenagakerjaan meliputi:
+		a.	Jaminan Kecelakaan Kerja (JKK)
+		b.	Jaminan Hari Tua (JHT)
+		c. 	Jaminan Kematian (JKM)
+		d.	Jaminan Pensiun (JP)
+		2. PIHAK KESATU memberikan fasilitas Jaminan Pemeliharaan Kesehatan kepada PIHAK KEDUA secara ketentuan.
 	</pre>
 	<center style="font-family: "Times New Roman", Times, serif">
-		<h5><b>PASAL 6</b></h5>
-		BERAKHIRNYA PERJANJIAN KERJA WAKTU TERTENTU
+		<b>PASAL 6</b><br>
+		<b>CUTI TAHUNAN</b>
 	</center>
 	<pre style="font-family: "Times New Roman", Times, serif">
-		1.	Kecuali ditentukan lain dalam Perjanjian ini, hubungan kerja berakhir pada saat berakhirnya Perjanjian ini, maka hubungan kerja antara SMI dan PEKERJA putus dengan sendirinya, dan PEKERJA tidak akan melakukan tuntutan dalam bentuk apapun di kemudian hari, baik secara perdata, pidana, ketenagakerjaan atau bentuk lainnya.
-		2.	Perjanjian ini pun dapat diakhiri oleh SMI secara sepihak tanpa adanya ganti rugi apabila PEKERJA melakukan hal &/ pelanggaran-pelanggaran yang tidak terbatas perihal berikut :
-		a)	Hasil pekerjaan tidak memenuhi target yg telah ditentukan perusahaan
-		b)	Berkata atau memberikan informasi / data yang tidak benar/palsu.
-		c)	Mengambil barang yang bukan hak miliknya atau memindahkan barang ke tempat yang tidak sesuai dengan yang ditentukan.
-		d)	Melakukan penyelewengan atau berusaha memiliki barang milik SMI dan Klien yang dipercayakan/dititipkan kepadanya.
-		e)	Membawa atau menggunakan barang yang tidak boleh untuk dikonsumsi atau dimiliki tanpa izin berdasarkan peraturan perundang-undangan yang berlaku.
-		f)	Melakukan perbuatan sehingga membuat orang lain terluka secara fisik dan / atau mental.
-		g)	Mempengaruhi, meminta, memaksa atau memerintahkan orang lain untuk bertindak di luar norma-norma yang berlaku di masyarakat.
-		h)	Melakukan perbuatan atau tindakan yang mengancam keselamatan SMI dan atau Klien atau orang lain.
-		i)	Membongkar atau membocorkan rahasia SMI dan/atau Klien.
-		j)	Memperoleh sesuatu berdasarkan tebakan atau mempertaruhkan sesuatu untuk memiliki lebih banyak uang atau barang dengan selain dari apa yang diperkenankan oleh peraturan perundang-undangan yang berlaku.
-		k)	Membuat citra SMI dan/atau Klien menjadi tidak baik, atau meminta/menerima imbalan jasa (tip) dari siapapun dan atau ditujukan untuk melakukan hal-hal yang merugikan perusahaan.
-		l)	Melakukan perbuatan asusila di dalam maupun di luar tempat kerja sedemikian rupa sehingga dapat dianggap mencemarkan nama baik perusahaan.
-		m)	Tidak menjaga dengan baik atau merusak barang, mobil atau komponen mobil milik SMI dan/atau Klien dan/atau milik Perusahaan, sehingga rusak atau hilang.
-		n)	Penggandaan atau penduplikasian dalam bentuk apapun yang merugikan atau berpotensi merugikan SMI dan/atau Klien.
-		o)	Tindakan PEKERJA yang meninggalkan pekerjaan 5 (Lima) hari berturut-turut tanpa keterangan secara tertulis yang dilengkapi dengan bukti yang sah (mangkir/alpha/bolos)
-		p)	Terkena tilang oleh kepolisian karena melanggar lalu lintas, tidak membawa dokumen kelengkapan kendaraan, dan/atau tidak membawa SIM lebih dari dari 1 (satu) kali dalam seminggu atau lebih dari 3 (tiga) kali dalam sebulan, dihitung sejak pelanggaran terakhir (untuk posisi lapangan)
-		q)	Mengalami kecelakaan yang disebabkan kesalahan PEKERJA lebih dari dari 1 (satu) kali dalam 1 (satu) tahun, dihitung sejak kecelakaan terakhir (untuk posisi lapangan)
-		r)	Terlibat dalam kasus / perkara pidana, perdata dan atau peraturan lainnya.
-		s)	Tidak melaksanakan/ menolak tugas/peraturan/petunjuk dari SMI dan atau Klien.
-
-		3.  Apabila PEKERJA meninggal dunia atau mengalami cacat tetap sehingga tidak dapat menjalankan pekerjaannya lagi, kepada PEKERJA atau ahli warisnya yang sah akan diberikan santunan sesuai dengan kebijaksanaan Perusahaan dan Perjanjian ini berakhir dengan sendirinya.
+		1.	PIHAK KESATU memberikan hak cuti tahunan kepada PIHAK KEDUA setelah PIHAK KEDUA mempunyai masa kerja minimal 12 ( dua belas ) bulan secara terus menerus tanpa terputus.
+		2.	Jumlah cuti tahunan sebagaimana dimaksud ayat 1 pasal ini adalah 12 ( dua belas ) hari kerja.
+		3.  Tata cara pengambilan cuti tahunan sesuai dengan peraturan PIHAK KESATU dan atau Pemberi Kerja yang berlaku.
+		4. 	Dalam hal hak cuti belum diberikan PIHAK KEDUA berhak ijin tidak masuk kerja maksimal selama 6 (enam) hari dalam 1 (satu) tahun dengan tetap dilakukan pemotongan gaji secara proporsional.
+		5. 	Tata cara permohonan ijin sebagaimana ayat 4 pasal ini dengan cara mengajukan surat yang disetujui oleh Atasan Langsung dan diketahui oleh Atasan Tidak Langsung
 	</pre>
 	<center style="font-family: "Times New Roman", Times, serif">
-		<h5><b>P E N U T U P</b></h5>
+		<b>PASAL 7</b><br>
+		<b>HAK DAN KEWAJIBAN PARA PIHAK</b>
 	</center>
-
 	<pre style="font-family: "Times New Roman", Times, serif">
-		Apabila ada perubahan hak dan kewajiban akan disesuaikan menurut peraturan yang berlaku.
-		Apabila ada perselisihan diantara para pihak, maka para pihak akan menyelesaikannya secara musyawarah untuk mufakat.
-		Apabila kata sepakat mufakat tidak bertemu, maka para pihak setuju untuk menyelesaiakan perselisihan ini melalui mekanisme  yang diatur di perundangan.
-
-		Demikian Perjanjian Kerja untuk Waktu Tertentu ini dibuat rangkap dua dengan itikad baik dan telah dibaca, dipahami, disetujui dan ditandatangani dalam keadaan sehat jasmani dan rohani, tanpa ada paksaan maupun tekanan dari pihak manapun juga.
+		1.	Kewajiban PIHAK KESATU :
+		a.	Melaksanakan seluruh isi dan maksud Perjanjian ini
+		b.	Melaksanakan Pembayaran gaji dan upah lembur kepada PIHAK KEDUA
+		c.	Mengikut sertakan PIHAK KEDUA dalam Program Jaminan Sosial Tenaga Kerja pada BPJS Ketenagakerjaan.
+		d.	Menyediakan fasilitas perawatan kesehatan untuk PIHAK KEDUA pada BPJS Kesehatan
+		e.	Menyediakan alat keselamatan dan kesehatan kerja sesuai dengan sifat dan jenis pekerjaan.
+		f.	Melaksanakan Pembayaran THR kepada PIHAK KEDUA minimal sesuai dengan Peraturan Pemerintah.
+		2.	Hak-hak PIHAK KESATU :
+		a.	Memerintahkan, mengawasi dan mengoreksi pekerjaan PIHAK KEDUA
+		b.	Menerima dan meminta laporan hasil pekerjaan, tugas dan tanggung jawab secara lisan dan atau tertulis dari PIHAK KEDUA
+		c.	Sesuai kebutuhan berhak memutasi / merubah / menambah / mengurangi / jenis atau sifat pekerjaan dan atau jabatan PIHAK KEDUA.
+		3.  Kewajiban PIHAK KEDUA :
+		a.	Melaksanakan seluruh isi dan maksud Perjanjian ini.
+		b.	Mematuhi seluruh peraturan PIHAK KESATU di luar yang tercantum dalam perjanjian.
+		c.	Melakukan seluruh pekerjaan dengan penuh tanggung jawab.
+		d.	Melaporkan setiap hasil pekerjaan, tugas secara lisan dan atau tertulis kepada PIHAK KESATU.
+		e.	Bertanggung jawab atas terpeliharanya ketertiban dan keamanan serta pengamanan lingkungan kerja sebagaimana Peraturan Perusahaan PIHAK KESATU.
+		f. Tunduk dan patuh terhadap peraturan perusahaan dan peraturan perundangan yang berlaku.
+		4. 	Hak-hak PIHAK KEDUA :
+		a.	Menerima Pembayaran gaji dan upah lembur dari PIHAK KESATU.
+		b.	Menerima fasilitas Program Jaminan Sosial Tenaga Kerja dari BPJS Ketenagakerjaan
+		c.	Menerima fasilitas Program Pemeliharaan Kesehatan dari BPJS Kesehatan
+		d.	Menerima fasilitas alat keselamatan kerja sesuai sifat dan jenis pekerjaan.
+		e.	Menerima THR dari PIHAK KESATU minimal sesuai dengan Peraturan Pemerintah.
 	</pre>
+	<center style="font-family: "Times New Roman", Times, serif">
+		<b>PASAL 8</b><br>
+		<b>TATA TERTIB KERJA</b>
+	</center>
 	<pre style="font-family: "Times New Roman", Times, serif">
-		Surabaya, «Tanggal_TTD_Kontrak»
-		PT. Selaras Mitra Integra									Pekerja
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		«Nama_Pekerja»
-		«NAMA AREA MANAGER»							       ------------------------------
-		Area Manager
+		1.	PIHAK KEDUA wajib melakukan absensi ( Check In/Out ) sendiri pada alat absensi yang disediakan oleh PIHAK KESATU dan atau Pemberi Kerja
+		2.	PIHAK KEDUA wajib hadir pada waktu kerja yang telah ditentukan dalam perjanjian ini.
+		3.	PIHAK KEDUA wajib melaksanakan pekerjaan sesuai waktu kerja yang telah ditentukan dalam perjanjian ini.
+		4.	PIHAK KEDUA wajib memakai  tanda pengenal (Badge) selama melakukan pekerjaan.
+		5.	PIHAK KEDUA wajib memakai pakaian kerja dan alat keselamatan kerja selama melakukan pekerjaan.
+		6.	PIHAK KEDUA wajib mematuhi perintah atasan kecuali bertentangan dengan peraturan dan perundangan yang berlaku.
+		7.	PIHAK KEDUA wajib menjaga dan memelihara norma / kesusilaan, keamanan, ketertiban dan keselamatan barang, alat dan teman kerja pada lingkungan kerja.
+		8.	PIHAK KEDUA wajib mematuhi seluruh peratuan perusahaan.
 	</pre>
-
+	<center style="font-family: "Times New Roman", Times, serif">
+		<b>PASAL 9</b><br>
+		<b>FORCE MAJEURE</b>
+	</center>
+	<pre style="font-family: "Times New Roman", Times, serif">
+		Force Majeure adalah keadaan atau situasi memaksakan di luar kemampuan Para Pihak dimana <b>Perjanjian Kerja Waktu Tertentu (PKWT)</b> ini tidak mungkin lagi untuk diwujudkan / dilaksanakan oleh kedua belah pihak seperti : bencana alam, perang, kerusuhan sosial, pemogokan masal, peraturan pemerintah dan lain-lain.
+	</pre>
+	<center style="font-family: "Times New Roman", Times, serif">
+		<b>PASAL 10</b><br>
+		<b>SANKSI</b>
+	</center>
+	<pre style="font-family: "Times New Roman", Times, serif">
+		PIHAK KESATU dapat memutuskan hubungan kerja secara sepihak <b>tanpa kompensasi</b> apapun dengan PIHAK KEDUA apabila:
+		1.	PIHAK KEDUA tidak melaksanakan sebagian atau seluruhnya isi dan maksud perjanjian ini
+		2.	Mencuri, menggelapkan, menipu, madat, minum - minuman keras, berjudi, berbuat asusila, meperdagangkan barang-barang terlarang dan lain-lain di tempat kerja.
+		3.	Menghina, menganiaya, mengancam teman kerja atau PIHAK KEDUA.
+		4.	PIHAK KEDUA terbukti melakukan tindak pidana di dalam atau di luar lingkungan kerja
+		5.	PIHAK KEDUA terbukti memberikan keterangan atau data palsu / tidak benar kepada PIHAK KESATU
+		6.	PIHAK KEDUA MEmbocorkan rahasia PIHAK KESATU.
+		7.	Dengan sengaja aau akibat kelalaian PIHAK KEDUA menyebabkan kerugian, lingkungan kerja rusak atau hilangnya alat, barang atau harta PIHAK KESATU, apabila demikian maka PIHAK KESATU dapat meminta ganti rugi dengan barang yang sama atau sejumlah uang senilai barang dimaksud kepada PIHAK KEDUA.
+	</pre>
+	<center style="font-family: "Times New Roman", Times, serif">
+		<b>PASAL 11</b><br>
+		<b>BERAKHIRNYA PERJANJIAN KERJA</b>
+	</center>
+	<pre style="font-family: "Times New Roman", Times, serif">
+		1.	<b>Perjanjian Kerja Waktu Tertentu</b> ini akan <b>berakhir</b> dengan sendirinya <b>tanpa kompensasi</b> apapun dari PIHAK KESATU apabila terdapat salah satu keadaan atau situasi sebagai berikut:
+		a.	Berakhirnya Perjanjian Kerja Waktu Tertentu ini sebagaimana dimaksud pasal 1.
+		b.	PIHAK KEDUA meninggal dunia.
+		c.	PIHAK KEDUA wanprestasi terhadap sebagian atau seluruhnya dari Perjanjian ini.
+		d.	Selesainya pekerjaan PIHAK KESATU
+		e.	Apabila PIHAK KEDUA dinonaktifkan atau dikembalikan oleh pemberi kerja PIHAK KESATU.
+		f.	PIHAK KEDUA mengundurkan diri atas kemauan sendiri.
+		2.	Selesainya pekerjaan PIHAK KESATU sebagaimana dimaksud ayat 1 butir d dalam pasal ini  adalah berakhirnya hubungan kerja PIHAK KESATU dengan pemberi kerja.
+		3.	Apabila terjadi kondisi sebagaimana ayat 2 pasal ini maka pasal 1 dianggap tidak berlaku lagi
+	</pre>
+	<center style="font-family: "Times New Roman", Times, serif">
+		<b>PASAL 12</b><br>
+		<b>PENYELESAIAN PERSELISIHAN</b>
+	</center>
+	<pre style="font-family: "Times New Roman", Times, serif">
+		1.	Apabila terjadi perselisihan antara kedua belah pihak, akan diselesaikan secara musyawarah untuk mencapai mufakat.
+		2.	Apabila tidak tercapai kesepakatan, maka kedua belah pihak sepakat penyelesaiannya dilakukan sesuai peraturan perundangan keselamatan kerja yang berlaku atau prosedur hukum, dengan memilih kedudukan hukum di kantor Pengadian Negeri setempat.
+	</pre>
+	<center style="font-family: "Times New Roman", Times, serif">
+		<b>PASAL 13</b><br>
+		<b>PENUTUP</b>
+	</center>
+	<pre style="font-family: "Times New Roman", Times, serif">
+		1.	Perjanjian Kerja Waktu Tertentu ini dianggap sah setelah ditandatangani oleh kedua belah pihak.
+		2.	Perjanjian Kerja Waktu Tertentu ini dibuat rangkap 2 (dua) dengan dibubuhi materai cukup dan masing-masing mempunyai kekuatan hukum yang sama rangkap satu untuk PIHAK KESATU dan rangkap dua untuk PIHAK KEDUA
+	</pre>
+	<center style="font-family: "Times New Roman", Times, serif">
+		Ditandatangani di : Mojokerto<br>
+		<b><u>Tanggal : 06 Juni 2019</u></b>
+	</center>
+	<br>
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="row">
+				<div class="col-lg-4 text-center" style="font-family: "Times New Roman", Times, serif">
+					<b>PIHAK KEDUA</b>
+					<br>
+					<br>
+					<br>
+					<b>({{$jobseeker->nama_lengkap}})</b>
+				</div>
+				<div class="col-lg-4">
+				</div>
+				<div class="col-lg-4 text-center" style="font-family: "Times New Roman", Times, serif">
+					<b>PIHAK KESATU</b>
+					<br>
+					<br>
+					<br>
+					<b>( WIWIK PRADIANA, SE., MM )</b>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

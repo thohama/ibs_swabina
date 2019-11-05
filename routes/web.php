@@ -84,7 +84,7 @@ Route::get('tolak_pelamar/{id}','HomeController@tolak_pelamar');
 
 //HUBNAKER
 Route::get('hubnaker/data_pegawai_lulus','HubnakerController@index_pelamar_lulus');
-Route::get('hubnaker/pkwt','HubnakerController@pkwt_pelamar_lulus');
+Route::get('hubnaker/pkwt/{id}','HubnakerController@pkwt_pelamar_lulus');
 
 
 Route::prefix('jobseeker')->group(function(){
