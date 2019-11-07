@@ -33,6 +33,11 @@
                     <span class="nav-label">Data Karyawan</span>
                 </a>
             </li>
+            <li class="@if(url('daftar_pengajuan') == request()->url()) active  @endif treeview">
+                <a href="{{url('daftar_pengajuan')}}"><i class="fa fa-check"></i>
+                    <span class="nav-label">Pengajuan Penggantian APD</span>
+                </a>
+            </li>
 
 
                 <!-- <li class="treeview sidebar data-master">

@@ -30,8 +30,14 @@ Route::get('requestpekerjaan', function () {
 Route::get('sp_lembur', 'SPLController@index');
 Route::post('sp_lembur/submit', 'SPLController@spl_submit');
 
-
+//APD
 Route::get('datakaryawan', 'HomeController@data_karyawan');
+Route::get('editkaryawan/{id}', 'HomeController@edit_karyawan');
+Route::match(['put','patch'],'updatekaryawan/{id}', 'HomeController@update_karyawan');
+Route::get('pengajuanapd/{id}','HomeController@pengajuanAPD');
+Route::get('daftar_pengajuan', 'HomeController@daftar_pengajuan');
+
+//PAYROLL
 Route::get('data_payroll','HomeController@data_payroll');
 Route::get('generate_payroll','HomeController@generate_payroll');
 Route::post('generate_payroll/simpan','HomeController@simpan_generate_payroll');

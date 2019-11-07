@@ -12,7 +12,7 @@
 
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    <h2> Data Karyawan </h2>
+    <h2> Pengajuan Penggantian APD </h2>
     <ol class="breadcrumb">
       <li>
         <a>Home</a>
@@ -21,7 +21,7 @@
         <a>Data Karyawan</a>
       </li>
       <li class="active">
-        <strong> Data Karyawan </strong>
+        <strong> Pengajuan Penggantian APD </strong>
       </li>
 
     </ol>
@@ -62,11 +62,12 @@
                   <th style="text-align : center;"> No </th>
                   <th style="text-align : center;"> NIK </th>
                   <th style="text-align : center;"> Nama </th>
-                  <th style="text-align : center;"> Email </th>
-                  <th style="text-align : center;"> No. KTP </th>
-                  <th style="text-align : center;"> Alamat </th>
-                  <th style="text-align : center;"> Tempat/Tanggal Lahir </th>
                   <th style="text-align : center;"> Jenis Kelamin </th>
+                  <th style="text-align : center;"> Tinggi Badan </th>
+                  <th style="text-align : center;"> Berat Badan </th>
+                  <th style="text-align : center;"> Ukuran Baju </th>
+                  <th style="text-align : center;"> Ukuran Celana </th>
+                  <th style="text-align : center;"> Ukuran Sepatu </th>
                   <th style="text-align : center;"> Aksi </th>
                 </tr>
               </thead>
@@ -80,14 +81,14 @@
                   <td class="text-center">{{$i}}</td>
                   <td><center>{{$u->id}}</td>
                     <td><center>{{$u->nama}}</center></td>
-                    <td><center>{{$u->email}}</center></td>
-                    <td><center>{{$u->no_ktp}}</center></td>
-                    <td><center>{{$u->alamat}}</center></td>
-                    <td><center>{{$u->tempat_lahir}}, {{$u->tanggal_lahir}}</center></td>
                     <td><center>{{$u->jenis_kelamin}}</center></td>
+                    <td><center>{{$u->tinggi_badan}} cm</center></td>
+                    <td><center>{{$u->berat_badan}} kg</center></td>
+                    <td><center>{{$u->ukuran_baju}}</center></td>
+                    <td><center>{{$u->ukuran_celana}}</center></td>
+                    <td><center>{{$u->ukuran_sepatu}}</center></td>
                     <td><center>
-                      <a href="{{url('editkaryawan')}}/{{$u->id}}" target="_blank"><button class="btn btn-warning" type="button">Edit</button></a>
-                      <a href="{{url('pengajuanapd')}}/{{$u->id}}" target="_blank"><button class="btn btn-primary" type="button">Ajukan Penggantian APD</button></a>
+                      <a href="{{url('pengajuanapd')}}/{{$u->id}}" target="_blank"><button class="btn btn-primary" type="button">Approve</button></a>
                     </center></td>
                     @php
                     $i++;

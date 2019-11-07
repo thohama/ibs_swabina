@@ -9,6 +9,7 @@ use DB;
 use Illuminate\Database\QueryException;
 use App\md_jobseeker;
 use App\md_karyawan;
+use App\md_user;
 use App\st_Tingkatpendidikan;
 use App\st_jobseeker_pendidikanformal;
 use App\st_jobseeker_pendidikaninformal;
@@ -61,10 +62,44 @@ class HomeController extends Controller
         return view('basicform');
     }
 
+    //APD
     public function data_karyawan(){
-        $data_karyawan = DB::select(DB::raw("SELECT * FROM user where iskaryawan = 1"));
+        $data_karyawan = DB::select(DB::raw("SELECT * FROM user where iskaryawan = 1 and status_apd = 0"));
         return view('data_karyawan', compact('data_karyawan'));
     }
+
+    public function edit_karyawan($id){
+        $karyawan = md_user::findorFail($id);
+        return view('edit_karyawan', compact('karyawan'));
+    }
+
+    public function update_karyawan(Request $request, $id){
+        // dd($request->all());
+        md_user::where('id',$id)->update(array(
+            'tinggi_badan' => $request->tinggi_badan,
+            'berat_badan' => $request->berat_badan,
+            'ukuran_baju' => $request->ukuran_baju,
+            'ukuran_celana' => $request->ukuran_celana,
+            'ukuran_sepatu' => $request->ukuran_sepatu
+        ));
+        return redirect('datakaryawan')->with('info','Data Karyawan berhasil diubah');
+    }
+
+    public function pengajuanAPD(Request $request, $id)
+    {
+        md_user::where('id',$id)->update(array(
+            'status_apd'=>1
+            ));
+
+        return redirect()->back()->with('status', 'Berhasil!');
+    }
+
+    public function daftar_pengajuan(){
+        $data_karyawan = DB::select(DB::raw("SELECT * FROM user where iskaryawan = 1 and status_apd = 1"));
+        return view('pengajuan_penggantian_apd', compact('data_karyawan'));
+    }
+
+    //PAYROLL
 
     public function data_payroll(){
         $data_payroll = DB::table('tbl_gaji_hdr')
@@ -384,16 +419,33 @@ class HomeController extends Controller
     public function terima_pelamar(Request $request, $id)
     {
         $jobseeker = md_jobseeker::findorFail($id);
+        $users = User::where('id',$jobseeker->users_id)->first();
+        $email = $users->email;
+        $email_array = explode('@',$email);
+
         md_jobseeker::where('users_id',$id)->update(array(
             'status_diterima'=>2
             ));
+
         $karyawan = new md_karyawan();
         $karyawan->nik = $jobseeker->NIK;
         $karyawan->nama = $jobseeker->nama_lengkap;
         $karyawan->gp = '3800000';
         $karyawan->tunj_transport = '600000';
         $karyawan->tunj_makan = '500000';
-        $karyawan->save(); 
+        $karyawan->save();
+
+        $user = new md_user();
+        $user->username = $email_array[0].'123';
+        $user->email = $email;
+        $user->nama = $jobseeker->nama_lengkap;
+        $user->no_ktp = $jobseeker->NIK;
+        $user->alamat = $jobseeker->alamat_ktp;
+        $user->tempat_lahir = $jobseeker->tempat_lahir;
+        $user->tanggal_lahir = $jobseeker->tanggal_lahir;
+        $user->jenis_kelamin = $jobseeker->jenis_kelamin;
+        $user->agama = $jobseeker->agama;
+        $user->save();
 
         return redirect()->back()->with('status', 'Berhasil!');
     }
