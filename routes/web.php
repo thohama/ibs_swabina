@@ -35,7 +35,11 @@ Route::get('datakaryawan', 'HomeController@data_karyawan');
 Route::get('editkaryawan/{id}', 'HomeController@edit_karyawan');
 Route::match(['put','patch'],'updatekaryawan/{id}', 'HomeController@update_karyawan');
 Route::get('pengajuanapd/{id}','HomeController@pengajuanAPD');
+Route::get('tolakpengajuanapd/{id}','HomeController@tolakPengajuanAPD');
+Route::get('terimapengajuanapd/{id}','HomeController@terimaPengajuanAPD');
+Route::get('approvepengajuanapd/{id}','HomeController@approvePengajuanAPD');
 Route::get('daftar_pengajuan', 'HomeController@daftar_pengajuan');
+Route::get('serah_terima', 'HomeController@serah_terima');
 
 //PAYROLL
 Route::get('data_payroll','HomeController@data_payroll');

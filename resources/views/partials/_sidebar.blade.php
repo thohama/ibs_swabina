@@ -28,18 +28,20 @@
                     <span class="nav-label">Request Pegawai</span>
                 </a>
             </li>
-            <li class="@if(url('datakaryawan') == request()->url()) active  @endif treeview">
-                <a href="{{url('datakaryawan')}}"><i class="fa fa-users"></i>
-                    <span class="nav-label">Data Karyawan</span>
-                </a>
+            <li class="@if(url('datakaryawan') or url('daftar_pengajuan') or url('serah_terima') == request()->url()) active @endif treeview">
+                <a href="#"><i class="fa fa-user"></i> <span class="nav-label">APD</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li class="@if(url('datakaryawan') == request()->url()) == request()->url()) active @else '' @endif">
+                        <a href="{{ url('datakaryawan') }}">Data Karyawan</a>
+                    </li>
+                    <li class="@if(url('daftar_pengajuan') == request()->url()) active @else '' @endif">
+                        <a href="{{ url('daftar_pengajuan') }}">Pengajuan Penggantian APD</a>
+                    </li>
+                    <li class="@if(url('serah_terima') == request()->url()) active @else '' @endif">
+                        <a href="{{ url('serah_terima') }}">Serah Terima APD</a>
+                    </li>
+                </ul>
             </li>
-            <li class="@if(url('daftar_pengajuan') == request()->url()) active  @endif treeview">
-                <a href="{{url('daftar_pengajuan')}}"><i class="fa fa-check"></i>
-                    <span class="nav-label">Pengajuan Penggantian APD</span>
-                </a>
-            </li>
-
-
                 <!-- <li class="treeview sidebar data-master">
                 <a href="#" id="step1"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Template</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
@@ -53,26 +55,26 @@
                     </li>
                 </ul>
             </li> -->
-        {{--    <li class="@if(url('data_payroll') == request()->url() or url('generate_payroll') == request()->url()) active  @endif treeview">--}}
-        {{--        <a href="#"><i class="fa fa-usd"></i> <span class="nav-label">Payroll</span><span class="fa arrow"></span></a>--}}
-        {{--        <ul class="nav nav-second-level collapse">--}}
-        {{--            <li class="@if(url('data_payroll') == request()->url()) active @else '' @endif">--}}
-        {{--                <a href="{{url('data_payroll')}}">Data Payroll</a>--}}
-        {{--            </li>--}}
-        {{--        </ul>--}}
-        {{--        <ul class="nav nav-second-level collapse">--}}
-        {{--            <li class="@if(url('generate_payroll') == request()->url()) active @else '' @endif">--}}
-        {{--                <a href="{{ url('generate_payroll') }}">Generate Payroll</a>--}}
-        {{--            </li>--}}
-        {{--        </ul>--}}
-        {{--    </li>--}}
+            {{--    <li class="@if(url('data_payroll') == request()->url() or url('generate_payroll') == request()->url()) active  @endif treeview">--}}
+                {{--        <a href="#"><i class="fa fa-usd"></i> <span class="nav-label">Payroll</span><span class="fa arrow"></span></a>--}}
+                {{--        <ul class="nav nav-second-level collapse">--}}
+                    {{--            <li class="@if(url('data_payroll') == request()->url()) active @else '' @endif">--}}
+                        {{--                <a href="{{url('data_payroll')}}">Data Payroll</a>--}}
+                    {{--            </li>--}}
+                {{--        </ul>--}}
+                {{--        <ul class="nav nav-second-level collapse">--}}
+                    {{--            <li class="@if(url('generate_payroll') == request()->url()) active @else '' @endif">--}}
+                        {{--                <a href="{{ url('generate_payroll') }}">Generate Payroll</a>--}}
+                    {{--            </li>--}}
+                {{--        </ul>--}}
+            {{--    </li>--}}
             <li class="@if(url('payroll') == request()->url()
                 or url('/payroll/slipgaji/{id}') == request()->url()) active @else '' @endif  treeview">
                 <a href="{{ url('payroll')}}"><i class="fa fa-usd"></i> <span class="nav-label">Generate Payroll</span></a>
             </li>
 
             <li class="@if(url('penglembur') == request()->url()
-            or url('penglembur/daftar') == request()->url()) active @else '' @endif treeview">
+                or url('penglembur/daftar') == request()->url()) active @else '' @endif treeview">
                 <a href="#"><i class="fa fa-coffee"></i> <span class="nav-label">Lembur</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li class="@if(url('penglembur') == request()->url()) active @else '' @endif"><a href="{{ url('penglembur') }}">Form Pengajuan</a></li>
@@ -81,7 +83,7 @@
             </li>
 
             <li class="@if(url('/presensi') == request()->url()
-            or url('/presensi/generate') == request()->url()) active @else '' @endif treeview">
+                or url('/presensi/generate') == request()->url()) active @else '' @endif treeview">
                 <a href="#"><i class="fa fa-book"></i> <span class="nav-label">Presensi</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li class="@if(url('/presensi') == request()->url()) active @else '' @endif"><a href="{{ url('/presensi') }}">Daftar Absensi</a></li>
@@ -125,23 +127,23 @@
                     </li>
                 </ul>
             </li>
-{{--            <li class="treeview sidebar data-master">--}}
-{{--                <a href="#"><i class="fa fa-gavel"></i> <span class="nav-label">Manajemen Hak Akses</span><span class="fa arrow"></span></a>--}}
-{{--                @can('users-list')--}}
-{{--                <ul class="nav nav-second-level collapse">--}}
-{{--                    <li class=" sidebar master-akun">--}}
-{{--                        <a href="{{ url('users') }}"><i class="" aria-hidden="true"></i><span class="nav-label">Manajemen User</span></a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--                @endcan--}}
-{{--                @can('role-list')--}}
-{{--                <ul class="nav nav-second-level collapse">--}}
-{{--                    <li class=" sidebar master-akun">--}}
-{{--                        <a href="{{ url('roles') }}"><i class="active" aria-hidden="true"></i><span class="nav-label">Manajemen Role</span></a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--                @endcan--}}
-{{--            </li>--}}
+            {{--            <li class="treeview sidebar data-master">--}}
+                {{--                <a href="#"><i class="fa fa-gavel"></i> <span class="nav-label">Manajemen Hak Akses</span><span class="fa arrow"></span></a>--}}
+                {{--                @can('users-list')--}}
+                {{--                <ul class="nav nav-second-level collapse">--}}
+                    {{--                    <li class=" sidebar master-akun">--}}
+                        {{--                        <a href="{{ url('users') }}"><i class="" aria-hidden="true"></i><span class="nav-label">Manajemen User</span></a>--}}
+                    {{--                    </li>--}}
+                {{--                </ul>--}}
+                {{--                @endcan--}}
+                {{--                @can('role-list')--}}
+                {{--                <ul class="nav nav-second-level collapse">--}}
+                    {{--                    <li class=" sidebar master-akun">--}}
+                        {{--                        <a href="{{ url('roles') }}"><i class="active" aria-hidden="true"></i><span class="nav-label">Manajemen Role</span></a>--}}
+                    {{--                    </li>--}}
+                {{--                </ul>--}}
+                {{--                @endcan--}}
+            {{--            </li>--}}
             <li class="@if(url('setup_komponen_gaji') == request()->url() or url('setup_periode_gaji') == request()->url()) active  @endif treeview sidebar data-master">
                 <a href="#"><i class="fa fa-cogs"></i> <span class="nav-label">Setup System</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">

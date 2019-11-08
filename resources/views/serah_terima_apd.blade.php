@@ -12,7 +12,7 @@
 
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    <h2> Pengajuan Penggantian APD </h2>
+    <h2> Serah Terima APD </h2>
     <ol class="breadcrumb">
       <li>
         <a>Home</a>
@@ -21,7 +21,7 @@
         <a>Data Karyawan</a>
       </li>
       <li class="active">
-        <strong> Pengajuan Penggantian APD </strong>
+        <strong> Serah Terima APD </strong>
       </li>
 
     </ol>
@@ -88,8 +88,7 @@
                     <td><center>{{$u->ukuran_celana}}</center></td>
                     <td><center>{{$u->ukuran_sepatu}}</center></td>
                     <td><center>
-                      <a href="{{url('terimapengajuanapd')}}/{{$u->id}}" target="_blank"><button class="btn btn-primary" type="button">Terima</button></a>
-                      <a href="{{url('tolakpengajuanapd')}}/{{$u->id}}" target="_blank"><button class="btn btn-danger" type="button">Tolak</button></a>
+                      <a href="{{url('approvepengajuanapd')}}/{{$u->id}}" target="_blank"><button class="btn btn-primary" type="button">Approve</button></a>
                     </center></td>
                     @php
                     $i++;

@@ -94,11 +94,42 @@ class HomeController extends Controller
         return redirect()->back()->with('status', 'Berhasil!');
     }
 
+    public function terimaPengajuanAPD(Request $request, $id)
+    {
+        md_user::where('id',$id)->update(array(
+            'status_apd'=>2
+            ));
+
+        return redirect()->back()->with('status', 'Berhasil!');
+    }
+
+    public function tolakPengajuanAPD(Request $request, $id)
+    {
+        md_user::where('id',$id)->update(array(
+            'status_apd'=>0
+            ));
+
+        return redirect()->back()->with('status', 'Berhasil!');
+    }
+
+    public function approvePengajuanAPD(Request $request, $id)
+    {
+        md_user::where('id',$id)->update(array(
+            'status_apd'=>3
+            ));
+
+        return redirect()->back()->with('status', 'Berhasil!');
+    }
+
     public function daftar_pengajuan(){
         $data_karyawan = DB::select(DB::raw("SELECT * FROM user where iskaryawan = 1 and status_apd = 1"));
         return view('pengajuan_penggantian_apd', compact('data_karyawan'));
     }
 
+    public function serah_terima(){
+        $data_karyawan = DB::select(DB::raw("SELECT * FROM user where iskaryawan = 1 and status_apd = 2"));
+        return view('serah_terima_apd', compact('data_karyawan'));
+    }
     //PAYROLL
 
     public function data_payroll(){
