@@ -30,6 +30,11 @@ Route::get('requestpekerjaan', function () {
 Route::get('sp_lembur', 'SPLController@index');
 Route::post('sp_lembur/submit', 'SPLController@spl_submit');
 
+//PENILAIAN PEGAWAI
+Route::get('penilaian_datakaryawan', 'PenilaianController@data_karyawan');
+Route::get('periode_penilaian', 'PenilaianController@periode_penilaian');
+
+
 //APD
 Route::get('datakaryawan', 'HomeController@data_karyawan');
 Route::get('editkaryawan/{id}', 'HomeController@edit_karyawan');

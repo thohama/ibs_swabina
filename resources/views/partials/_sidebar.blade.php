@@ -23,24 +23,123 @@
                     <span class="nav-label">Dashboards</span>
                 </a>
             </li>
+            <li class="@if(url('admin/form/permintaan_tenaga_kerja') == request()->url()) active @else '' @endif treeview">
+                <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Pemasaran</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li class="@if(url('admin/form/permintaan_tenaga_kerja') == request()->url()) active @else '' @endif treeview">
+                        <a href="#"><span class="nav-label">Rekrutmen</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li class="@if(url('admin/form/permintaan_tenaga_kerja') == request()->url()) active @else '' @endif">
+                                <a href="{{ url('admin/form/permintaan_tenaga_kerja') }}">Proses Kontrak</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="@if(url('admin/form/permintaan_tenaga_kerja') == request()->url()
+                or url('admin/daftar_permintaan_tenaga_kerja') == request()->url() 
+                or url('daftar_pengajuan') == request()->url()
+                or url('serah_terima') == request()->url()) active @else '' @endif treeview">
+                <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Unit Kerja</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li class="@if(url('admin/form/permintaan_tenaga_kerja') == request()->url()
+                        or url('admin/daftar_permintaan_tenaga_kerja') == request()->url()) active @else '' @endif treeview">
+                        <a href="#"><span class="nav-label">Rekrutmen</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li class="@if(url('admin/daftar_permintaan_tenaga_kerja') == request()->url()) active @else '' @endif">
+                                <a href="{{ url('admin/daftar_permintaan_tenaga_kerja') }}">Permintaan Pegawai</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="@if(url('daftar_pengajuan') == request()->url()
+                        or url('serah_terima') == request()->url()) active @else '' @endif treeview">
+                        <a href="#"><span class="nav-label">APD</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li class="@if(url('daftar_pengajuan') == request()->url()) active @else '' @endif">
+                                <a href="{{ url('daftar_pengajuan') }}">Approval/Persetujuan Pengajuan APD</a>
+                            </li>
+                            <li class="@if(url('serah_terima') == request()->url()) active @else '' @endif">
+                                <a href="{{ url('serah_terima') }}">Serah Terima APD</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="@if(url('admin/tambah_data_pegawai') == request()->url()
+                or url('admin/data_pegawai') == request()->url()
+                or url('admin/data_pegawai_lulus') == request()->url()
+                or url('datakaryawan') == request()->url()) active @else '' @endif treeview">
+                <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Kepegawaian</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li class="@if(url('admin/tambah_data_pegawai') == request()->url()
+                        or url('admin/data_pegawai') == request()->url()
+                        or url('admin/data_pegawai_lulus') == request()->url()) active @else '' @endif treeview">
+                        <a href="#"><span class="nav-label">Rekrutmen</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li class="@if(url('admin/tambah_data_pegawai') == request()->url()) active @else '' @endif">
+                                <a href="{{ url('admin/tambah_data_pegawai') }}">Lamaran Internal</a>
+                            </li>
+                            <li class="@if(url('admin/data_pegawai') == request()->url()) active @else '' @endif">
+                                <a href="{{ url('admin/data_pegawai') }}">Proses Seleksi Rekrutmen</a>
+                            </li>
+                            <li class="@if(url('admin/data_pegawai_lulus') == request()->url()) active @else '' @endif">
+                                <a href="{{url('admin/data_pegawai_lulus')}}">Daftar Pelamar Lulus Seleksi</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="@if(url('datakaryawan') == request()->url()) active @else '' @endif treeview">
+                        <a href="#"><span class="nav-label">APD</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li class="@if(url('datakaryawan') == request()->url()) == request()->url()) active @else '' @endif">
+                                <a href="{{ url('datakaryawan') }}">Pengajuan APD</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="@if(url('hubnaker/data_pegawai_lulus') == request()->url()) active @else '' @endif treeview">
+                <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Hubnaker</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li class="@if(url('hubnaker/data_pegawai_lulus') == request()->url()) active @else '' @endif treeview">
+                        <a href="#"><span class="nav-label">Rekrutmen</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li class="@if(url('hubnaker/data_pegawai_lulus') == request()->url()) active @else '' @endif">
+                                <a href="{{url('hubnaker/data_pegawai_lulus')}}">Persetujuan Hasil Seleksi</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="@if(url('serah_terima') == request()->url()) active @else '' @endif treeview">
+                <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">K3</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li class="@if(url('serah_terima') == request()->url()) active @else '' @endif treeview">
+                        <a href="#"><span class="nav-label">APD</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li class="@if(url('serah_terima') == request()->url()) active @else '' @endif">
+                                <a href="{{ url('serah_terima') }}">Serah Terima APD</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="@if(url('penilaian_datakaryawan') == request()->url()) active @else '' @endif treeview">
+                <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Atasan</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li class="@if(url('penilaian_datakaryawan') == request()->url()) active @else '' @endif treeview">
+                        <a href="#"><span class="nav-label">Penilaian Pegawai</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li class="@if(url('penilaian_datakaryawan') == request()->url()) active @else '' @endif">
+                                <a href="{{ url('penilaian_datakaryawan') }}">Promosi/Demosi Pegawai</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
             <li class="@if(url('requestpekerjaan') == request()->url()) active  @endif treeview">
                 <a href="{{url('requestpekerjaan')}}"><i class="fa fa-exchange"></i>
                     <span class="nav-label">Request Pegawai</span>
                 </a>
-            </li>
-            <li class="@if(url('datakaryawan') or url('daftar_pengajuan') or url('serah_terima') == request()->url()) active @endif treeview">
-                <a href="#"><i class="fa fa-user"></i> <span class="nav-label">APD</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li class="@if(url('datakaryawan') == request()->url()) == request()->url()) active @else '' @endif">
-                        <a href="{{ url('datakaryawan') }}">Data Karyawan</a>
-                    </li>
-                    <li class="@if(url('daftar_pengajuan') == request()->url()) active @else '' @endif">
-                        <a href="{{ url('daftar_pengajuan') }}">Pengajuan Penggantian APD</a>
-                    </li>
-                    <li class="@if(url('serah_terima') == request()->url()) active @else '' @endif">
-                        <a href="{{ url('serah_terima') }}">Serah Terima APD</a>
-                    </li>
-                </ul>
             </li>
                 <!-- <li class="treeview sidebar data-master">
                 <a href="#" id="step1"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Template</span><span class="fa arrow"></span></a>
@@ -88,43 +187,6 @@
                 <ul class="nav nav-second-level collapse">
                     <li class="@if(url('/presensi') == request()->url()) active @else '' @endif"><a href="{{ url('/presensi') }}">Daftar Absensi</a></li>
                     <li class="@if(url('/presensi/generate') == request()->url()) active @else '' @endif"><a href="{{ url('/presensi/generate') }}">Generate Presensi</a></li>
-                </ul>
-            </li>
-
-            <li class="@if(url('admin/form/permintaan_tenaga_kerja') or url('admin/daftar_permintaan_tenaga_kerja') == request()->url()) active  @endif treeview">
-                <a href="#"><i class="fa fa-th"></i> <span class="nav-label">Unit Kerja</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li class="@if(url('admin/form/permintaan_tenaga_kerja') == request()->url()) active @else '' @endif">
-                        <a href="{{ url('admin/form/permintaan_tenaga_kerja') }}">Input Permintaan Tenaga Kerja</a>
-                    </li>
-                    <li class="@if(url('admin/daftar_permintaan_tenaga_kerja') == request()->url()) active @else '' @endif">
-                        <a href="{{ url('admin/daftar_permintaan_tenaga_kerja') }}">Permintaan Tenaga Kerja</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="@if(url('admin/tambah_data_pegawai') == request()->url()
-                or url('admin/data_pegawai') == request()->url()
-                or url('admin/data_pegawai_lulus') == request()->url()) active  @endif treeview">
-                <a href="#"><i class="fa fa-th"></i> <span class="nav-label">Kepegawaian</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li class="@if(url('admin/tambah_data_pegawai') == request()->url()) active @else '' @endif">
-                        <a href="{{ url('admin/tambah_data_pegawai') }}">Input Data Pelamar</a>
-                    </li>
-                    <li class="@if(url('admin/data_pegawai') == request()->url()) active @else '' @endif">
-                        <a href="{{ url('admin/data_pegawai') }}">Kelola Pelamar</a>
-                    </li>
-                    <li class="@if(url('admin/data_pegawai_lulus') == request()->url()) active @else '' @endif">
-                        <a href="{{url('admin/data_pegawai_lulus')}}">Daftar Pelamar Lulus Seleksi</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="@if(url('hubnaker/data_pegawai_lulus') == request()->url()) active  @endif treeview">
-                <a href="#"><i class="fa fa-th"></i> <span class="nav-label">Hubnaker</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li class="@if(url('hubnaker/data_pegawai_lulus') == request()->url()) active @else '' @endif">
-                        <a href="{{url('hubnaker/data_pegawai_lulus')}}">Daftar Pelamar Lulus Seleksi</a>
-                    </li>
                 </ul>
             </li>
             {{--            <li class="treeview sidebar data-master">--}}
