@@ -290,10 +290,17 @@ class HomeController extends Controller
         return view('admin.index_data_pegawai', compact('jobseeker'));
     }
 
+    public function index_pelamar()
+    {
+        $jobseeker = md_jobseeker::all();
+        return view('admin.index_data_pelamar', compact('jobseeker'));
+    }
+
     public function tambah_pegawai()
     {
         $kabkota = st_Kabkota::all();
         $kecamatan = st_Kecamatan::all();
+        // dd($kecamatan);
         $tingkat_pendidikan = st_Tingkatpendidikan::all();
         return view('admin.form_tambah_data_pegawai',compact('kabkota','kecamatan','tingkat_pendidikan'));
     }

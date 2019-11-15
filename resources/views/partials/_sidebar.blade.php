@@ -18,7 +18,7 @@
             </li>
 
 
-            <li class="@if(url('dashboard') == request()->url()) active  @endif treeview">
+            <li class="@if(url('dashboard') == request()->url()) active @else '' @endif treeview">
                 <a href="{{url('dashboard')}}"><i class="fa fa-tachometer"></i>
                     <span class="nav-label">Dashboards</span>
                 </a>
@@ -67,17 +67,22 @@
             </li>
             <li class="@if(url('admin/tambah_data_pegawai') == request()->url()
                 or url('admin/data_pegawai') == request()->url()
+                or url('admin/data_pelamar') == request()->url()
                 or url('admin/data_pegawai_lulus') == request()->url()
                 or url('datakaryawan') == request()->url()) active @else '' @endif treeview">
                 <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Kepegawaian</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li class="@if(url('admin/tambah_data_pegawai') == request()->url()
+                        or url('admin/data_pelamar') == request()->url()
                         or url('admin/data_pegawai') == request()->url()
                         or url('admin/data_pegawai_lulus') == request()->url()) active @else '' @endif treeview">
                         <a href="#"><span class="nav-label">Rekrutmen</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                             <li class="@if(url('admin/tambah_data_pegawai') == request()->url()) active @else '' @endif">
                                 <a href="{{ url('admin/tambah_data_pegawai') }}">Lamaran Internal</a>
+                            </li>
+                            <li class="@if(url('admin/data_pelamar') == request()->url()) active @else '' @endif">
+                                <a href="{{ url('admin/data_pelamar') }}">Data Pelamar</a>
                             </li>
                             <li class="@if(url('admin/data_pegawai') == request()->url()) active @else '' @endif">
                                 <a href="{{ url('admin/data_pegawai') }}">Proses Seleksi Rekrutmen</a>
@@ -136,7 +141,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="@if(url('requestpekerjaan') == request()->url()) active  @endif treeview">
+            <li class="@if(url('requestpekerjaan') == request()->url()) active @else '' @endif treeview">
                 <a href="{{url('requestpekerjaan')}}"><i class="fa fa-exchange"></i>
                     <span class="nav-label">Request Pegawai</span>
                 </a>
@@ -154,7 +159,7 @@
                     </li>
                 </ul>
             </li> -->
-            {{--    <li class="@if(url('data_payroll') == request()->url() or url('generate_payroll') == request()->url()) active  @endif treeview">--}}
+            {{--    <li class="@if(url('data_payroll') == request()->url() or url('generate_payroll') == request()->url()) active @else '' @endif treeview">--}}
                 {{--        <a href="#"><i class="fa fa-usd"></i> <span class="nav-label">Payroll</span><span class="fa arrow"></span></a>--}}
                 {{--        <ul class="nav nav-second-level collapse">--}}
                     {{--            <li class="@if(url('data_payroll') == request()->url()) active @else '' @endif">--}}
@@ -206,7 +211,7 @@
                 {{--                </ul>--}}
                 {{--                @endcan--}}
             {{--            </li>--}}
-            <li class="@if(url('setup_komponen_gaji') == request()->url() or url('setup_periode_gaji') == request()->url()) active  @endif treeview sidebar data-master">
+            <li class="@if(url('setup_komponen_gaji') == request()->url() or url('setup_periode_gaji') == request()->url()) active @else '' @endif treeview sidebar data-master">
                 <a href="#"><i class="fa fa-cogs"></i> <span class="nav-label">Setup System</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li class="@if(url('setup_komponen_gaji') == request()->url()) active @else '' @endif">

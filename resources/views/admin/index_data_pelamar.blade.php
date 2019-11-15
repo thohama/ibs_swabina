@@ -12,16 +12,16 @@
 
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    <h2> Data Karyawan </h2>
+    <h2> Data Pelamar </h2>
     <ol class="breadcrumb">
       <li>
         <a>Home</a>
       </li>
       <li>
-        <a>Data Karyawan</a>
+        <a>Kepegawaian</a>
       </li>
       <li class="active">
-        <strong> Data Karyawan </strong>
+        <strong> Data Pelamar  </strong>
       </li>
 
     </ol>
@@ -36,7 +36,7 @@
     <div class="col-lg-12" >
       <div class="ibox float-e-margins">
         <div class="ibox-title">
-          <h5> Data Karyawan
+          <h5> Data Pelamar 
            <!-- {{Session::get('comp_year')}} -->
          </h5>
 
@@ -46,6 +46,20 @@
           <div class="col-xs-12">
 
             <div class="box" id="seragam_box">
+              <div class="col-sm-6">
+                <form method="POST" class="form-horizontal" action="{{ route('pegawai.import') }}" enctype="multipart/form-data">
+                  @csrf
+                  <fieldset>
+                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                      <span class="btn btn-default btn-file"><span class="fileinput-new">Pilih File Excel</span>
+                      <span class="fileinput-exists">Change</span><input type="file" name="file"/></span>
+                      <span class="fileinput-filename"></span>
+                      <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">×</a>
+                    </div> 
+                  </fieldset>
+                  <button class="btn btn-primary" type="submit">Import</button>
+                </form>
+              </div>
               <div class="col-md-10 col-sm-10 col-xs-10" style="padding-bottom: 10px;">
                 <div class="form-group">
 
@@ -62,54 +76,50 @@
                   <th style="text-align : center;"> No </th>
                   <th style="text-align : center;"> NIK </th>
                   <th style="text-align : center;"> Nama </th>
-                  <th style="text-align : center;"> Email </th>
-                  <th style="text-align : center;"> No. KTP </th>
                   <th style="text-align : center;"> Alamat </th>
-                  <th style="text-align : center;"> Tempat/Tanggal Lahir </th>
-                  <th style="text-align : center;"> Jenis Kelamin </th>
-                  <th style="text-align : center;"> Aksi </th>
+                  <th style="text-align : center;"> Keterangan </th>
                 </tr>
               </thead>
               <tbody>
                 @php
                 $i=1;
                 @endphp
-                @foreach($data_karyawan as $u)
+                @foreach($jobseeker as $u)
 
                 <tr>
                   <td class="text-center">{{$i}}</td>
-                  <td><center>{{$u->id}}</td>
-                    <td><center>{{$u->nama}}</center></td>
-                    <td><center>{{$u->email}}</center></td>
-                    <td><center>{{$u->no_ktp}}</center></td>
-                    <td><center>{{$u->alamat}}</center></td>
-                    <td><center>{{$u->tempat_lahir}}, {{$u->tanggal_lahir}}</center></td>
-                    <td><center>{{$u->jenis_kelamin}}</center></td>
-                    <td><center>
-                      <a href="{{url('tambah_nilai')}}/{{$u->id}}" target="_blank"><button class="btn btn-warning" type="button">Input Nilai</button></a>
-                      <!-- <a data-toggle="modal" data-target="#input-nilai" data-id="{{$u->id}}"><button class="btn btn-warning" type="button">Input Nilai</button></a> -->
-                      <a href="#" target="_blank"><button class="btn btn-primary" type="button">Detail Nilai</button></a>
-                    </center></td>
-                    @php
-                    $i++;
-                    @endphp
-                    @endforeach
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+                  <td><center>{{$u->NIK}}</center></td>
+                  <td><center>{{$u->nama_lengkap}}</center></td>
+                  <td><center>{{$u->alamat_ktp}}</center></td>
+                  <td><center>
+                    @if($u->status_diterima == '1')
+                    <span class="label label-warning">Belum Diseleksi</span>
+                    @elseif($u->status_diterima == '2')
+                    <span class="label label-primary">Diterima</span>
+                    @else
+                    <span class="label label-danger">Tidak Diterima</span>
+                    @endif
+                  </center>
+                </td>
+                @php
+                $i++;
+                @endphp
+                @endforeach
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-            <div class="box-footer">
-              <h5></h5>
-            </div><!-- /.box-footer -->
-          </div><!-- /.box -->
-        </div><!-- /.col -->
-      </div><!-- /.row -->
-    </div>
-  </div>
+        <div class="box-footer">
+          <h5></h5>
+        </div><!-- /.box-footer --> 
+      </div><!-- /.box -->
+    </div><!-- /.col -->
+  </div><!-- /.row -->
 </div>
 </div>
-@include('penilaian_pegawai.penilaian_data_karyawan_extend_input_nilai')
+</div>
+</div>
 </div>
 
 
@@ -124,15 +134,6 @@
 @section('extra_scripts')
 <script type="text/javascript">
   $(document).ready(function() {
-    $('#input-nilai').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget); // Button that triggered the modal
-
-            var id = button.data('id');
-            console.log(id);
-
-            var modal = $(this);
-            modal.find('.modal-body #id').val(id);
-          });
 
     $('[data-toggle="tooltip"]').tooltip();
 

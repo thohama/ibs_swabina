@@ -21,7 +21,26 @@
 @endsection
 
 @section('content')
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2>Lamaran Internal</h2>
+    <ol class="breadcrumb">
+      <li>
+        <a>Home</a>
+      </li>
+      <li>
+        <a>Kepegawaian</a>
+      </li>
+      <li class="active">
+        <strong>Lamaran Internal</strong>
+      </li>
 
+    </ol>
+  </div>
+  <div class="col-lg-2">
+
+  </div>
+</div>
 <div class="wrapper wrapper-content animated fadeInRight">
   <div class="alert alert-danger pesan" style="display:none;">
     <ul></ul>
@@ -30,7 +49,7 @@
     <div class="col-lg-12">
       <div class="ibox float-e-margins">
         <div class="ibox-title">
-          <h5>Form Tambah Data Pelamar</h5>
+          <h5>Lamaran Internal</h5>
           <div class="ibox-tools">
             <a class="collapse-link">
               <i class="fa fa-chevron-up"></i>
@@ -548,22 +567,22 @@
       </div>
     </div>
     <div class="form-group row">
-      <label class="col-sm-2 col-form-label">Alasan Melamar di PT Swabina Gatra ?</label>
+      <label class="col-sm-2 col-form-label">Alasan Melamar di PT Swabina Gatra?</label>
       <div class="col-sm-10">
         <input type="text" class="form-control" name="alasan_melamar" id="alasan_melamar" placeholder="Masukan alasan melamar di PT Swabina Gatra" required="">
       </div>
     </div>
     <div class="form-group row">
-      <label class="col-sm-2 col-form-label">Apakah Sanggup bekerja shift ?</label>
+      <label class="col-sm-2 col-form-label">Apakah Sanggup bekerja shift?</label>
       <div class="col-sm-10">
-        <div class="radio-inline radio radio-primary"> <input type="radio" class="radio-primary" name="radio_bersedia_sift" id="radio_bersedia_sift" value="IYA" required=""><label style="cursor: pointer;">IYA</label></div>
-        <div class="radio-inline radio radio-primary"> <input type="radio" class="radio-primary" name="radio_bersedia_sift" id="radio_bersedia_sift" value="TIDAK"  required=""><label style="cursor: pointer;">TIDAK</label></div>
+        <div class="radio-inline radio radio-primary"> <input type="radio" class="radio-primary" name="radio_bersedia_sift" id="radio_bersedia_sift" value="IYA" required=""><label style="cursor: pointer;">Ya</label></div>
+        <div class="radio-inline radio radio-primary"> <input type="radio" class="radio-primary" name="radio_bersedia_sift" id="radio_bersedia_sift" value="TIDAK"  required=""><label style="cursor: pointer;">Tidak</label></div>
       </div>
     </div>
     <div class="form-group row">
-      <label class="col-sm-2 col-form-label">Apabila tidak sanggup sift, apa alasan anda ?</label>
+      <label class="col-sm-2 col-form-label">Apabila tidak sanggup shift, apa alasan anda?</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="alasan_sift" id="alasan_sift" placeholder="Alasan tidak sanggup kerja sift" required="">
+        <input type="text" class="form-control" name="alasan_sift" id="alasan_sift" placeholder="Alasan tidak sanggup kerja shift">
       </div>
     </div>
     <div class="form-group row">
@@ -574,9 +593,9 @@
       </div>
     </div>
     <div class="form-group row">
-      <label class="col-sm-2 col-form-label">Apabilah tidak sanggup mutasi, apakah alasan anda? </label>
+      <label class="col-sm-2 col-form-label">Apabila tidak sanggup mutasi, apakah alasan anda? </label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="alasan_mutasi" id="alasan_mutasi" placeholder="masukan Alasan tidak sanggup dipindah / dimutasi" required="">
+        <input type="text" class="form-control" name="alasan_mutasi" id="alasan_mutasi" placeholder="Masukan alasan tidak sanggup dipindah / dimutasi">
       </div>
     </div>
 

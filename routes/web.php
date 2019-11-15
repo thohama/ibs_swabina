@@ -31,8 +31,10 @@ Route::get('sp_lembur', 'SPLController@index');
 Route::post('sp_lembur/submit', 'SPLController@spl_submit');
 
 //PENILAIAN PEGAWAI
-Route::get('penilaian_datakaryawan', 'PenilaianController@data_karyawan');
+Route::get('penilaian_datakaryawan', 'PenilaianController@data_karyawan')->name('penilaian_datakaryawan');
 Route::get('periode_penilaian', 'PenilaianController@periode_penilaian');
+Route::get('tambah_nilai/{id}', 'PenilaianController@create_penilaian');
+Route::post('store_penilaian_pegawai/{id}', 'PenilaianController@store_penilaian');
 
 
 //APD
@@ -89,6 +91,7 @@ Route::get('permintaan_tenaga_kerja/{id}','UnitKerjaController@show');
 //KEPEGAWAIAN
 Route::get('admin/tambah_data_pegawai','HomeController@tambah_pegawai');
 Route::get('admin/data_pegawai','HomeController@index_pegawai');
+Route::get('admin/data_pelamar','HomeController@index_pelamar');
 Route::get('admin/data_pegawai_lulus','HomeController@index_pelamar_lulus');
 Route::get('getkecamatan/{id}', 'HomeController@getkecamatan');
 Route::post('admin/import_data_pegawai', 'HomeController@import_excel')->name('pegawai.import');

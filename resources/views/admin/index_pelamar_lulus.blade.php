@@ -18,10 +18,10 @@
         <a>Home</a>
       </li>
       <li>
-        <a>Daftar Pelamar Lulus Seleksi</a>
+        <a>Kepegawaian</a>
       </li>
       <li class="active">
-        <strong> Data Pelamar </strong>
+        <strong>Daftar Pelamar Lulus Seleksi</strong>
       </li>
 
     </ol>

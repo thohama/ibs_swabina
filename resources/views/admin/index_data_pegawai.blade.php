@@ -12,16 +12,16 @@
 
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    <h2> Data Pelamar </h2>
+    <h2> Proses Seleksi Rekrutmen </h2>
     <ol class="breadcrumb">
       <li>
         <a>Home</a>
       </li>
       <li>
-        <a>Data Pelamar</a>
+        <a>Kepegawaian</a>
       </li>
       <li class="active">
-        <strong> Data Pelamar </strong>
+        <strong> Proses Seleksi Rekrutmen  </strong>
       </li>
 
     </ol>
@@ -36,7 +36,7 @@
     <div class="col-lg-12" >
       <div class="ibox float-e-margins">
         <div class="ibox-title">
-          <h5> Data Pelamar
+          <h5> Proses Seleksi Rekrutmen 
            <!-- {{Session::get('comp_year')}} -->
          </h5>
 
@@ -46,20 +46,6 @@
           <div class="col-xs-12">
 
             <div class="box" id="seragam_box">
-              <div class="col-sm-6">
-                <form method="POST" class="form-horizontal" action="{{ route('pegawai.import') }}" enctype="multipart/form-data">
-                  @csrf
-                  <fieldset>
-                    <div class="fileinput fileinput-new" data-provides="fileinput">
-                      <span class="btn btn-default btn-file"><span class="fileinput-new">Pilih File Excel</span>
-                      <span class="fileinput-exists">Change</span><input type="file" name="file"/></span>
-                      <span class="fileinput-filename"></span>
-                      <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">×</a>
-                    </div> 
-                  </fieldset>
-                  <button class="btn btn-primary" type="submit">Import</button>
-                </form>
-              </div>
               <div class="col-md-10 col-sm-10 col-xs-10" style="padding-bottom: 10px;">
                 <div class="form-group">
 

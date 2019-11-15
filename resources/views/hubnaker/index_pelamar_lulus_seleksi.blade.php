@@ -12,16 +12,16 @@
 
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    <h2>Daftar Pelamar Lulus Seleksi</h2>
+    <h2>Persetujuan Hasil Seleksi</h2>
     <ol class="breadcrumb">
       <li>
         <a>Home</a>
       </li>
       <li>
-        <a>Daftar Pelamar Lulus Seleksi</a>
+        <a>Hubnaker</a>
       </li>
       <li class="active">
-        <strong> Data Pelamar </strong>
+        <strong>Persetujuan Hasil Seleksi</strong>
       </li>
 
     </ol>
@@ -36,7 +36,7 @@
     <div class="col-lg-12" >
       <div class="ibox float-e-margins">
         <div class="ibox-title">
-          <h5>Daftar Pelamar Lulus Seleksi</h5>
+          <h5>Persetujuan Hasil Seleksi</h5>
 
         </div>
         <div class="ibox-content">
