@@ -29,10 +29,13 @@
         <a>Home</a>
       </li>
       <li>
-        <a>Penilaian Pegawai</a>
+        <a>Atasan</a>
+      </li>
+      <li>
+        <a>Promosi/Demosi Pegawai</a>
       </li>
       <li class="active">
-        <strong> Form Penilaian Pegawai </strong>
+        <strong> Laporan dan Penilaian Pegawai </strong>
       </li>
 
     </ol>
@@ -107,7 +110,7 @@
         </div>
         <div class="ibox float-e-margins">
           <div class="ibox-title">
-            <h5>Form Penilaian Pegawai</h5>
+            <h5>Laporan dan Penilaian Pegawai</h5>
             <div class="ibox-tools">
               <a class="collapse-link">
                 <i class="fa fa-chevron-up"></i>

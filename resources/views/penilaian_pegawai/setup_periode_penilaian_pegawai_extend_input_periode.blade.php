@@ -4,7 +4,7 @@
             <div class="modal-header">
                 <h4 class="modal-title">Input Periode Penilaian</h4>
             </div>
-            <form method="POST" action="#" class="form-horizontal form-penilaian-wali" enctype="multipart/form-data">
+            <form method="POST" action="{{url('periode_penilaian/store')}}" class="form-horizontal form-penilaian-wali" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-sm-12">
@@ -26,7 +26,7 @@
                         <label class="col-sm-2 control-label" for="periode">Periode Bulan</label>
                         <label class="col-sm-2" for="periode">Dari</label>
                         <div class="col-sm-3">
-                            <select class="form-control chosen-select-width5" name="s_bulan">
+                            <select class="form-control chosen-select-width5" name="s_bulan" required="">
                               <option value="" selected disabled>Bulan</option>
                               @php
                               for ($i = 1; $i <= 12; $i++) {
@@ -39,7 +39,7 @@
                   </div>
                   <label class="col-sm-2" for="periode">Hingga</label>
                   <div class="col-sm-3">
-                    <select class="form-control chosen-select-width5" name="e_bulan">
+                    <select class="form-control chosen-select-width5" name="e_bulan" required="">
                       <option value="" selected disabled>Bulan</option>
                       @php
                       for ($i = 1; $i <= 12; $i++) {
@@ -54,11 +54,11 @@
       <div class="form-group" id="form-mapel">
         <label class="col-sm-2 control-label" for="periode">Tahun</label>
         <div class="col-sm-10">
-            <select class="form-control chosen-select-width5" name="tahun[]">
+            <select class="form-control chosen-select-width5" name="tahun" required="">
                 <option value="" selected disabled>Tahun</option>
                 @php
                 $currently_selected = date('Y'); 
-                $earliest_year = 1970; 
+                $earliest_year = 2050; 
                 $latest_year = date('Y'); 
                 foreach(range( $latest_year, $earliest_year ) as $i )
                 print '<option value="'.$i.'"'.($i === $currently_selected ? ' selected="selected"' : '').'>'.$i.'</option>';

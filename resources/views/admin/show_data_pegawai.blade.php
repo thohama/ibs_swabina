@@ -12,13 +12,16 @@
 
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    <h2> Data Pelamar </h2>
+    <h2> Detail Pelamar </h2>
     <ol class="breadcrumb">
       <li>
         <a>Home</a>
       </li>
       <li>
-        <a>Pelamar</a>
+        <a>Kepegawaian</a>
+      </li>
+      <li>
+        <a>Proses Seleksi Rekrutmen</a>
       </li>
       <li class="active">
         <strong> Detail Pelamar </strong>

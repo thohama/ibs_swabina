@@ -12,16 +12,16 @@
 
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    <h2> Data Karyawan </h2>
+    <h2> Promosi/Demosi Pegawai </h2>
     <ol class="breadcrumb">
       <li>
         <a>Home</a>
       </li>
       <li>
-        <a>Data Karyawan</a>
+        <a>Atasan</a>
       </li>
       <li class="active">
-        <strong> Data Karyawan </strong>
+        <strong> Promosi/Demosi Pegawai </strong>
       </li>
 
     </ol>
@@ -36,7 +36,7 @@
     <div class="col-lg-12" >
       <div class="ibox float-e-margins">
         <div class="ibox-title">
-          <h5> Data Karyawan
+          <h5> Promosi/Demosi Pegawai
            <!-- {{Session::get('comp_year')}} -->
          </h5>
 
@@ -86,9 +86,8 @@
                     <td><center>{{$u->tempat_lahir}}, {{$u->tanggal_lahir}}</center></td>
                     <td><center>{{$u->jenis_kelamin}}</center></td>
                     <td><center>
-                      <a href="{{url('tambah_nilai')}}/{{$u->id}}" target="_blank"><button class="btn btn-warning" type="button">Input Nilai</button></a>
-                      <!-- <a data-toggle="modal" data-target="#input-nilai" data-id="{{$u->id}}"><button class="btn btn-warning" type="button">Input Nilai</button></a> -->
-                      <a href="#" target="_blank"><button class="btn btn-primary" type="button">Detail Nilai</button></a>
+                      <a href="{{url('tambah_nilai')}}/{{$u->id}}"><button class="btn btn-warning" type="button">Input Nilai</button></a>
+                      <!-- <a href="#"><button class="btn btn-primary" type="button">Detail Nilai</button></a> -->
                     </center></td>
                     @php
                     $i++;
@@ -109,7 +108,6 @@
   </div>
 </div>
 </div>
-@include('penilaian_pegawai.penilaian_data_karyawan_extend_input_nilai')
 </div>
 
 

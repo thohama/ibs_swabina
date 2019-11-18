@@ -12,16 +12,16 @@
 
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    <h2> Pengajuan Penggantian APD </h2>
+    <h2> Approval/Persetujuan Pengajuan APD </h2>
     <ol class="breadcrumb">
       <li>
         <a>Home</a>
       </li>
       <li>
-        <a>Data Karyawan</a>
+        <a>Unit Kerja</a>
       </li>
       <li class="active">
-        <strong> Pengajuan Penggantian APD </strong>
+        <strong> Approval/Persetujuan Pengajuan APD </strong>
       </li>
 
     </ol>
@@ -36,7 +36,7 @@
     <div class="col-lg-12" >
       <div class="ibox float-e-margins">
         <div class="ibox-title">
-          <h5> Data Karyawan
+          <h5> Approval/Persetujuan Pengajuan APD
            <!-- {{Session::get('comp_year')}} -->
          </h5>
 

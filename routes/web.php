@@ -33,9 +33,14 @@ Route::post('sp_lembur/submit', 'SPLController@spl_submit');
 //PENILAIAN PEGAWAI
 Route::get('penilaian_datakaryawan', 'PenilaianController@data_karyawan')->name('penilaian_datakaryawan');
 Route::get('periode_penilaian', 'PenilaianController@periode_penilaian');
+Route::get('histori_penilaian', 'PenilaianController@histori_penilaian');
 Route::get('tambah_nilai/{id}', 'PenilaianController@create_penilaian');
+Route::get('detail_nilai/{id}', 'PenilaianController@detail_penilaian');
+Route::post('pegawai/datanilai', 'PenilaianController@getDataPenilaian');
 Route::post('store_penilaian_pegawai/{id}', 'PenilaianController@store_penilaian');
-
+Route::post('periode_penilaian/store', 'PenilaianController@store_periode_penilaian');
+Route::get('periode_penilaian/aktif/{id}', 'PenilaianController@statusActive');
+Route::get('periode_penilaian/nonaktif/{id}', 'PenilaianController@statusNotActive');
 
 //APD
 Route::get('datakaryawan', 'HomeController@data_karyawan');

@@ -12,16 +12,16 @@
 
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    <h2> Data Karyawan </h2>
+    <h2> Pengajuan APD </h2>
     <ol class="breadcrumb">
       <li>
         <a>Home</a>
       </li>
       <li>
-        <a>Data Karyawan</a>
+        <a>Kepegawaian</a>
       </li>
       <li class="active">
-        <strong> Data Karyawan </strong>
+        <strong> Pengajuan APD </strong>
       </li>
 
     </ol>
@@ -36,7 +36,7 @@
     <div class="col-lg-12" >
       <div class="ibox float-e-margins">
         <div class="ibox-title">
-          <h5> Data Karyawan
+          <h5> Pengajuan APD
            <!-- {{Session::get('comp_year')}} -->
          </h5>
 
@@ -86,8 +86,8 @@
                     <td><center>{{$u->tempat_lahir}}, {{$u->tanggal_lahir}}</center></td>
                     <td><center>{{$u->jenis_kelamin}}</center></td>
                     <td><center>
-                      <a href="{{url('editkaryawan')}}/{{$u->id}}" target="_blank"><button class="btn btn-warning" type="button">Edit</button></a>
-                      <a href="{{url('pengajuanapd')}}/{{$u->id}}" target="_blank"><button class="btn btn-primary" type="button">Ajukan Penggantian APD</button></a>
+                      <a href="{{url('editkaryawan')}}/{{$u->id}}"><button class="btn btn-warning" type="button">Edit</button></a>
+                      <a href="{{url('pengajuanapd')}}/{{$u->id}}"><button class="btn btn-primary" type="button">Ajukan Penggantian APD</button></a>
                     </center></td>
                     @php
                     $i++;

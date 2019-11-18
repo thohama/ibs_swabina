@@ -102,7 +102,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="@if(url('hubnaker/data_pegawai_lulus') == request()->url()) active @else '' @endif treeview">
+            <li class="@if(url('hubnaker/data_pegawai_lulus') == request()->url() or url('periode_penilaian') == request()->url() or url('histori_penilaian') == request()->url()) active @else '' @endif treeview">
                 <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Hubnaker</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li class="@if(url('hubnaker/data_pegawai_lulus') == request()->url()) active @else '' @endif treeview">
@@ -110,6 +110,17 @@
                         <ul class="nav nav-third-level">
                             <li class="@if(url('hubnaker/data_pegawai_lulus') == request()->url()) active @else '' @endif">
                                 <a href="{{url('hubnaker/data_pegawai_lulus')}}">Persetujuan Hasil Seleksi</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="@if(url('periode_penilaian') == request()->url() or url('histori_penilaian') == request()->url()) active @else '' @endif treeview">
+                        <a href="#"><span class="nav-label">Penilaian Pegawai</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li class="@if(url('periode_penilaian') == request()->url()) active @else '' @endif">
+                                <a href="{{url('periode_penilaian')}}">Setup Periode Penilaian</a>
+                            </li>
+                            <li class="@if(url('histori_penilaian') == request()->url()) active @else '' @endif">
+                                <a href="{{url('histori_penilaian')}}">Histori Penilaian Pegawai</a>
                             </li>
                         </ul>
                     </li>

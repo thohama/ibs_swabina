@@ -50,7 +50,7 @@ class PenilaianController extends Controller
     }
 
     public function create_penilaian($id){
-        $periode = st_periode_nilai::all();
+        $periode = st_periode_nilai::where('status_aktif',1)->get();
         $data_karyawan = md_user::findOrFail($id);
         return view('penilaian_pegawai.create_penilaian_pegawai', compact('data_karyawan','periode'));
     }
@@ -87,5 +87,50 @@ class PenilaianController extends Controller
     public function periode_penilaian(){
         $periode = st_periode_nilai::all();
         return view('penilaian_pegawai.setup_periode_penilaian_pegawai', compact('periode'));
+    }
+
+    public function store_periode_penilaian(Request $request){
+        // dd($request->all());
+        $periode = new st_periode_nilai();
+        $periode->e_bulan = $request->e_bulan;
+        $periode->s_bulan = $request->s_bulan;
+        $periode->tahun = $request->tahun;
+        $periode->save();
+        return redirect()->back();
+    }
+
+    public function statusActive(Request $request, $id) 
+    {
+        // dd($id);
+        st_periode_nilai::where('id_periode_nilai',$id)->update(array(
+            'status_aktif'=>1
+        ));
+
+        return redirect()->back();
+    }
+
+    public function statusNotActive(Request $request, $id) 
+    {
+        st_periode_nilai::where('id_periode_nilai',$id)->update(array(
+            'status_aktif'=>0
+        ));
+
+        return redirect()->back();
+    }
+
+    public function histori_penilaian(){
+        $data_karyawan = DB::select(DB::raw("SELECT * FROM user where iskaryawan = 1"));
+        return view('penilaian_pegawai.penilaian_data_karyawan_histori', compact('data_karyawan'));
+    }
+
+    public function detail_penilaian($id){
+        $periode = st_periode_nilai::all();
+        $data_karyawan = md_user::findOrFail($id);
+        return view('penilaian_pegawai.detail_penilaian_pegawai', compact('data_karyawan','periode'));
+    }
+
+    public function getDataPenilaian(Request $request) {
+        $nilai = DB::select('select * from md_karyawan_penilaian where id_karyawan = ? and id_periode = ?', [$request->id_karyawan, $request->id_periode]);
+        return response()->json($nilai, 200);
     }
 }
