@@ -284,25 +284,25 @@
       success: function (data) {
         $.each(data, function (index, element) {
           console.log(element.nilai_disiplin);
-          $('#nilai_disiplin').html(element.nilai_disiplin);
-          $('#nilai_tanggung_jawab').html(element.nilai_tanggung_jawab);
-          $('#nilai_kejujuran').html(element.nilai_kejujuran);
-          $('#nilai_loyalitas').html(element.nilai_loyalitas);
-          $('#nilai_inisiatif_kreativitas').html(element.nilai_inisiatif_kreativitas);
-          $('#nilai_kecakapan_keterampilan').html(element.nilai_kecakapan_keterampilan);
-          $('#nilai_hubungan_kerjasama').html(element.nilai_hubungan_kerjasama);
-          $('#nilai_pengamanan_lingkungan').html(element.nilai_pengamanan_lingkungan);
-          $('#nilai_kepemimpinan').html(element.nilai_kepemimpinan);
-          $('#spesifikasi_pendidikan').html(element.spesifikasi_pendidikan);
-          $('#spesifikasi_pengalaman').html(element.spesifikasi_pengalaman);
-          $('#spesifikasi_pelatihan').html(element.spesifikasi_pelatihan);
-          $('#spesifikasi_keterampilan').html(element.spesifikasi_keterampilan);
-          $('#kesimpulan_saran').html(element.kesimpulan_saran);
-          $('#catatan_personalia').html(element.catatan_personalia);
-          $('#nilai_spesifikasi_pendidikan').html(element.nilai_spesifikasi_pendidikan);
-          $('#nilai_spesifikasi_keterampilan').html(element.nilai_spesifikasi_keterampilan);
-          $('#nilai_spesifikasi_pengalaman').html(element.nilai_spesifikasi_pengalaman);
-          $('#nilai_spesifikasi_pelatihan').html(element.nilai_spesifikasi_pelatihan);
+          $('#nilai_disiplin').val(element.nilai_disiplin).val();
+          $('#nilai_tanggung_jawab').val(element.nilai_tanggung_jawab);
+          $('#nilai_kejujuran').val(element.nilai_kejujuran);
+          $('#nilai_loyalitas').val(element.nilai_loyalitas);
+          $('#nilai_inisiatif_kreativitas').val(element.nilai_inisiatif_kreativitas);
+          $('#nilai_kecakapan_keterampilan').val(element.nilai_kecakapan_keterampilan);
+          $('#nilai_hubungan_kerjasama').val(element.nilai_hubungan_kerjasama);
+          $('#nilai_pengamanan_lingkungan').val(element.nilai_pengamanan_lingkungan);
+          $('#nilai_kepemimpinan').val(element.nilai_kepemimpinan);
+          $('#spesifikasi_pendidikan').val(element.spesifikasi_pendidikan);
+          $('#spesifikasi_pengalaman').val(element.spesifikasi_pengalaman);
+          $('#spesifikasi_pelatihan').val(element.spesifikasi_pelatihan);
+          $('#spesifikasi_keterampilan').val(element.spesifikasi_keterampilan);
+          $('#kesimpulan_saran').val(element.kesimpulan_saran);
+          $('#catatan_personalia').val(element.catatan_personalia);
+          $('#nilai_spesifikasi_pendidikan').val(element.nilai_spesifikasi_pendidikan);
+          $('#nilai_spesifikasi_keterampilan').val(element.nilai_spesifikasi_keterampilan);
+          $('#nilai_spesifikasi_pengalaman').val(element.nilai_spesifikasi_pengalaman);
+          $('#nilai_spesifikasi_pelatihan').val(element.nilai_spesifikasi_pelatihan);
         })
       }
     });

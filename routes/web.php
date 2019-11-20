@@ -41,6 +41,9 @@ Route::post('store_penilaian_pegawai/{id}', 'PenilaianController@store_penilaian
 Route::post('periode_penilaian/store', 'PenilaianController@store_periode_penilaian');
 Route::get('periode_penilaian/aktif/{id}', 'PenilaianController@statusActive');
 Route::get('periode_penilaian/nonaktif/{id}', 'PenilaianController@statusNotActive');
+Route::get('data_sanksi_pegawai', 'PenilaianController@data_sanksi_pegawai')->name('data_sanksi_pegawai');
+Route::get('tambah_sanksi_pegawai', 'PenilaianController@create_sanksi_pegawai');
+Route::post('store_sanksi_pegawai', 'PenilaianController@store_sanksi_pegawai');
 
 //APD
 Route::get('datakaryawan', 'HomeController@data_karyawan');

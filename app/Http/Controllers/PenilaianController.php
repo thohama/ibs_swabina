@@ -11,6 +11,7 @@ use App\md_jobseeker;
 use App\md_karyawan;
 use App\md_karyawan_penilaian;
 use App\md_user;
+use App\tbl_sanksi_pegawai;
 use App\st_Tingkatpendidikan;
 use App\st_jobseeker_pendidikanformal;
 use App\st_jobseeker_pendidikaninformal;
@@ -132,5 +133,27 @@ class PenilaianController extends Controller
     public function getDataPenilaian(Request $request) {
         $nilai = DB::select('select * from md_karyawan_penilaian where id_karyawan = ? and id_periode = ?', [$request->id_karyawan, $request->id_periode]);
         return response()->json($nilai, 200);
+    }
+
+    public function data_sanksi_pegawai(){
+        $sp = tbl_sanksi_pegawai::join('user','user.id','=','tbl_sanksi_pegawai.id_karyawan')->get();
+        return view('penilaian_pegawai.data_sanksi_pegawai', compact('sp'));
+    }
+
+    public function create_sanksi_pegawai(){
+        $data_karyawan = md_user::where('iskaryawan',1)->get();
+        return view('penilaian_pegawai.create_sanksi_pegawai', compact('data_karyawan'));
+    }
+
+    public function store_sanksi_pegawai(Request $request){
+        // dd($request->all());
+        $sp = new tbl_sanksi_pegawai();
+        $sp->jenis_sp = $request->jenis_sp;
+        $sp->id_karyawan = $request->id_karyawan;
+        $sp->alasan_sp = $request->alasan_sp;
+        $sp->tanggal_mulai = $request->tanggal_mulai;
+        $sp->tanggal_selesai = $request->tanggal_selesai;
+        $sp->save();
+        return redirect()->route('data_sanksi_pegawai');
     }
 }
