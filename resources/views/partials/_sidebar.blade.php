@@ -37,7 +37,7 @@
                 </ul>
             </li>
             <li class="@if(url('admin/form/permintaan_tenaga_kerja') == request()->url()
-                or url('admin/daftar_permintaan_tenaga_kerja') == request()->url() 
+                or url('admin/daftar_permintaan_tenaga_kerja') == request()->url()
                 or url('daftar_pengajuan') == request()->url()
                 or url('serah_terima') == request()->url()) active @else '' @endif treeview">
                 <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Unit Kerja</span><span class="fa arrow"></span></a>
@@ -192,11 +192,31 @@
             </li>
 
             <li class="@if(url('penglembur') == request()->url()
-                or url('penglembur/daftar') == request()->url()) active @else '' @endif treeview">
-                <a href="#"><i class="fa fa-coffee"></i> <span class="nav-label">Lembur</span><span class="fa arrow"></span></a>
+                or url('penglembur/daftar') == request()->url()
+                or url('penglembur/jadwal') == request()->url()
+                or url('penglembur/history') == request()->url())
+                active @else '' @endif treeview">
+                <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Lembur</span><span class="fa arrow"></span></a>
+
                 <ul class="nav nav-second-level collapse">
-                    <li class="@if(url('penglembur') == request()->url()) active @else '' @endif"><a href="{{ url('penglembur') }}">Form Pengajuan</a></li>
-                    <li class="@if(url('penglembur/daftar') == request()->url()) active @else '' @endif"><a href="{{ url('penglembur/daftar') }}">Daftar Pengajuan</a></li>
+                    <li class="@if(url('penglembur') == request()->url()
+                        or url('penglembur/daftar') == request()->url())
+                        active @else '' @endif @endiftreeview">
+                        <a href="#"><span class="nav-label">SPL</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li class="@if(url('penglembur') == request()->url()) active @else '' @endif"><a href="{{ url('penglembur') }}">Form Pengajuan</a></li>
+                            <li class="@if(url('penglembur/daftar') == request()->url()) active @else '' @endif"><a href="{{ url('penglembur/daftar') }}">Daftar Pengajuan</a></li>
+                        </ul>
+                    </li>
+                    <li class="@if(url('penglembur/jadwal') == request()->url()
+                        or url('penglembur/history') == request()->url())
+                        active @else '' @endif treeview">
+                        <a href="#"><span class="nav-label">Data Lembur</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li class="@if(url('penglembur/jadwal') == request()->url()) active @else '' @endif"><a href="{{ url('penglembur/jadwal') }}">Jadwal Lembur</a></li>
+                            <li class="@if(url('penglembur/history') == request()->url()) active @else '' @endif"><a href="{{ url('penglembur/history') }}">History</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
 

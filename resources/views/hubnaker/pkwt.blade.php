@@ -15,7 +15,7 @@
 	<br>
 	<p style="font-family: "Times New Roman", Times, serif">Yang bertanda-tangan di bawah ini :</p>
 	<pre style="font-family: "Times New Roman", Times, serif">
-		Nama : <b>WIWIK PRADIANA, SE., MM</b>
+		Nama : <b>WIWIK PRADIANA, SE., MM</ b>
 		Jabatan : <b>Manager SDM & Umum</b>
 		Alamat : <b>Jalan R.A. Kartini No. 21A Gresik</b>
 	</pre>

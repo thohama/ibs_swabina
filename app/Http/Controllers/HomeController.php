@@ -614,4 +614,47 @@ class HomeController extends Controller
 //      return $lembur;
         return view('penglembur.daftar',compact('lembur'));
     }
+
+    public function storePengLembur(Request $request){
+        $kar = user_indra::all()
+            ->where('id','=',$request->id)
+            ->where('iskaryawan','=',1)
+            ->first();
+
+        if($request->id != null
+            && $request->datetimes != null
+            && $request->waktu != null
+            && $request->keterangan != null
+            && $request->client != null){
+
+            $date = explode(' - ',$request->datetimes);
+            $waktu_awal = $date[0];
+            $waktu_akhir = $date[1];
+            $user = Auth::user()->id;
+            $date_time = Carbon::now()->toDateTimeString();
+            $date_time = date('Y-m-d H:i:s', strtotime("$date_time"));
+
+            if ($kar->md_client_id == $request->client
+                && (count(DB::select('select * from lembur where date(waktu_awal) = ? and karyawan_id = ? and waktu_lembur = ?',
+                        [date('Y-m-d', strtotime($waktu_awal)),$request->id,$request->waktu])) == 0)
+                && ($waktu_awal >= $date_time)){
+                $store = new lembur();
+                $store->karyawan_id = $request->id;
+                $store->waktu_awal = $waktu_awal;
+                $store->waktu_akhir = $waktu_akhir;
+                $store->waktu_lembur = $request->waktu;
+                $store->keterangan = $request->keterangan;
+                $store->notes = $request->keterangan;
+                $store->created_at = $date_time;
+                $store->created_by = $user;
+                $store->updated_at = $date_time;
+                $store->updated_by = $user;
+                $store->save();
+
+                return redirect()->back()->with('success','Permohonan Lembur berhasil diajukan!');
+            }
+            else return redirect()->back()->with('failed','Maaf, Permohonan Lembur tidak dapat diajukan.');
+        }
+        else return redirect()->back()->with('warning','Lengkapi form terlebih dahulu!');
+    }
 }

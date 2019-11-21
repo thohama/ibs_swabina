@@ -27,9 +27,6 @@ Route::get('requestpekerjaan', function () {
     return view('request_pekerjaan');
 });
 
-Route::get('sp_lembur', 'SPLController@index');
-Route::post('sp_lembur/submit', 'SPLController@spl_submit');
-
 //PENILAIAN PEGAWAI
 Route::get('penilaian_datakaryawan', 'PenilaianController@data_karyawan')->name('penilaian_datakaryawan');
 Route::get('periode_penilaian', 'PenilaianController@periode_penilaian');
@@ -69,8 +66,19 @@ Route::get('payroll/slipgaji/{id}','HomeController@getSlipGaji');
 Route::get('presensi','HomeController@getPresensi');
 Route::get('presensi/generate','HomeController@getGeneratePresensi');
 
-Route::get('penglembur','HomeController@Penglembur');
-Route::get('penglembur/daftar','HomeController@PenglemburDaftar');
+#lembur
+Route::get('penglembur','SPLController@penglembur');
+Route::get('penglembur/daftar','SPLController@penglemburDaftar');
+Route::get('penglembur/jadwal','SPLController@penglemburJadwal');
+Route::get('penglembur/history','SPLController@historyJadwal');
+Route::post('penglembur/store','SPLController@storePenglembur');
+Route::post('penglembur/acc','SPLController@accPenglembur');
+Route::post('penglembur/tolak','SPLController@tolakPenglembur');
+
+Route::get('sp_lembur', 'SPLController@index');
+//Route::post('sp_lembur/submit', 'SPLController@spl_submit');
+Route::post('sp_lembur/submit', 'HomeController@storePengLembur');
+
 
 Route::get('setup_komponen_gaji', 'HomeController@setup_komponen_gaji');
 Route::post('setup_komponen_gaji/simpan', 'HomeController@simpan_komponen_gaji');
