@@ -73,7 +73,7 @@
             <div class="form-group row">
               <label for="nik" class="col-sm-2 col-form-label">Nama</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukan Nama Lengkap" required="">
+                <input type="text" class="form-control" onkeydown="return alphaOnly(event);" onKeyPress="if(this.value.length>=50 ) return false;" name="nama" id="nama" placeholder="Masukan Nama Lengkap" required="">
                 <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="nama-error">
                   <small>Nama harus diisi...!</small>
                 </span>
@@ -82,7 +82,7 @@
             <div class="form-group row">
               <label for="nik" class="col-sm-2 col-form-label">Email</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="email" id="email" placeholder="Masukan Email" required="">
+                <input type="text" class="form-control" onKeyPress="if(this.value.length>=50 ) return false;" name="email" id="email" placeholder="Masukan Email" required="">
                 <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="email-error">
                   <small>Email harus diisi...!</small>
                 </span>
@@ -91,7 +91,7 @@
             <div class="form-group row">
               <label for="expired" class="col-sm-2 col-form-label">Tempat Tanggal  Lahir</label>
               <div class="col-sm-3">
-                <input type="text" class="form-control" name="tempat_lahir" id="tempat_lahir" placeholder="Masukkan Tempat Lahir" required="">
+                <input type="text" class="form-control" onkeydown="return alphaOnly(event);" onKeyPress="if(this.value.length>=30 ) return false;" name="tempat_lahir" id="tempat_lahir" placeholder="Masukkan Tempat Lahir" required="">
                 <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="tempat-lahir-error">
                   <small>Tempat Lahir harus diisi...!</small>
                 </span>
@@ -106,7 +106,7 @@
             <div class="form-group row">
               <label for="nik" class="col-sm-2 col-form-label">Nomor KTP</label>
               <div class="col-sm-10">
-                <input type="number" class="form-control" name="nik" id="nik" placeholder="Masukan Nomor KTP" required="">
+                <input type="number" class="form-control" name="nik" id="nik" onKeyPress="if(this.value.length>=16 ) return false;" placeholder="Masukan Nomor KTP" required="">
                 <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="nik-error">
                   <small>Nik harus diisi...!</small>
                 </span>
@@ -139,21 +139,21 @@
               <label  class="col-sm-2 col-form-label">Alamat Sesuai KTP</label>
               <label  class="col-sm-1 col-form-label">Dsn / Jl</label>
               <div class="col-sm-3">
-                <input type="text" class="form-control" name="dusun" id="dusun" placeholder="Masukkan Dusun / Jln" required="">
+                <input type="text" class="form-control" onKeyPress="if(this.value.length>=100 ) return false;" name="dusun" id="dusun" placeholder="Masukkan Dusun / Jln" required="">
                 <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="dusun-error">
                   <small>Dusun harus diisi...!</small>
                 </span>
               </div>
               <label class="col-sm-1 col-form-label">RT</label>
               <div class="col-sm-1">
-                <input type="number" class="form-control" name="rt" id="rt" placeholder="RT" required="">
+                <input type="number" class="form-control" onKeyPress="if(this.value.length>=2 ) return false;" name="rt" id="rt" placeholder="RT" required="">
                 <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="rt-error">
                   <small>RT harus diisi...!</small>
                 </span>
               </div>
               <label class="col-sm-1 col-form-label">RW</label>
               <div class="col-sm-1">
-                <input type="number" class="form-control" name="rw" id="rw" placeholder="RW" required="">
+                <input type="number" class="form-control" onKeyPress="if(this.value.length>=2 ) return false;" name="rw" id="rw" placeholder="RW" required="">
                 <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="rw-error">
                   <small>RW harus diisi...!</small>
                 </span>
@@ -163,7 +163,7 @@
               <label  class="col-sm-2 col-form-label"></label>
               <label  class="col-sm-1 col-form-label">Desa / Kel</label>
               <div class="col-sm-3">
-                <input type="text" class="form-control" name="desa" id="desa" placeholder="Masukkan Desa" required="">
+                <input type="text" class="form-control" onKeyPress="if(this.value.length>=30 ) return false;" name="desa" id="desa" placeholder="Masukkan Desa" required="">
                 <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="desa-error">
                   <small>Desa harus diisi...!</small>
                 </span>
@@ -193,7 +193,7 @@
             <div class="form-group row">
               <label  class="col-sm-2 col-form-label">No HP</label>
               <div class="col-sm-3">
-                <input type="number" class="form-control" name="no_hp" id="no_hp" placeholder="Masukan Nomor HP" required="">
+                <input type="number" class="form-control" onKeyPress="if(this.value.length>=12 ) return false;" name="no_hp" id="no_hp" placeholder="Masukan Nomor HP" required="">
                 <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="no-hp-error">
                   <small>Nomor HP harus diisi...!</small>
                 </span>
@@ -224,7 +224,7 @@
                         </select>
                       </td>
                       <td align="center">
-                        <input type="text" name="nama_sekolah[]" value=""  class="form-control nama_sekolah" placeholder="Masukan Nama Sekolah">
+                        <input type="text" name="nama_sekolah[]" onKeyPress="if(this.value.length>=30 ) return false;" class="form-control nama_sekolah" placeholder="Masukan Nama Sekolah">
                       </td>
                       <td align="center">
                         <select class="form-control chosen-select-width5" name="kota_pendidikan[]">
@@ -235,7 +235,7 @@
                         </select>
                       </td>
                       <td align="center">
-                        <input type="text" name="jurusan_pendidikan[]" class="form-control jurusan_pendidikan" placeholder="Masukan Jurusan">
+                        <input type="text" name="jurusan_pendidikan[]" class="form-control jurusan_pendidikan" onKeyPress="if(this.value.length>=30 ) return false;" placeholder="Masukan Jurusan">
                       </td>
                       <td align="center">
                         <input type="checkbox" value="lulus" name="lulus[]">
@@ -253,7 +253,7 @@
                         </select>
                       </td>
                       <td align="center">
-                        <input type="text" name="kelas_terakhir_pendidikan[]" value=""  class="form-control kelas_terakhir_pendidikan" placeholder="Masukan kelas terkahir pendidikan">
+                        <input type="text" name="kelas_terakhir_pendidikan[]" value=""  class="form-control kelas_terakhir_pendidikan" placeholder="Masukan kelas terakhir pendidikan">
                       </td>
                       <td align="center" class="clone_append" width="">
                         <button class="btn btn-default btn-sm append" onclick="append_pendidikan(this)"><a class="fa fa-plus"></a></button>
@@ -278,13 +278,13 @@
                   <tbody class="clone_kursus">
                     <tr>
                       <td align="center">
-                        <input type="text" name="nama_kursus[]" value=""  class="form-control nama_kursus" placeholder="Masukan Nama Kursus">
+                        <input type="text" name="nama_kursus[]" onKeyPress="if(this.value.length>=30 )" value=""  class="form-control nama_kursus" placeholder="Masukan Nama Kursus">
                       </td>
                       <td align="center">
-                        <input type="text" name="nama_lembaga_kursus[]" value=""  class="form-control nama_lembaga_kursus" placeholder="Masukan Nama lembaga kursus">
+                        <input type="text" name="nama_lembaga_kursus[]" onKeyPress="if(this.value.length>=30 )" value=""  class="form-control nama_lembaga_kursus" placeholder="Masukan Nama lembaga kursus">
                       </td>
                       <td align="center">
-                        <input type="text" name="lama_pendidikan_kursus[]" value=""  class="form-control lama_pendidikan_kursus" placeholder="Masukan lama pendidikan kursus">
+                        <input type="text" name="lama_pendidikan_kursus[]" onKeyPress="if(this.value.length>=30 )" value="" class="form-control lama_pendidikan_kursus" placeholder="Masukan lama pendidikan kursus">
                       </td>
                       <td align="center">
                         <select class="form-control chosen-select-width5" name="tahun_lulus_kursus[]">
@@ -330,7 +330,7 @@
                   <tbody class="clone_keluarga">
                     <tr>
                       <td align="center">
-                        <input type="text" name="nama_keluarga[]" value=""  class="form-control nama_keluarga" placeholder="Masukan Nama Keluarga">
+                        <input type="text" name="nama_keluarga[]" value="" onkeydown="return alphaOnly(event);" onKeyPress="if(this.value.length>=30 ) return false;" class="form-control nama_keluarga" placeholder="Masukan Nama Keluarga">
                       </td>
                       <td align="center">
                         <select class="form-control chosen-select-width5" name="hubungan_keluarga[]">
@@ -354,7 +354,7 @@
                       </select>
                     </td>
                     <td align="center">
-                      <input type="text" name="tempat_lahir_keluarga[]" class="form-control tempat_lahir_keluarga" placeholder="Masukan tempat lahir">
+                      <input type="text" name="tempat_lahir_keluarga[]" onKeyPress="if(this.value.length>=30 ) return false;" class="form-control tempat_lahir_keluarga" placeholder="Masukan tempat lahir">
                     </td>
                     <td align="center">
                       <input type="date" name="tgl_lahir_keluarga[]" class="form-control tgl_lahir_keluarga" placeholder="YYYY-MM-DD">
@@ -401,7 +401,7 @@
                     </select>
                   </td>
                   <td align="center">
-                    <input type="text" name="nama_susunan_keluarga[]" class="form-control nama_susunan_keluarga" placeholder="Masukan nama">
+                    <input type="text" name="nama_susunan_keluarga[]" onkeydown="return alphaOnly(event);" onKeyPress="if(this.value.length>=50 ) return false;" class="form-control nama_susunan_keluarga" placeholder="Masukan nama">
                   </td>
                   <td align="center">
                     <select class="form-control chosen-select-width5" name="jenis_kelamin_susunan_keluarga[]">
@@ -414,13 +414,13 @@
                     <input type="number" name="usia_susunan_keluarga[]" class="form-control usia_susunan_keluarga" placeholder="Masukan usia">
                   </td>
                   <td align="center">
-                    <input type="text" name="pendidikan_susunan_keluarga[]" class="form-control pendidikan_susunan_keluarga" placeholder="Masukan pendidikan terakhir">
+                    <input type="text" name="pendidikan_susunan_keluarga[]" onKeyPress="if(this.value.length>=30 ) return false;" class="form-control pendidikan_susunan_keluarga" placeholder="Masukan pendidikan terakhir">
                   </td>
                   <td align="center">
-                    <input type="text" name="pekerjaan_susunan_keluarga[]" class="form-control pekerjaan_susunan_keluarga" placeholder="Masukan pekerjaan terakhir">
+                    <input type="text" name="pekerjaan_susunan_keluarga[]" onKeyPress="if(this.value.length>=30 ) return false;" class="form-control pekerjaan_susunan_keluarga" placeholder="Masukan pekerjaan terakhir">
                   </td>
                   <td align="center">
-                    <input type="text" name="perusahaan_susunan_keluarga[]" class="form-control perusahaan_susunan_keluarga" placeholder="Masukan perusahaan terakhir">
+                    <input type="text" name="perusahaan_susunan_keluarga[]" onKeyPress="if(this.value.length>=30 ) return false;" class="form-control perusahaan_susunan_keluarga" placeholder="Masukan perusahaan terakhir">
                   </td>
                   <td align="center" class="clone_append" width="">
                     <button class="btn btn-default btn-sm append" onclick="append_susunan_keluarga(this)"><a class="fa fa-plus"></a></button>
@@ -438,11 +438,11 @@
                 <tr>
                   <td><label class="col-sm-2">Nama Perusahaan</label></td>
                   <td>
-                    <input type="text" class="form-control" name="nama_perusahaan_riwayat[]" id="nama_perusahaan_riwayat[]" placeholder="Masukkan nama perusahaan">
+                    <input type="text" class="form-control" onKeyPress="if(this.value.length>=30 ) return false;" name="nama_perusahaan_riwayat[]" id="nama_perusahaan_riwayat[]" placeholder="Masukkan nama perusahaan">
                   </td>
                   <td><label class="col-sm-2">Alamat Perusahaan</label></td>
                   <td>
-                    <input type="text" class="form-control" name="alamat_perusahaan_riwayat[]" id="alamat_perusahaan_riwayat[]" placeholder="Masukkan alamat perusahaan">
+                    <input type="text" onKeyPress="if(this.value.length>=30 ) return false;" class="form-control" name="alamat_perusahaan_riwayat[]" id="alamat_perusahaan_riwayat[]" placeholder="Masukkan alamat perusahaan">
                   </td>
                   <td align="center" rowspan="3" class="clone_append" width="">
                     <button class="btn btn-default btn-sm append" onclick="append_pengalaman_kerja(this)"><a class="fa fa-plus"></a></button>
@@ -451,11 +451,11 @@
                 <tr>
                   <td><label class="col-sm-2">Jabatan</label></td>
                   <td>
-                    <input type="text" class="form-control" name="jabatan_perusahaan_riwayat[]" id="jabatan_perusahaan_riwayat[]" placeholder="Masukkan jabatan">
+                    <input type="text" onKeyPress="if(this.value.length>=30 ) return false;" class="form-control" name="jabatan_perusahaan_riwayat[]" id="jabatan_perusahaan_riwayat[]" placeholder="Masukkan jabatan">
                   </td>
                   <td><label class="col-sm-2">Alasan Berhenti/Masih Bekerja</label></td>
                   <td>
-                    <input type="text" rows="1" class="form-control" name="alasan_berhenti_perusahaan_riwayat[]" id="alasan_berhenti_perusahaan_riwayat[]" placeholder="Masukkan alasan anda berhenti">
+                    <input type="text" onKeyPress="if(this.value.length>=50 ) return false;" rows="1" class="form-control" name="alasan_berhenti_perusahaan_riwayat[]" id="alasan_berhenti_perusahaan_riwayat[]" placeholder="Masukkan alasan anda berhenti">
                   </td>
                 </tr>
                 <tr>
@@ -532,7 +532,7 @@
           <tbody class="clone_organisasi">
             <tr>
               <td align="center">
-                <input type="text" name="nama_organisasi[]" value=""  class="form-control nama_organisasi" placeholder="Masukan Nama Organisasi">
+                <input type="text" onKeyPress="if(this.value.length>=30 ) return false;" name="nama_organisasi[]" value=""  class="form-control nama_organisasi" placeholder="Masukan Nama Organisasi">
               </td>
               <td align="center">
                 <select class="form-control chosen-select-width5" name="jenis_organisasi[]">
@@ -556,7 +556,7 @@
                 </select>
               </td>
               <td align="center">
-                <input type="text" name="jabatan_organisasi[]" class="form-control jabatan_organisasi" placeholder="Masukan Jabatan">
+                <input type="text" onKeyPress="if(this.value.length>=30 ) return false;" name="jabatan_organisasi[]" class="form-control jabatan_organisasi" placeholder="Masukan Jabatan">
               </td>
               <td align="center" class="clone_append" width="">
                 <button class="btn btn-default btn-sm append" onclick="append_organisasi(this)"><a class="fa fa-plus"></a></button>
@@ -569,7 +569,7 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Alasan Melamar di PT Swabina Gatra?</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="alasan_melamar" id="alasan_melamar" placeholder="Masukan alasan melamar di PT Swabina Gatra" required="">
+        <input type="text" onKeyPress="if(this.value.length>=100 ) return false;" class="form-control" name="alasan_melamar" id="alasan_melamar" placeholder="Masukan alasan melamar di PT Swabina Gatra" required="">
       </div>
     </div>
     <div class="form-group row">
@@ -582,7 +582,7 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Apabila tidak sanggup shift, apa alasan anda?</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="alasan_sift" id="alasan_sift" placeholder="Alasan tidak sanggup kerja shift">
+        <input type="text" onKeyPress="if(this.value.length>=100 ) return false;" class="form-control" name="alasan_sift" id="alasan_sift" placeholder="Alasan tidak sanggup kerja shift">
       </div>
     </div>
     <div class="form-group row">
@@ -595,7 +595,7 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Apabila tidak sanggup mutasi, apakah alasan anda? </label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="alasan_mutasi" id="alasan_mutasi" placeholder="Masukan alasan tidak sanggup dipindah / dimutasi">
+        <input type="text" class="form-control" onKeyPress="if(this.value.length>=100 ) return false;" name="alasan_mutasi" id="alasan_mutasi" placeholder="Masukan alasan tidak sanggup dipindah / dimutasi">
       </div>
     </div>
 
@@ -603,7 +603,7 @@
     <div class="hr-line-dashed"></div>
     <div class="form-group row">
       <div class="col-sm-4 col-sm-offset-9">
-        <a href="{{url('manajemen-pekerja/data-pekerja')}}" class="btn btn-danger btn-flat" type="button">Kembali</a>
+        <!-- <a href="{{url('manajemen-pekerja/data-pekerja')}}" class="btn btn-danger btn-flat" type="button">Kembali</a> -->
         <button class="ladda-button ladda-button-demo btn btn-primary btn-flat simpan" type="submit" >
           Simpan
         </button>
@@ -643,7 +643,7 @@
   +'</select>'
   +'</td>'
   +'<td align="center">'
-  +'<input type="text" name="nama_sekolah[]" value=""  class="form-control nama_sekolah" placeholder="Masukan Nama Sekolah">'
+  +'<input type="text" name="nama_sekolah[]" value="" onKeyPress="if(this.value.length>=30 )" class="form-control nama_sekolah" placeholder="Masukan Nama Sekolah">'
   +'</td>'
   +'<td align="center">'
   +'<select class="form-control chosen-select-width5" name="kota_pendidikan[]">'
@@ -654,7 +654,7 @@
   +'</select>'
   +'</td>'
   +'<td align="center">'
-  +'<input type="text" name="jurusan_pendidikan[]" class="form-control jurusan_pendidikan" placeholder="Masukan Jurusan">'
+  +'<input type="text" name="jurusan_pendidikan[]" onKeyPress="if(this.value.length>=30 )" class="form-control jurusan_pendidikan" placeholder="Masukan Jurusan">'
   +'</td>'
   +'<td align="center">'
   +'<input type="checkbox" value="lulus" name="lulus[]">'
@@ -672,7 +672,7 @@
   +'</select>'
   +'</td>'
   +'<td align="center">'
-  +'<input type="text" name="kelas_terakhir_pendidikan[]" value=""  class="form-control kelas_terakhir_pendidikan" placeholder="Masukan kelas terkahir pendidikan">'
+  +'<input type="text" name="kelas_terakhir_pendidikan[]" onKeyPress="if(this.value.length>=30 )" value=""  class="form-control kelas_terakhir_pendidikan" placeholder="Masukan kelas terkahir pendidikan">'
   +'</td>'
   +'<td align="center" class="clone_append" width="">'
   +'<button class="btn btn-default btn-sm append" onclick="append_pendidikan(this)"><a class="fa fa-plus"></a></button>'
@@ -703,13 +703,13 @@ function append_kursus(p){
   // tabel_barang.row.add(data);
   var html    ='<tr>'
   +'<td align="center">'
-  +'<input type="text" name="nama_kursus[]" value=""  class="form-control nama_kursus" placeholder="Masukan Nama Kursus">'
+  +'<input type="text" name="nama_kursus[]" onKeyPress="if(this.value.length>=30 )" value=""  class="form-control nama_kursus" placeholder="Masukan Nama Kursus">'
   +'</td>'
   +'<td align="center">'
-  +'<input type="text" name="nama_lembaga_kursus[]" value=""  class="form-control nama_lembaga_kursus" placeholder="Masukan Nama lembaga kursus">'
+  +'<input type="text" name="nama_lembaga_kursus[]" onKeyPress="if(this.value.length>=30 )" value=""  class="form-control nama_lembaga_kursus" placeholder="Masukan Nama lembaga kursus">'
   +'</td>'
   +'<td align="center">'
-  +'<input type="text" name="lama_pendidikan_kursus[]" value=""  class="form-control lama_pendidikan_kursus" placeholder="Masukan lama pendidikan kursus">'
+  +'<input type="text" onKeyPress="if(this.value.length>=30 )" name="lama_pendidikan_kursus[]" value=""  class="form-control lama_pendidikan_kursus" placeholder="Masukan lama pendidikan kursus">'
   +'</td>'
   +'<td align="center">'
   +'<select class="form-control chosen-select-width5" name="tahun_lulus_kursus[]">'
@@ -760,7 +760,7 @@ function append_keluarga(p){
   // tabel_barang.row.add(data);
   var html    ='<tr>'
   +'<td align="center">'
-  +'<input type="text" name="nama_keluarga[]" value=""  class="form-control nama_keluarga" placeholder="Masukan Nama Keluarga">'
+  +'<input type="text" onKeyPress="if(this.value.length>=30 )" name="nama_keluarga[]" value="" onkeydown="return alphaOnly(event);" class="form-control nama_keluarga" placeholder="Masukan Nama Keluarga">'
   +'</td>'
   +'<td align="center">'
   +'<select class="form-control chosen-select-width5" name="hubungan_keluarga[]">'
@@ -785,7 +785,7 @@ function append_keluarga(p){
   +'</select>'
   +'</td>'
   +'<td align="center">'
-  +'<input type="text" name="tempat_lahir_keluarga[]" class="form-control tempat_lahir_keluarga" placeholder="Masukan tempat lahir">'
+  +'<input type="text" onKeyPress="if(this.value.length>=30 )" name="tempat_lahir_keluarga[]" class="form-control tempat_lahir_keluarga" placeholder="Masukan tempat lahir">'
   +'</td>'
   +'<td align="center">'
   +'<input type="date" name="tgl_lahir_keluarga[]" class="form-control tgl_lahir_keluarga" placeholder="YYYY-MM-DD">'
@@ -835,7 +835,7 @@ function append_susunan_keluarga(p){
   +'</select>'
   +'</td>'
   +'<td align="center">'
-  +'<input type="text" name="nama_susunan_keluarga[]" class="form-control nama_susunan_keluarga" placeholder="Masukan nama">'
+  +'<input type="text" onKeyPress="if(this.value.length>=30 )" name="nama_susunan_keluarga[]" onkeydown="return alphaOnly(event);" class="form-control nama_susunan_keluarga" placeholder="Masukan nama">'
   +'</td>'
   +'<td align="center">'
   +'<select class="form-control chosen-select-width5" name="jenis_kelamin_susunan_keluarga[]">'
@@ -848,13 +848,13 @@ function append_susunan_keluarga(p){
   +'<input type="number" name="usia_susunan_keluarga[]" class="form-control usia_susunan_keluarga" placeholder="Masukan usia">'
   +'</td>'
   +'<td align="center">'
-  +'<input type="text" name="pendidikan_susunan_keluarga[]" class="form-control pendidikan_susunan_keluarga" placeholder="Masukan pendidikan terakhir">'
+  +'<input type="text" onKeyPress="if(this.value.length>=30 )" name="pendidikan_susunan_keluarga[]" class="form-control pendidikan_susunan_keluarga" placeholder="Masukan pendidikan terakhir">'
   +'</td>'
   +'<td align="center">'
-  +'<input type="text" name="pekerjaan_susunan_keluarga[]" class="form-control pekerjaan_susunan_keluarga" placeholder="Masukan pekerjaan terakhir">'
+  +'<input type="text" onKeyPress="if(this.value.length>=30 )" name="pekerjaan_susunan_keluarga[]" class="form-control pekerjaan_susunan_keluarga" placeholder="Masukan pekerjaan terakhir">'
   +'</td>'
   +'<td align="center">'
-  +'<input type="text" name="perusahaan_susunan_keluarga[]" class="form-control perusahaan_susunan_keluarga" placeholder="Masukan perusahaan terakhir">'
+  +'<input type="text" onKeyPress="if(this.value.length>=30 )" name="perusahaan_susunan_keluarga[]" class="form-control perusahaan_susunan_keluarga" placeholder="Masukan perusahaan terakhir">'
   +'</td>'
   +'<td align="center" class="clone_append" width="">'
   +'<button class="btn btn-default btn-sm append" onclick="append_susunan_keluarga(this)"><a class="fa fa-plus"></a></button>'
@@ -886,11 +886,11 @@ function append_pengalaman_kerja(p){
   var html    ='<tr>'
   +'<td><label class="col-sm-2">Nama Perusahaan</label></td>'
   +'<td>'
-  +'<input type="text" class="form-control" name="nama_perusahaan_riwayat[]" id="nama_perusahaan_riwayat[]" placeholder="Masukkan nama perusahaan">'
+  +'<input type="text" onKeyPress="if(this.value.length>=30 )" class="form-control" name="nama_perusahaan_riwayat[]" id="nama_perusahaan_riwayat[]" placeholder="Masukkan nama perusahaan">'
   +'</td>'
   +'<td><label class="col-sm-2">Alamat Perusahaan</label></td>'
   +'<td>'
-  +'<input type="text" class="form-control" name="alamat_perusahaan_riwayat[]" id="alamat_perusahaan_riwayat[]" placeholder="Masukkan alamat perusahaan">'
+  +'<input type="text" onKeyPress="if(this.value.length>=100 )" class="form-control" name="alamat_perusahaan_riwayat[]" id="alamat_perusahaan_riwayat[]" placeholder="Masukkan alamat perusahaan">'
   +'</td>'
   +'<td align="center" rowspan="3" class="clone_append" width="">'
   +'<button class="btn btn-default btn-sm append" onclick="append_pengalaman_kerja(this)"><a class="fa fa-plus"></a></button>'
@@ -899,11 +899,11 @@ function append_pengalaman_kerja(p){
   +'<tr>'
   +'<td><label class="col-sm-2">Jabatan</label></td>'
   +'<td>'
-  +'<input type="text" class="form-control" name="jabatan_perusahaan_riwayat[]" id="jabatan_perusahaan_riwayat[]" placeholder="Masukkan jabatan">'
+  +'<input type="text" onKeyPress="if(this.value.length>=30 )" class="form-control" name="jabatan_perusahaan_riwayat[]" id="jabatan_perusahaan_riwayat[]" placeholder="Masukkan jabatan">'
   +'</td>'
   +'<td><label class="col-sm-2">Alasan Berhenti/Masih Bekerja</label></td>'
   +'<td>'
-  +'<input type="text" rows="1" class="form-control" name="alasan_berhenti_perusahaan_riwayat[]" id="alasan_berhenti_perusahaan_riwayat[]" placeholder="Masukkan alasan anda berhenti">'
+  +'<input type="text" onKeyPress="if(this.value.length>=100 )" rows="1" class="form-control" name="alasan_berhenti_perusahaan_riwayat[]" id="alasan_berhenti_perusahaan_riwayat[]" placeholder="Masukkan alasan anda berhenti">'
   +'</td>'
   +'</tr>'
   +'<tr>'
@@ -987,7 +987,7 @@ function append_organisasi(p){
   // tabel_barang.row.add(data);
   var html    ='<tr>'
   +'<td align="center">'
-  +'<input type="text" name="nama_organisasi[]" value=""  class="form-control nama_organisasi" placeholder="Masukan Nama Organisasi">'
+  +'<input type="text" onKeyPress="if(this.value.length>=30 )" name="nama_organisasi[]" value=""  class="form-control nama_organisasi" placeholder="Masukan Nama Organisasi">'
   +'</td>'
   +'<td align="center">'
   +'<select class="form-control chosen-select-width5" name="jenis_organisasi[]">'
@@ -1011,7 +1011,7 @@ function append_organisasi(p){
   +'</select>'
   +'</td>'
   +'<td align="center">'
-  +'<input type="text" name="jabatan_organisasi[]" class="form-control jabatan_organisasi" placeholder="Masukan Jabatan">'
+  +'<input type="text" onKeyPress="if(this.value.length>=30 )" name="jabatan_organisasi[]" class="form-control jabatan_organisasi" placeholder="Masukan Jabatan">'
   +'</td>'
   +'<td align="center" class="clone_append" width="">'
   +'<button class="btn btn-default btn-sm append" onclick="append_organisasi(this)"><a class="fa fa-plus"></a></button>'
@@ -1028,6 +1028,13 @@ function remove_append_organisasi(p){
 
   $(par).remove();
 }
+
+function alphaOnly(event) {
+  var inputValue = event.which;
+  if(!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0 && inputValue!= 8 && inputValue!= 44 && inputValue!= 46)) { 
+    event.preventDefault(); 
+  }
+};
 
 </script>
 <script type="text/javascript">

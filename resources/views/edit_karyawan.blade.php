@@ -91,17 +91,17 @@
               </div>
               <div class="form-group">
                 <label class="col-sm-2 control-label">Tinggi Badan (cm)</label>
-                <div class="col-sm-4"><input type="number" class="form-control" value="{{$karyawan->tinggi_badan}}" name="tinggi_badan" placeholder="Masukkan Tinggi Badan"></div>
+                <div class="col-sm-4"><input type="number" class="form-control" value="{{$karyawan->tinggi_badan}}" name="tinggi_badan" placeholder="Masukkan Tinggi Badan" onKeyPress="if(this.value.length>=3 ) return false;"></div>
                 <label class="col-sm-2 control-label">Berat Badan (kg)</label>
-                <div class="col-sm-4"><input type="number" class="form-control" value="{{$karyawan->berat_badan}}" name="berat_badan" placeholder="Masukkan Berat Badan"></div>
+                <div class="col-sm-4"><input type="number" class="form-control" value="{{$karyawan->berat_badan}}" name="berat_badan" placeholder="Masukkan Berat Badan" onKeyPress="if(this.value.length>=3 ) return false;"></div>
               </div>
               <div class="form-group">
                 <label class="col-sm-2 control-label">Ukuran Baju</label>
-                <div class="col-sm-2"><input type="text" class="form-control" value="{{$karyawan->ukuran_baju}}" name="ukuran_baju" placeholder="Ukuran Baju"></div>
+                <div class="col-sm-2"><input type="text" class="form-control" value="{{$karyawan->ukuran_baju}}" name="ukuran_baju" placeholder="Ukuran Baju" onKeyPress="if(this.value.length>=3 ) return false;"></div>
                 <label class="col-sm-2 control-label">Ukuran Celana</label>
-                <div class="col-sm-2"><input type="text" class="form-control" value="{{$karyawan->tinggi_badan}}" name="ukuran_celana" placeholder="Ukuran Celana"></div>
+                <div class="col-sm-2"><input type="text" class="form-control" value="{{$karyawan->tinggi_badan}}" name="ukuran_celana" placeholder="Ukuran Celana" onKeyPress="if(this.value.length>=3 ) return false;"></div>
                 <label class="col-sm-2 control-label">Ukuran Sepatu</label>
-                <div class="col-sm-2"><input type="number" class="form-control" value="{{$karyawan->ukuran_sepatu}}" name="ukuran_sepatu" placeholder="Ukuran Sepatu"></div>
+                <div class="col-sm-2"><input type="number" class="form-control" value="{{$karyawan->ukuran_sepatu}}" name="ukuran_sepatu" placeholder="Ukuran Sepatu" onKeyPress="if(this.value.length>=3 ) return false;"></div>
               </div>
               <!-- <div class="form-group"><label class="col-sm-2 control-label">Upload Foto</label>
                 <div class="fileinput fileinput-new" data-provides="fileinput">
@@ -115,7 +115,7 @@
             <div class="hr-line-dashed"></div>
             <div class="form-group">
               <div class="col-sm-4 col-sm-offset-2">
-                <a href="/">
+                <a href="{{url('datakaryawan')}}">
                   <button type="button" class="btn btn-white">Cancel</button>
                 </a>
                 <button class="btn btn-primary" type="submit">Save changes</button>
