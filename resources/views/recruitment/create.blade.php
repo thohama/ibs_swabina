@@ -552,7 +552,7 @@
 
   <div class="hr-line-dashed"></div>
   <div class="form-group row">
-    <div class="col-sm-4 col-sm-offset-9">
+    <div class="col-sm-12 text-center">
       <button class="ladda-button ladda-button-demo btn btn-primary btn-flat simpan" type="submit" >
         Simpan
       </button>

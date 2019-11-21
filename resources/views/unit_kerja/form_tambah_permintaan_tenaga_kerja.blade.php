@@ -88,14 +88,14 @@
               </div>
               <label for="expired" class="col-sm-2 col-form-label">Jumlah Yang Dibutuhkan</label>
               <div class="col-sm-2">
-                <input type="number" class="form-control" name="jumlah_yg_dibutuhkan" id="jumlah_yg_dibutuhkan" required="">
+                <input type="number" class="form-control" placeholder="Jumlah Yang Dibutuhkan" onKeyPress="if(this.value.length>=3 ) return false;" name="jumlah_yg_dibutuhkan" id="jumlah_yg_dibutuhkan" required="">
                 <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="jumlah_yg_dibutuhkan-error">
                   <small>Jumlah Yang Dibutuhkan harus diisi...!</small>
                 </span>
               </div>
               <label for="expired" class="col-sm-2 col-form-label">Jabatan</label>
               <div class="col-sm-2">
-                <input type="text" class="form-control" name="jabatan" id="jabatan" required="">
+                <input type="text" class="form-control" name="jabatan" id="jabatan" required="" onKeyPress="if(this.value.length>=20 ) return false;" placeholder="Jabatan">
                 <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="jabatan-error">
                   <small>Jabatan harus diisi...!</small>
                 </span>
@@ -148,7 +148,7 @@
             <div class="form-group row">
               <label for="expired" class="col-sm-2 col-form-label">Bila sementara, berapa lama?</label>
               <div class="col-sm-4">
-                <input type="text" class="form-control" name="waktu_sementara" id="waktu_sementara">
+                <input type="text" class="form-control" name="waktu_sementara" onKeyPress="if(this.value.length>=20 ) return false;" id="waktu_sementara" placeholder="Waktu sementara">
               </div>
               <label for="expired" class="col-sm-1 col-form-label">Min</label>
               <div class="col-sm-1">
@@ -158,7 +158,7 @@
             <div class="form-group row">
               <label for="expired" class="col-sm-2 col-form-label">Siapa yang diganti, bila penggantian?</label>
               <div class="col-sm-4">
-                <input type="text" class="form-control" name="nama_pengganti" id="nama_pengganti">
+                <input type="text" class="form-control" onKeyPress="if(this.value.length>=30 ) return false;" name="nama_pengganti" id="nama_pengganti" placeholder="Nama penggantian">
               </div>
               <label for="expired" class="col-sm-1 col-form-label">Max</label>
               <div class="col-sm-1">
@@ -172,7 +172,7 @@
             <div class="form-group row">
               <label for="alasan_tambahan_penggantian" class="col-sm-2 col-form-label">Bila tambahan/penggantian tenaga, apa alasannya?</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="alasan_tambahan_penggantian" id="alasan_tambahan_penggantian"  required="">
+                <input type="text" class="form-control" onKeyPress="if(this.value.length>=100 ) return false;" name="alasan_tambahan_penggantian" id="alasan_tambahan_penggantian"  required="" placeholder="Alasan tambahan/penggantian">
                 <span style="color:#ed5565;display:none" class="help-block m-b-none reset" id="alasan_tambahan_penggantian-error">
                   <small>Alasan harus diisi...!</small>
                 </span>
@@ -200,45 +200,45 @@
             <div class="form-group row">
               <label for="expired" class="col-sm-2 col-form-label">Syarat Pendidikan Khusus</label>
               <div class="col-sm-4">
-                <input type="text" class="form-control" name="syarat_pendidikan_khusus" id="syarat_pendidikan_khusus">
+                <input type="text" class="form-control" onKeyPress="if(this.value.length>=50 ) return false;" name="syarat_pendidikan_khusus" id="syarat_pendidikan_khusus" placeholder="Syarat Pendidikan Khusus">
               </div>
               <label for="expired" class="col-sm-2 col-form-label">Syarat Lain (misal: SIM)</label>
               <div class="col-sm-4">
-                <input type="text" class="form-control" name="syarat_lain" id="syarat_lain">
+                <input type="text" class="form-control" onKeyPress="if(this.value.length>=50 ) return false;" name="syarat_lain" id="syarat_lain" placeholder="Syarat Lain">
               </div>
             </div>
             <div class="form-group row">
               <label for="alasan_cocok" class="col-sm-2 col-form-label">Apakah ada yang cocok? apa alasannya?</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="alasan_cocok" id="alasan_cocok">
+                <input type="text" class="form-control" onKeyPress="if(this.value.length>=50 ) return false;" name="alasan_cocok" id="alasan_cocok" placeholder="Alasan Cocok">
               </div>
             </div>
             <div class="form-group row">
               <label for="expired" class="col-sm-2 col-form-label">Diminta Oleh</label>
               <div class="col-sm-4">
-                <input type="text" class="form-control" name="diminta_oleh" id="diminta_oleh">
+                <input type="text" class="form-control" placeholder="Diminta Oleh" onKeyPress="if(this.value.length>=30 ) return false;" name="diminta_oleh" id="diminta_oleh">
               </div>
             </div>
             <div class="form-group row">
               <label for="expired" class="col-sm-2 col-form-label">Diketahui Oleh (Manajer SDM & Umum)</label>
               <div class="col-sm-4">
-                <input type="text" class="form-control" name="diketahui_oleh" id="diketahui_oleh">
+                <input type="text" class="form-control" onkeydown="return alphaOnly(event);" onKeyPress="if(this.value.length>=30 ) return false;" name="diketahui_oleh" id="diketahui_oleh" placeholder="Diketahui Oleh">
               </div>
               <label for="expired" class="col-sm-2 col-form-label">Disetujui Oleh (Direksi)</label>
               <div class="col-sm-4">
-                <input type="text" class="form-control" name="disetujui_oleh" id="disetujui_oleh">
+                <input type="text" class="form-control" onkeydown="return alphaOnly(event);" onKeyPress="if(this.value.length>=30 ) return false;" name="disetujui_oleh" id="disetujui_oleh" placeholder="Diketahui Oleh">
               </div>
             </div>
             <div class="form-group row">
               <label for="catatan" class="col-sm-2 col-form-label">Catatan Manager SDM & Umum</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="catatan" id="catatan">
+                <input type="text" class="form-control" onkeydown="return alphaOnly(event);" onKeyPress="if(this.value.length>=100 ) return false;" name="catatan" id="catatan" placeholder="Catatan Manager SDM & Umum">
               </div>
             </div>
             <div class="hr-line-dashed"></div>
             <div class="form-group row">
-              <div class="col-sm-4 col-sm-offset-9">
-                <a href="{{url('manajemen-pekerja/data-pekerja')}}" class="btn btn-danger btn-flat" type="button">Kembali</a>
+              <div class="col-sm-12 text-center">
+                <!-- <a href="{{url('manajemen-pekerja/data-pekerja')}}" class="btn btn-danger btn-flat" type="button">Kembali</a> -->
                 <button class="ladda-button ladda-button-demo btn btn-primary btn-flat simpan" type="submit" >
                   Simpan
                 </button>
@@ -256,6 +256,12 @@
 
 @section('extra_scripts')
 <script type="text/javascript">
+  function alphaOnly(event) {
+    var inputValue = event.which;
+    if(!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0 && inputValue!= 8 && inputValue!= 44 && inputValue!= 46)) { 
+      event.preventDefault(); 
+    }
+  };
   $(document).ready(function () {
     const select2 = $('.chosen-select-width5');
     select2.select2();
