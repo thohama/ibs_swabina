@@ -196,7 +196,7 @@
                 or url('penglembur/jadwal') == request()->url()
                 or url('penglembur/history') == request()->url())
                 active @else '' @endif treeview">
-                <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Lembur</span><span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-coffee"></i> <span class="nav-label">Lembur</span><span class="fa arrow"></span></a>
 
                 <ul class="nav nav-second-level collapse">
                     <li class="@if(url('penglembur') == request()->url()
