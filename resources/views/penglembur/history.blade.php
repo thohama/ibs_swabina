@@ -90,12 +90,7 @@
 
 @section('extra_scripts')
 <!-- FooTable -->
-{{--<script src="https://code.jquery.com/jquery-3.3.1.js"></script>--}}
 <script src="{{asset('inspinia/js/plugins/dataTables/datatables.min.js')}}"></script>
-{{--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>--}}
-{{--<script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap.min.css"></script>--}}
-{{--<script src="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.bootstrap.min.css"></script>--}}
-{{--<script src="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css"></script>--}}
 <!-- Page-Level Scripts -->
 
 <script>

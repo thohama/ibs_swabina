@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\db_spl;
 use App\lembur;
-use App\md_karyawan;
-use Hamcrest\Core\IsNull;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

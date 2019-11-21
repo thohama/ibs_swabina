@@ -1,16 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
 Auth::routes();
@@ -63,10 +52,11 @@ Route::get('payroll','HomeController@getPayroll');
 Route::get('payroll/generate','HomeController@generatePayroll');
 Route::get('payroll/slipgaji/{id}','HomeController@getSlipGaji');
 
-Route::get('presensi','HomeController@getPresensi');
-Route::get('presensi/generate','HomeController@getGeneratePresensi');
+//presensi
+Route::get('presensi','AttendanceController@getPresensi');
+Route::get('presensi/generate','AttendanceController@getGeneratePresensi');
 
-#lembur
+//lembur
 Route::get('penglembur','SPLController@penglembur');
 Route::get('penglembur/daftar','SPLController@penglemburDaftar');
 Route::get('penglembur/jadwal','SPLController@penglemburJadwal');
@@ -75,11 +65,8 @@ Route::post('penglembur/store','SPLController@storePenglembur');
 Route::post('penglembur/acc','SPLController@accPenglembur');
 Route::post('penglembur/tolak','SPLController@tolakPenglembur');
 
-Route::get('sp_lembur', 'SPLController@index');
-//Route::post('sp_lembur/submit', 'SPLController@spl_submit');
-Route::post('sp_lembur/submit', 'HomeController@storePengLembur');
 
-
+//setup
 Route::get('setup_komponen_gaji', 'HomeController@setup_komponen_gaji');
 Route::post('setup_komponen_gaji/simpan', 'HomeController@simpan_komponen_gaji');
 Route::post('setup_komponen_gaji/edit', 'HomeController@edit_komponen_gaji');

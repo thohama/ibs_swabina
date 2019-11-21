@@ -228,6 +228,7 @@
                     <li class="@if(url('/presensi/generate') == request()->url()) active @else '' @endif"><a href="{{ url('/presensi/generate') }}">Generate Presensi</a></li>
                 </ul>
             </li>
+
             {{--            <li class="treeview sidebar data-master">--}}
                 {{--                <a href="#"><i class="fa fa-gavel"></i> <span class="nav-label">Manajemen Hak Akses</span><span class="fa arrow"></span></a>--}}
                 {{--                @can('users-list')--}}
