@@ -149,7 +149,7 @@
                         <a href="#"><span class="nav-label">Penilaian Pegawai</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                             <li class="@if(url('penilaian_datakaryawan') == request()->url()) active @else '' @endif">
-                                <a href="{{ url('penilaian_datakaryawan') }}">Promosi/Demosi Pegawai</a>
+                                <a href="{{ url('penilaian_datakaryawan') }}">Penilaian Pegawai</a>
                             </li>
                         </ul>
                     </li>

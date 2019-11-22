@@ -94,7 +94,7 @@ Route::get('permintaan_tenaga_kerja/{id}','UnitKerjaController@show');
 //KEPEGAWAIAN
 Route::get('admin/tambah_data_pegawai','HomeController@tambah_pegawai');
 Route::get('admin/data_pegawai','HomeController@index_pegawai');
-Route::get('admin/data_pelamar','HomeController@index_pelamar');
+Route::get('admin/data_pelamar','HomeController@index_pelamar')->name('pegawai.index');;
 Route::get('admin/data_pegawai_lulus','HomeController@index_pelamar_lulus');
 Route::get('getkecamatan/{id}', 'HomeController@getkecamatan');
 Route::post('admin/import_data_pegawai', 'HomeController@import_excel')->name('pegawai.import');

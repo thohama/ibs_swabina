@@ -12,7 +12,7 @@
 
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    <h2> Promosi/Demosi Pegawai </h2>
+    <h2> Penilaian Pegawai </h2>
     <ol class="breadcrumb">
       <li>
         <a>Home</a>
@@ -21,7 +21,7 @@
         <a>Atasan</a>
       </li>
       <li class="active">
-        <strong> Promosi/Demosi Pegawai </strong>
+        <strong> Penilaian Pegawai </strong>
       </li>
 
     </ol>
@@ -36,7 +36,7 @@
     <div class="col-lg-12" >
       <div class="ibox float-e-margins">
         <div class="ibox-title">
-          <h5> Promosi/Demosi Pegawai
+          <h5> Penilaian Pegawai
            <!-- {{Session::get('comp_year')}} -->
          </h5>
 

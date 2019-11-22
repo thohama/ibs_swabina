@@ -32,7 +32,7 @@
         <a>Atasan</a>
       </li>
       <li>
-        <a>Promosi/Demosi Pegawai</a>
+        <a>Penilaian Pegawai</a>
       </li>
       <li class="active">
         <strong> Laporan dan Penilaian Pegawai </strong>

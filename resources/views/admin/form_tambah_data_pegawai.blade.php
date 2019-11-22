@@ -970,7 +970,8 @@ function append_pengalaman_kerja(p){
 
 function remove_append_pengalaman_kerja(p){
   var par = p.parentNode.parentNode;
-
+  $(par).next().next().remove();
+  $(par).next().remove();
   $(par).remove();
 }
 
