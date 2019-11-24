@@ -10,17 +10,23 @@ use Illuminate\Support\Facades\DB;
 class SPLController extends Controller
 {
     public function PengLembur(){
-        $kar = DB::table('user')
-            ->where('iskaryawan','=',1)
+        $kar = DB::table('md_karyawan')
+            ->join('st_site','st_site.id','=','md_karyawan.site_id')
+            ->select('md_karyawan.*','st_site.nama as site')
+//            ->where('iskaryawan','=',1)
+            ->orderBy('st_site.nama')
             ->orderBy('nama')
             ->get();
         return view('penglembur.index',compact('kar'));
     }
 
     public function storePengLembur(Request $request){
-        $kar = DB::table('user')
+//        $kar = DB::table('user')
+//            ->where('id','=',$request->id)
+//            ->where('iskaryawan','=',1)
+//            ->get();
+        $kar = DB::table('md_karyawan')
             ->where('id','=',$request->id)
-            ->where('iskaryawan','=',1)
             ->get();
 
         $date = explode(' - ',$request->datetimes);
@@ -51,12 +57,13 @@ class SPLController extends Controller
 
     public function pengLemburDaftar(){
         $lembur = DB::table('lembur')
-            ->join('user','lembur.karyawan_id','=','user.id')
+            ->join('md_karyawan','lembur.karyawan_id','=','md_karyawan.id')
+            ->join('st_site','st_site.id','=','md_karyawan.site_id')
             ->where('lembur.acc','=',0)
             ->where('lembur.deleted_at','=', (NULL))
-            ->select('lembur.*','user.nama')
+            ->select('lembur.*','md_karyawan.nama','st_site.nama as site')
             ->orderby('lembur.waktu_awal')
-            ->orderby('user.nama')
+            ->orderby('md_karyawan.nama')
             ->get();
         return view('penglembur.daftar',compact('lembur'));
     }
@@ -88,25 +95,37 @@ class SPLController extends Controller
 
     public function penglemburJadwal(){
         $lembur = DB::table('lembur')
-            ->join('user','lembur.karyawan_id','=','user.id')
+            ->join('md_karyawan','lembur.karyawan_id','=','md_karyawan.id')
+            ->join('st_site','st_site.id','=','md_karyawan.site_id')
             ->where('lembur.acc','=',1)
             ->where('lembur.deleted_at','=', (NULL))
-            ->select('lembur.*','user.nama')
+            ->select('lembur.*','md_karyawan.nama','st_site.nama as site')
             ->orderby('lembur.waktu_awal')
-            ->orderby('user.nama')
+            ->orderby('md_karyawan.nama')
             ->get();
         return view('penglembur.jadwal',compact('lembur'));
     }
 
     public function historyJadwal(){
         $lembur = DB::table('lembur')
-            ->join('user','lembur.karyawan_id','=','user.id')
+            ->join('md_karyawan','lembur.karyawan_id','=','md_karyawan.id')
+            ->join('st_site','st_site.id','=','md_karyawan.site_id')
 //            ->where('lembur.acc','=',1)
             ->where('lembur.deleted_at','<>', (NULL))
-            ->select('lembur.*','user.nama')
+            ->select('lembur.*','md_karyawan.nama','st_site.nama as site')
             ->orderby('lembur.waktu_awal')
-            ->orderby('user.nama')
+            ->orderby('md_karyawan.nama')
             ->get();
         return view('penglembur.history',compact('lembur'));
+    }
+
+    public function donePenglembur($id){
+        DB::table('lembur')
+            ->where('id','=',$id)
+            ->update([
+                'deleted_at' => date("Y-m-d H:i:s"),
+                'deleted_by' => Auth::user()->id
+            ]);
+        return redirect()->back();
     }
 }

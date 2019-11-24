@@ -39,6 +39,7 @@
                                         <th>No</th>
                                         <th>NIK</th>
                                         <th>Nama</th>
+                                        <th>Site</th>
                                         <th>Waktu Mulai</th>
                                         <th>Waktu Selesai</th>
                                         <th>Waktu Lembur</th>
@@ -55,6 +56,7 @@
                                         <td>{{ $i }}</td>
                                         <td>{{ $l->karyawan_id }}</td>
                                         <td>{{ $l->nama }}</td>
+                                        <td>{{ $l->site }}</td>
                                         <td>{{ $l->waktu_awal }}</td>
                                         <td>{{ $l->waktu_akhir }}</td>
                                         @if($l->waktu_lembur == 1)

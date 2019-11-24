@@ -57,7 +57,7 @@
                                     <div class="col-sm-5 input-group">
                                         <select class="form-control inputstl" id="Nama" name="id" required>
                                             @foreach($kar as $k)
-                                                <option value="{{$k->id}}">{{$k->nama}}</option>
+                                                <option value="{{$k->id}}">{{ $k->site }} - {{$k->nama}}</option>
                                             @endforeach
                                         </select>
                                     </div>

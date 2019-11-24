@@ -11,10 +11,10 @@ class AttendanceController extends Controller
     public function getPresensi()
     {
         $presensi = DB::table('absensi_online')
-            ->join('user','user.id', '=', 'absensi_online.karyawan_id')
-            ->where('user.iskaryawan','=',1)
-            ->select('absensi_online.*', 'user.nama')
-            ->orderBy('absensi_online.scan_date')
+            ->join('md_karyawan','md_karyawan.id', '=', 'absensi_online.karyawan_id')
+//            ->where('user.iskaryawan','=',1)
+            ->select('absensi_online.*', 'md_karyawan.nama')
+            ->orderByDesc('absensi_online.scan_date')
             ->get();
         $i = 0;
         foreach ($presensi as $p){
@@ -28,9 +28,18 @@ class AttendanceController extends Controller
     public function getGeneratePresensi(Request $request){
         $presensi = DB::table('tbl_presensi')
             ->select('*')
-            ->orderby('tgl_jadwal')
+            ->orderbydesc('tgl_jadwal')
             ->get();
-//        return $presensi;
-        return view('presensi.generate', compact('presensi'));
+        $kar = DB::table('md_karyawan')
+            ->join('st_site','st_site.id','=','md_karyawan.site_id')
+            ->select('md_karyawan.*','st_site.nama as site')
+            ->orderBy('st_site.nama')
+            ->orderBy('md_karyawan.nama')
+            ->get();
+        return view('presensi.generate', compact('presensi','kar'));
+    }
+
+    public function personalGeneratePresensi(Request $request){
+        return $request;
     }
 }

@@ -17,7 +17,6 @@
                 </div>
             </li>
 
-
             <li class="@if(url('dashboard') == request()->url()) active @else '' @endif treeview">
                 <a href="{{url('dashboard')}}"><i class="fa fa-tachometer"></i>
                     <span class="nav-label">Dashboards</span>
@@ -186,10 +185,12 @@
                     {{--            </li>--}}
                 {{--        </ul>--}}
             {{--    </li>--}}
-            <li class="@if(url('payroll') == request()->url()
-                or url('/payroll/slipgaji/{id}') == request()->url()) active @else '' @endif  treeview">
-                <a href="{{ url('payroll')}}"><i class="fa fa-usd"></i> <span class="nav-label">Generate Payroll</span></a>
-            </li>
+
+
+{{--            <li class="@if(url('payroll') == request()->url()--}}
+{{--                or url('/payroll/slipgaji/{id}') == request()->url()) active @else '' @endif  treeview">--}}
+{{--                <a href="{{ url('payroll')}}"><i class="fa fa-usd"></i> <span class="nav-label">Generate Payroll</span></a>--}}
+{{--            </li>--}}
 
             <li class="@if(url('penglembur') == request()->url()
                 or url('penglembur/daftar') == request()->url()
@@ -246,16 +247,30 @@
                 {{--                </ul>--}}
                 {{--                @endcan--}}
             {{--            </li>--}}
-            <li class="@if(url('setup_komponen_gaji') == request()->url() or url('setup_periode_gaji') == request()->url()) active @else '' @endif treeview sidebar data-master">
+            <li class="@if(url('setup_komponen_gaji') == request()->url()
+            or url('setup_periode_gaji') == request()->url()
+            or url('setup_pola') == request()->url()
+            or url('setup_site') == request()->url()
+            ) active @else '' @endif treeview sidebar data-master">
                 <a href="#"><i class="fa fa-cogs"></i> <span class="nav-label">Setup System</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li class="@if(url('setup_komponen_gaji') == request()->url()) active @else '' @endif">
-                        <a href="{{ url('setup_komponen_gaji') }}"><i class="" aria-hidden="true"></i><span class="nav-label">Setup Komponen Gaji</span></a>
+                        <a href="{{ url('setup_komponen_gaji') }}"><i class="" aria-hidden="true"></i><span class="nav-label">Komponen Gaji</span></a>
                     </li>
                 </ul>
                 <ul class="nav nav-second-level collapse">
                     <li class="@if(url('setup_periode_gaji') == request()->url()) active @else '' @endif">
-                        <a href="{{ url('setup_periode_gaji') }}"><i class="" aria-hidden="true"></i><span class="nav-label">Setup Periode Gaji</span></a>
+                        <a href="{{ url('setup_periode_gaji') }}"><i class="" aria-hidden="true"></i><span class="nav-label">Periode Gaji</span></a>
+                    </li>
+                </ul>
+                <ul class="nav nav-second-level collapse">
+                    <li class="@if(url('setup_pola') == request()->url()) active @else '' @endif">
+                        <a href="{{ url('setup_pola') }}"><i class="" aria-hidden="true"></i><span class="nav-label">Pola Jadwal</span></a>
+                    </li>
+                </ul>
+                <ul class="nav nav-second-level collapse">
+                    <li class="@if(url('setup_site') == request()->url()) active @else '' @endif">
+                        <a href="{{ url('setup_site') }}"><i class="" aria-hidden="true"></i><span class="nav-label">Site</span></a>
                     </li>
                 </ul>
             </li>

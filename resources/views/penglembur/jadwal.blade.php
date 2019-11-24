@@ -39,10 +39,12 @@
                                         <th>No</th>
                                         <th>NIK</th>
                                         <th>Nama</th>
+                                        <th>Site</th>
                                         <th>Waktu Mulai</th>
                                         <th>Waktu Selesai</th>
                                         <th>Waktu Lembur</th>
                                         <th>Keterangan</th>
+                                        <th>Action</th>
 {{--                                        <th>Status</th>--}}
                                     </tr>
                                 </thead>
@@ -55,6 +57,7 @@
                                         <td>{{ $i }}</td>
                                         <td>{{ $l->karyawan_id }}</td>
                                         <td>{{ $l->nama }}</td>
+                                        <td>{{ $l->site }}</td>
                                         <td>{{ $l->waktu_awal }}</td>
                                         <td>{{ $l->waktu_akhir }}</td>
                                         @if($l->waktu_lembur == 1)
@@ -63,6 +66,7 @@
                                             <td>Sesudah</td>
                                         @endif
                                         <td>{{ $l->keterangan }}</td>
+                                        <td style="text-align: center"><a href="{{url('/penglembur/done',$l->id)}}"><i class="fa fa-check-square-o"></i></a></td>
 {{--                                        @if($l->acc == 1)--}}
 {{--                                            <td style="text-align: center"><button type="button" class="btn btn-success btn-sm">Approved</button></td>--}}
 {{--                                        @else($l->acc == 2)--}}
@@ -99,7 +103,7 @@
 <script>
     $(document).ready(function() {
         var table = $('#example').DataTable( {
-            responsive: true
+            scrollX: true
         } );
         new $.fn.dataTable.FixedHeader( table );
     });

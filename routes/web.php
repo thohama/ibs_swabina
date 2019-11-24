@@ -55,31 +55,39 @@ Route::get('payroll/slipgaji/{id}','HomeController@getSlipGaji');
 //presensi
 Route::get('presensi','AttendanceController@getPresensi');
 Route::get('presensi/generate','AttendanceController@getGeneratePresensi');
+Route::post('presensi/generate/personal','AttendanceController@personalGeneratePresensi');
 
 //lembur
 Route::get('penglembur','SPLController@penglembur');
 Route::get('penglembur/daftar','SPLController@penglemburDaftar');
 Route::get('penglembur/jadwal','SPLController@penglemburJadwal');
 Route::get('penglembur/history','SPLController@historyJadwal');
+Route::get('penglembur/done/{id}','SPLController@donePenglembur');
 Route::post('penglembur/store','SPLController@storePenglembur');
 Route::post('penglembur/acc','SPLController@accPenglembur');
 Route::post('penglembur/tolak','SPLController@tolakPenglembur');
 
 
 //setup
-Route::get('setup_komponen_gaji', 'HomeController@setup_komponen_gaji');
-Route::post('setup_komponen_gaji/simpan', 'HomeController@simpan_komponen_gaji');
-Route::post('setup_komponen_gaji/edit', 'HomeController@edit_komponen_gaji');
-Route::delete('setup_komponen_gaji/delete', 'HomeController@delete_komponen_gaji');
-
-
-Route::get('setup_periode_gaji', 'HomeController@setup_periode_gaji');
-Route::post('setup_periode_gaji/simpan', 'HomeController@simpan_periode_gaji');
+Route::get('setup_komponen_gaji', 'SetupController@setup_komponen_gaji');
+Route::get('setup_periode_gaji', 'SetupController@setup_periode_gaji');
+Route::get('setup_site', 'SetupController@setupSite');
+Route::get('setup_pola', 'SetupController@setupPola');
+Route::post('setup_site/update', 'SetupController@setupSiteUpdate');
+Route::post('setup_site/delete', 'SetupController@setupSiteDelete');
+Route::post('setup_site/tambah', 'SetupController@setupSiteTambah');
+Route::post('setup_pola/update', 'SetupController@setupPolaUpdate');
+Route::post('setup_pola/delete', 'SetupController@setupPolaDelete');
+Route::post('setup_pola/tambah', 'SetupController@setupPolaTambah');
+Route::post('setup_komponen_gaji/simpan', 'SetupController@simpan_komponen_gaji');
+Route::post('setup_komponen_gaji/edit', 'SetupController@edit_komponen_gaji');
+Route::delete('setup_komponen_gaji/delete', 'SetupController@delete_komponen_gaji');
+Route::post('setup_periode_gaji/simpan', 'SetupController@simpan_periode_gaji');
 
 
 Route::group(['middleware' => ['auth']], function() {
-    Route::resource('roles','RoleController');
-    Route::resource('users','UserController');
+Route::resource('roles','RoleController');
+Route::resource('users','UserController');
 });
 
 Route::get('cetakpdf','HomeController@cetakPdf');

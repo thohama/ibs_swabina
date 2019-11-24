@@ -172,52 +172,6 @@ class HomeController extends Controller
         return view('print_data_payroll', compact('tbl_gaji_hdr','tbl_gaji_dtl'));
     }
 
-    public function setup_komponen_gaji(){
-        $setup_komponen_gaji = DB::select(DB::raw("SELECT * FROM st_komponen_gaji"));
-        return view('setup_komponen_gaji', compact('setup_komponen_gaji'));
-    }
-
-    public function simpan_komponen_gaji(Request $request){
-        $simpan_komponen_gaji = DB::table('st_komponen_gaji')
-                                ->insert([
-                                    'name' => $request->name,
-                                    'deskripsi' => $request->deskripsi,
-                                    ]);
-        return redirect()->back();
-    }
-
-    public function edit_komponen_gaji(Request $request){
-        $edit_komponen_gaji = DB::table('st_komponen_gaji')
-                                ->where('id','=',$request->id)
-                                ->update([
-                                    'name' => $request->name,
-                                    'deskripsi' => $request->deskripsi,
-                                    ]);
-        return redirect()->back();
-    }
-
-    public function delete_komponen_gaji(Request $request){
-        //dd($request);
-        $delete_komponen_gaji = DB::select(DB::raw("DELETE FROM st_komponen_gaji where id = '$request->id'"));
-        return redirect()->back();
-    }
-
-    public function setup_periode_gaji(){
-        $setup_periode_gaji = DB::select(DB::raw("SELECT * FROM st_periode_gaji"));
-        return view('setup_periode_gaji', compact('setup_periode_gaji'));
-    }
-
-    public function simpan_periode_gaji(Request $request){
-        $simpan_periode_gaji = DB::table('st_periode_gaji')
-                                ->insert([
-                                    'tgl_gaji' => $request->tgl_gaji,
-                                    'sd_prd_kerja' => $request->sd_prd_kerja,
-                                    'ed_prd_kerja' => $request->ed_prd_kerja,
-                                    'selisih_bln_kerja' => $request->selisih_bln_kerja,
-                                    ]);
-        return redirect()->back();
-    }
-
     public function generate_payroll(){
         $setup_periode_gaji = DB::select(DB::raw("SELECT * FROM st_periode_gaji"));
         return view('generate_payroll', compact('setup_periode_gaji'));
