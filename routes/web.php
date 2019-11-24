@@ -54,8 +54,13 @@ Route::get('payroll/slipgaji/{id}','HomeController@getSlipGaji');
 
 //presensi
 Route::get('presensi','AttendanceController@getPresensi');
+Route::get('presensi/generate/jadwal','AttendanceController@getGenerateJadwal');
 Route::get('presensi/generate','AttendanceController@getGeneratePresensi');
 Route::post('presensi/generate/personal','AttendanceController@personalGeneratePresensi');
+Route::post('presensi/generate/jadwal/personal','AttendanceController@personalGenerateJadwal');
+Route::post('presensi/generate/jadwal/persite','AttendanceController@persiteGenerateJadwal');
+Route::post('presensi/generate/jadwal/nonpola','AttendanceController@nonpolaGenerateJadwal');
+Route::post('presensi/generate/jadwal/edit','AttendanceController@editGenerateJadwal');
 
 //lembur
 Route::get('penglembur','SPLController@penglembur');
@@ -73,12 +78,16 @@ Route::get('setup_komponen_gaji', 'SetupController@setup_komponen_gaji');
 Route::get('setup_periode_gaji', 'SetupController@setup_periode_gaji');
 Route::get('setup_site', 'SetupController@setupSite');
 Route::get('setup_pola', 'SetupController@setupPola');
+Route::get('setup_schpola', 'SetupController@setupSchPola');
 Route::post('setup_site/update', 'SetupController@setupSiteUpdate');
 Route::post('setup_site/delete', 'SetupController@setupSiteDelete');
 Route::post('setup_site/tambah', 'SetupController@setupSiteTambah');
 Route::post('setup_pola/update', 'SetupController@setupPolaUpdate');
 Route::post('setup_pola/delete', 'SetupController@setupPolaDelete');
 Route::post('setup_pola/tambah', 'SetupController@setupPolaTambah');
+Route::post('setup_schpola/update', 'SetupController@setupSchPolaUpdate');
+Route::post('setup_schpola/delete', 'SetupController@setupSchPolaDelete');
+Route::post('setup_schpola/tambah', 'SetupController@setupSchPolaTambah');
 Route::post('setup_komponen_gaji/simpan', 'SetupController@simpan_komponen_gaji');
 Route::post('setup_komponen_gaji/edit', 'SetupController@edit_komponen_gaji');
 Route::delete('setup_komponen_gaji/delete', 'SetupController@delete_komponen_gaji');

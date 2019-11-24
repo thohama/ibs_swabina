@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\schclass;
 use App\schpola_dtl;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -133,5 +134,46 @@ class SetupController extends Controller
             return redirect()->back()->with('success','Data Pola Berhasil Ditambahkan!');
         }
         else return redirect()->back()->with('failed','Data Pola Sudah Ada!');
+    }
+
+    public function setupSchPola(){
+        $class = DB::table('schclass')->where('deleted_at','=',(NULL))->get();
+        return view('setup.polaclass.index', compact('class'));
+    }
+
+    public function setupSchPolaUpdate(Request $request){
+        DB::table('schclass')
+            ->where('kode','=',$request->kode)
+            ->update([
+                'kode' => $request->kode,
+                'deskripsi' => $request->desk,
+                'stime' => $request->stime,
+                'etime' => $request->etime,
+                'updated_at' => date("Y-m-d H:i:s"),
+                'updated_by' => Auth::user()->id
+            ]);
+        return redirect()->back()->with('success','Update Data Pola Class Berhasil!');
+    }
+
+    public function setupSchPolaDelete(Request $request){
+        DB::table('schclass')
+            ->where('kode','=',$request->kode)
+            ->update([
+                'deleted_at' => date("Y-m-d H:i:s"),
+                'deleted_by' => Auth::user()->id
+            ]);
+        return redirect()->back()->with('success','Delete Data Pola Class Berhasil!');
+    }
+
+    public function setupSchPolaTambah(Request $request){
+        $new = new schclass();
+        $new->kode = $request->kode;
+        $new->deskripsi = $request->desk;
+        $new->stime = $request->stime;
+        $new->etime = $request->etime;
+        $new->entry_date = date("Y-m-d H:i:s");
+        $new->entry_user = Auth::user()->id;
+        $new->save();
+        return redirect()->back()->with('success','Data Pola Class Berhasil Ditambahkan!');
     }
 }

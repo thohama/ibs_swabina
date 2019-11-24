@@ -222,10 +222,13 @@
             </li>
 
             <li class="@if(url('/presensi') == request()->url()
-                or url('/presensi/generate') == request()->url()) active @else '' @endif treeview">
+                or url('/presensi/generate') == request()->url()
+                or url('/presensi/generate/jadwal') == request()->url()
+                ) active @else '' @endif treeview">
                 <a href="#"><i class="fa fa-book"></i> <span class="nav-label">Presensi</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li class="@if(url('/presensi') == request()->url()) active @else '' @endif"><a href="{{ url('/presensi') }}">Daftar Absensi</a></li>
+                    <li class="@if(url('/presensi/generate/jadwal') == request()->url()) active @else '' @endif"><a href="{{ url('/presensi/generate/jadwal') }}">Generate Jadwal</a></li>
                     <li class="@if(url('/presensi/generate') == request()->url()) active @else '' @endif"><a href="{{ url('/presensi/generate') }}">Generate Presensi</a></li>
                 </ul>
             </li>
@@ -250,6 +253,7 @@
             <li class="@if(url('setup_komponen_gaji') == request()->url()
             or url('setup_periode_gaji') == request()->url()
             or url('setup_pola') == request()->url()
+            or url('setup_schpola') == request()->url()
             or url('setup_site') == request()->url()
             ) active @else '' @endif treeview sidebar data-master">
                 <a href="#"><i class="fa fa-cogs"></i> <span class="nav-label">Setup System</span><span class="fa arrow"></span></a>
@@ -261,6 +265,11 @@
                 <ul class="nav nav-second-level collapse">
                     <li class="@if(url('setup_periode_gaji') == request()->url()) active @else '' @endif">
                         <a href="{{ url('setup_periode_gaji') }}"><i class="" aria-hidden="true"></i><span class="nav-label">Periode Gaji</span></a>
+                    </li>
+                </ul>
+                <ul class="nav nav-second-level collapse">
+                    <li class="@if(url('setup_schpola') == request()->url()) active @else '' @endif">
+                        <a href="{{ url('setup_schpola') }}"><i class="" aria-hidden="true"></i><span class="nav-label">Pola Class</span></a>
                     </li>
                 </ul>
                 <ul class="nav nav-second-level collapse">
