@@ -63,6 +63,12 @@ Route::post('presensi/generate/jadwal/persite','AttendanceController@persiteGene
 Route::post('presensi/generate/jadwal/nonpola','AttendanceController@nonpolaGenerateJadwal');
 Route::post('presensi/generate/jadwal/edit','AttendanceController@editGenerateJadwal');
 
+//pegawai
+Route::get('pegawai','PegawaiController@getPegawai');
+Route::post('pegawai/tambah','PegawaiController@tambahPegawai');
+Route::post('pegawai/update','PegawaiController@updatePegawai');
+Route::post('pegawai/delete','PegawaiController@deletePegawai');
+
 //lembur
 Route::get('penglembur','SPLController@penglembur');
 Route::get('penglembur/daftar','SPLController@penglemburDaftar');

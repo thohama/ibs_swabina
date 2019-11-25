@@ -40,6 +40,7 @@
 {{--                                        <th>Foto</th>--}}
                                         <th>NIK</th>
                                         <th>Nama</th>
+                                        <th>Site</th>
                                         <th>Tanggal</th>
                                         <th>Waktu</th>
                                         <th style="width: 10%;">Action</th>
@@ -53,8 +54,9 @@
                                     <tr>
                                         <td>{{ $i }}</td>
 {{--                                        <td><img src="https://api-smi.myabsensi.com/common/files/absensi-online/{{$p->foto}}" style="width: 50px; height: 50px"/></td>--}}
-                                        <td>{{$p->karyawan_id}}</td>
+                                        <td>{{$p->nik}}</td>
                                         <td>{{$p->nama}}</td>
+                                        <td>{{$p->site}}</td>
 {{--                                        <td>{{$p->scan_date}}</td>--}}
                                         <td>{{$tgl[$i-1]}}</td>
                                         <td>{{$jam[$i-1]}}</td>

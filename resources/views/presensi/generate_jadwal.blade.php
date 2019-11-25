@@ -79,6 +79,9 @@
                                                     </select>
                                                 </div>
                                             </div>
+{{--                                            <div class="form-group"><label class="col-sm-2 control-label" style="text-align: left">Tanggal Awal (Senin)</label>--}}
+{{--                                                <div class="col-sm-10"><input type='text' name='datepicker' id='datepicker' placeholder='Date:' class='form-control'></div>--}}
+{{--                                            </div>--}}
                                             <div class="form-group"><label class="col-sm-2 control-label" style="text-align: left">Tanggal Awal (Senin)</label>
                                                 <div class="col-sm-10"><input type="date" class="form-control date" name="sdate" id="sdate" required></div>
                                             </div>
@@ -298,6 +301,18 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <!-- Page-Level Scripts -->
     <script>
+        // $(function() {
+        //     $("#datepicker").datepicker({
+        //         minDate:0,
+        //         beforeShowDay: function (date) {
+        //             //getDate() returns the day (0-31)
+        //             if (date.getDay() == 1 ) {
+        //                 return [true, ''];
+        //             }
+        //             return [false, ''];
+        //         }
+        //     });
+        // });
         $(function() {
             $('input[name="daterange"]').daterangepicker({
                 opens: 'left',

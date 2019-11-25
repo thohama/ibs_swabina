@@ -191,7 +191,11 @@
 {{--                or url('/payroll/slipgaji/{id}') == request()->url()) active @else '' @endif  treeview">--}}
 {{--                <a href="{{ url('payroll')}}"><i class="fa fa-usd"></i> <span class="nav-label">Generate Payroll</span></a>--}}
 {{--            </li>--}}
-
+            <li class="@if(url('pegawai') == request()->url()) active @else '' @endif treeview">
+                <a href="{{url('pegawai')}}"><i class="fa fa-database"></i>
+                    <span class="nav-label">Data Pegawai</span>
+                </a>
+            </li>
             <li class="@if(url('penglembur') == request()->url()
                 or url('penglembur/daftar') == request()->url()
                 or url('penglembur/jadwal') == request()->url()

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\schclass;
 use App\schpola_dtl;
+use App\st_site;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -69,6 +70,9 @@ class SetupController extends Controller
             ->update([
                 'nama' => $request->nama,
                 'deskripsi' => $request->deskripsi,
+                'email' => $request->email,
+                'no_tlp' => $request->tlp,
+                'alamat' => $request->alamat,
                 'updated_at' => date("Y-m-d H:i:s"),
                 'updated_by' => Auth::user()->id
             ]);
@@ -83,6 +87,19 @@ class SetupController extends Controller
                 'deleted_by' => Auth::user()->id
             ]);
         return redirect()->back()->with('success','Delete Data Site Berhasil!');
+    }
+
+    public function setupSiteTambah(Request $request){
+        $site = new st_site();
+        $site->nama = $request->nama;
+        $site->deskripsi = $request->deskripsi;
+        $site->email = $request->email;
+        $site->no_tlp = $request->tlp;
+        $site->alamat = $request->alamat;
+        $site->created_at = date("Y-m-d H:i:s");
+        $site->created_by = Auth::user()->id;
+        $site->save();
+        return redirect()->back()->with('success','Tambah Data Site Berhasil!');
     }
 
     public function setupPola(){
@@ -129,6 +146,8 @@ class SetupController extends Controller
                 $new->polaid = $request->desk;
                 $new->hari_ke = $i;
                 $new->schclass_id = $request->$i;
+                $new->entry_date = date("Y-m-d H:i:s");
+                $new->entry_user = Auth::user()->id;
                 $new->save();
             }
             return redirect()->back()->with('success','Data Pola Berhasil Ditambahkan!');

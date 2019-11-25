@@ -16,7 +16,9 @@ class AttendanceController extends Controller
     {
         $presensi = DB::table('absensi_online')
             ->join('md_karyawan','md_karyawan.id', '=', 'absensi_online.karyawan_id')
-            ->select('absensi_online.*', 'md_karyawan.nama')
+            ->join('st_site','st_site.id','=','md_karyawan.site_id')
+            ->where('absensi_online.deleted_at','=',(NULL) or '')
+            ->select('absensi_online.*', 'md_karyawan.nama','md_karyawan.nik','st_site.nama as site')
             ->orderByDesc('absensi_online.scan_date')
             ->get();
         $i = 0;
@@ -454,26 +456,78 @@ class AttendanceController extends Controller
     }
 
     public function persiteGenerateJadwal(Request $request){
-        $schpola_dtl = DB::table('schpola_dtl')
-            ->join('schpola_hdr', 'schpola_dtl.polaid', 'schpola_hdr.kode')
-            ->select('schpola_dtl.schclass_id')
-            ->where('schpola_dtl.polaid','=', $request->pola)
-            ->orderBy('schpola_dtl.hari_ke')
-            ->get();
-        $kar = DB::table('md_karyawan')
-            ->where('site_id','=',$request->site)
-            ->get();
+        $sdate_stamp = strtotime(date('Y-m-d', strtotime($request->sdate)));
+        $edate_stamp = strtotime(date('Y-m-d', strtotime($request->edate)));
+        $sstamp = date('l', $sdate_stamp);
+        $estamp = date('l', $edate_stamp);
 
-        foreach ($kar as $k){
+        if($sstamp == 'Monday' && $estamp == 'Sunday'){
+            $schpola_dtl = DB::table('schpola_dtl')
+                ->join('schpola_hdr', 'schpola_dtl.polaid', 'schpola_hdr.kode')
+                ->select('schpola_dtl.schclass_id')
+                ->where('schpola_dtl.polaid','=', $request->pola)
+                ->orderBy('schpola_dtl.hari_ke')
+                ->get();
+            $kar = DB::table('md_karyawan')
+                ->where('site_id','=',$request->site)
+                ->get();
+
+            foreach ($kar as $k){
+                $start_date = $request->sdate;
+                $end_date = $request->edate;
+                $i = 0;
+                while ($start_date<=($end_date)) {
+                    if((schnikdetail::all()->where('users_id','=',$request->id)->where('sdate','=',$start_date)->first())==null){
+                        $time = DB::table('schclass')->where('kode', $schpola_dtl[$i]->schclass_id)->get();
+
+                        $jadwal = new schnikdetail;
+                        $jadwal->users_id = $k->id;
+                        $jadwal->sdate = $start_date;
+                        $jadwal->edate = $start_date;
+                        $jadwal->polaid = $schpola_dtl[$i]->schclass_id;
+                        $jadwal->stime = $time[0]->stime;
+                        $jadwal->etime = $time[0]->etime;
+                        $jadwal->entry_user = Auth::user()->id;
+                        $jadwal->entry_date = Carbon::now()->toDateTimeString();
+                        $jadwal->save();
+                        $i++;
+                        $start_date = date('Y-m-d', strtotime('+1 days', strtotime( $start_date )));
+                        if ($i == 7) {
+                            $i = 0;
+                        }
+                    }
+                }
+            }
+            return redirect()->back()->with('success','Generate Jadwal Personal Berhasil!');
+        }
+        else{
+            return redirect()->back()->with('failed','Start Date dan End Date harus sesuai format!');
+        }
+    }
+
+    public function personalGenerateJadwal(Request $request){
+        $sdate_stamp = strtotime(date('Y-m-d', strtotime($request->sdate)));
+        $edate_stamp = strtotime(date('Y-m-d', strtotime($request->edate)));
+        $sstamp = date('l', $sdate_stamp);
+        $estamp = date('l', $edate_stamp);
+
+        if($sstamp == 'Monday' && $estamp == 'Sunday'){
             $start_date = $request->sdate;
             $end_date = $request->edate;
+            $schpola_dtl = DB::table('schpola_dtl')
+                ->join('schpola_hdr', 'schpola_dtl.polaid', 'schpola_hdr.kode')
+                ->select('schpola_dtl.schclass_id')
+                ->where('schpola_dtl.polaid','=', $request->pola)
+                ->orderBy('schpola_dtl.hari_ke')
+                ->get();
             $i = 0;
+
             while ($start_date<=($end_date)) {
                 if((schnikdetail::all()->where('users_id','=',$request->id)->where('sdate','=',$start_date)->first())==null){
                     $time = DB::table('schclass')->where('kode', $schpola_dtl[$i]->schclass_id)->get();
 
                     $jadwal = new schnikdetail;
-                    $jadwal->users_id = $k->id;
+                    $jadwal->users_id = $request->id;
                     $jadwal->sdate = $start_date;
                     $jadwal->edate = $start_date;
                     $jadwal->polaid = $schpola_dtl[$i]->schclass_id;
@@ -489,44 +543,11 @@ class AttendanceController extends Controller
                     }
                 }
             }
+            return redirect()->back()->with('success','Generate Jadwal Personal Berhasil!');
         }
-
-        return redirect()->back()->with('success','Generate Jadwal Personal Berhasil!');
-    }
-
-    public function personalGenerateJadwal(Request $request){
-        $start_date = $request->sdate;
-        $end_date = $request->edate;
-        $schpola_dtl = DB::table('schpola_dtl')
-            ->join('schpola_hdr', 'schpola_dtl.polaid', 'schpola_hdr.kode')
-            ->select('schpola_dtl.schclass_id')
-            ->where('schpola_dtl.polaid','=', $request->pola)
-            ->orderBy('schpola_dtl.hari_ke')
-            ->get();
-        $i = 0;
-
-        while ($start_date<=($end_date)) {
-            if((schnikdetail::all()->where('users_id','=',$request->id)->where('sdate','=',$start_date)->first())==null){
-                $time = DB::table('schclass')->where('kode', $schpola_dtl[$i]->schclass_id)->get();
-
-                $jadwal = new schnikdetail;
-                $jadwal->users_id = $request->id;
-                $jadwal->sdate = $start_date;
-                $jadwal->edate = $start_date;
-                $jadwal->polaid = $schpola_dtl[$i]->schclass_id;
-                $jadwal->stime = $time[0]->stime;
-                $jadwal->etime = $time[0]->etime;
-                $jadwal->entry_user = Auth::user()->id;
-                $jadwal->entry_date = Carbon::now()->toDateTimeString();
-                $jadwal->save();
-                $i++;
-                $start_date = date('Y-m-d', strtotime('+1 days', strtotime( $start_date )));
-                if ($i == 7) {
-                    $i = 0;
-                }
-            }
+        else{
+            return redirect()->back()->with('failed','Start Date dan End Date harus sesuai format!');
         }
-        return redirect()->back()->with('success','Generate Jadwal Personal Berhasil!');
     }
 
     public function nonpolaGenerateJadwal(Request $request){
