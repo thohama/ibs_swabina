@@ -29,39 +29,36 @@
                     </div>
                     <div class="ibox-content">
                         <div class="text-right">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#generate">Generate Personal</button>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#persite">Generate Presensi Per Site</button>
                         </div>
 
-                        <div class="modal inmodal fade" id="generate" tabindex="-1" role="dialog"  aria-hidden="true">
+                        <div class="modal inmodal fade" id="persite" tabindex="-1" role="dialog"  aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                        <h4 class="modal-title">Generate Personal</h4>
+                                        <h4 class="modal-title">Generate Presensi Per Site</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <form method="POST" action="{{url('/presensi/generate/personal')}}" class="form-horizontal" enctype="multipart/form-data">
+                                        <form method="POST" action="{{url('/presensi/generate/persite')}}" class="form-horizontal" enctype="multipart/form-data">
                                             @csrf
 
                                             <div class="form-group">
-                                                <label style="text-align: left" class="col-sm-2 control-label">Nama Pegawai</label>
+                                                <label style="text-align: left" class="col-sm-2 control-label">Site</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-control inputstl" id="Nama" name="id" required>
-                                                        @foreach($kar as $k)
-                                                            <option value="{{$k->id}}">{{$k->nama}} - {{ $k->site }}</option>
+                                                    <select class="form-control inputstl" id="site" name="site" required>
+                                                        @foreach($site as $k)
+                                                            <option value="{{$k->id}}">{{$k->nama}} ({{ $k->deskripsi }})</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="form-group"><label class="col-sm-2 control-label" style="text-align: left">Tanggal</label>
-                                                <div class="col-sm-10"><input type="text" class="form-control input-sm" name="daterange" id="nama" required></div>
+                                            <div class="form-group"><label class="col-sm-2 control-label" style="text-align: left">Start Date</label>
+                                                <div class="col-sm-10"><input type="date" class="form-control date" name="sdate" id="sdate" required></div>
                                             </div>
-{{--                                            <div class="form-group"><label class="col-sm-2 control-label" style="text-align: left">Tanggal</label>--}}
-{{--                                                <div class="col-sm-10">--}}
-{{--                                                    <input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-
+                                            <div class="form-group"><label class="col-sm-2 control-label" style="text-align: left">End Date</label>
+                                                <div class="col-sm-10"><input type="date" class="form-control date" name="edate" id="edate" required></div>
+                                            </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
                                                 <button type="submit" class="btn btn-primary">Generate</button>
@@ -77,7 +74,7 @@
                                 <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>NIK</th>
+                                    <th>ID</th>
                                     <th>Tgl Jadwal Masuk</th>
                                     <th>Jam Jadwal Masuk</th>
                                     <th>Tgl Masuk</th>
@@ -89,6 +86,7 @@
                                     <th>Menit Terlambat</th>
                                     <th>Menit Pulang Cepat</th>
                                     <th>Menit Lembur</th>
+                                    <th>Koefisien Lembur</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -98,7 +96,7 @@
                                 @foreach($presensi as $p)
                                     <tr>
                                         <td>{{ $i }}</td>
-                                        <td>{{ $p->nik }}</td>
+                                        <td>{{ $p->karyawan_id }}</td>
                                         <td>{{ $p->tgl_jadwal }}</td>
                                         <td>{{ $p->jam_jadwal }}</td>
                                         <td>{{ $p->tgl_masuk }}</td>
@@ -110,6 +108,7 @@
                                         <td>{{ $p->mnt_terlambat }}</td>
                                         <td>{{ $p->mnt_plgcpt }}</td>
                                         <td>{{ $p->mnt_lembur }}</td>
+                                        <td>{{ $p->tot_koef_lembur }}</td>
                                     </tr>
                                     @php
                                         $i++;

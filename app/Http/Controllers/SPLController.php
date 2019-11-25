@@ -37,6 +37,7 @@ class SPLController extends Controller
         if ((count(DB::select('select * from lembur where date(waktu_awal) = ? and karyawan_id = ? and waktu_lembur = ?',
                     [date('Y-m-d', strtotime($waktu_awal)),$request->id,$request->waktu])) == 0)
             && ($waktu_awal >= date("Y-m-d H:i:s"))){
+//            or ($waktu_awal >= date("Y-m-d H:i:s"))){
             $store = new lembur();
             $store->karyawan_id = $request->id;
             $store->waktu_awal = $waktu_awal;

@@ -57,6 +57,7 @@ Route::get('presensi','AttendanceController@getPresensi');
 Route::get('presensi/generate/jadwal','AttendanceController@getGenerateJadwal');
 Route::get('presensi/generate','AttendanceController@getGeneratePresensi');
 Route::post('presensi/generate/personal','AttendanceController@personalGeneratePresensi');
+Route::post('presensi/generate/persite','AttendanceController@persiteGeneratePresensi');
 Route::post('presensi/generate/jadwal/personal','AttendanceController@personalGenerateJadwal');
 Route::post('presensi/generate/jadwal/persite','AttendanceController@persiteGenerateJadwal');
 Route::post('presensi/generate/jadwal/nonpola','AttendanceController@nonpolaGenerateJadwal');
