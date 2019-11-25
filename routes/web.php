@@ -117,8 +117,14 @@ Route::get('getkecamatan/{id}', 'HomeController@getkecamatan');
 Route::post('admin/import_data_pegawai', 'HomeController@import_excel')->name('pegawai.import');
 Route::post('admin/store_data_pegawai','HomeController@store_pegawai');
 Route::get('detail_pelamar/{id}','HomeController@detail_pelamar');
-Route::get('terima_pelamar/{id}','HomeController@terima_pelamar');
+Route::post('terima_pelamar/{id}','HomeController@terima_pelamar');
+Route::get('terima_pelamar_wawancara/{id}','HomeController@terima_pelamar_wawancara');
+Route::get('terima_pelamar_bidang/{id}','HomeController@terima_pelamar_bidang');
+Route::get('terima_pelamar_psikologi/{id}','HomeController@terima_pelamar_psikologi');
+Route::get('terima_pelamar_kesehatan/{id}','HomeController@terima_pelamar_kesehatan');
 Route::get('tolak_pelamar/{id}','HomeController@tolak_pelamar');
+Route::get('verifikasi_pelamar/{id}','HomeController@verifikasi_pelamar');
+Route::post('verifikasi_pelamar/store/{id}','HomeController@store_verifikasi_pelamar');
 
 //HUBNAKER
 Route::get('hubnaker/data_pegawai_lulus','HubnakerController@index_pelamar_lulus');

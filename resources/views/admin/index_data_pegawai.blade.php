@@ -63,7 +63,11 @@
                   <th style="text-align : center;"> NIK </th>
                   <th style="text-align : center;"> Nama </th>
                   <th style="text-align : center;"> Alamat </th>
-                  <th style="text-align : center;"> Aksi </th>
+                  <th style="text-align : center;"> Wawancara </th>
+                  <th style="text-align : center;"> Bidang </th>
+                  <th style="text-align : center;"> Psikologi </th>
+                  <th style="text-align : center;"> Kesehatan </th>
+                  <th style="text-align : center;"> Penjelasan </th>
                 </tr>
               </thead>
               <tbody>
@@ -77,35 +81,57 @@
                   <td><center>{{$u->NIK}}</center></td>
                   <td><center>{{$u->nama_lengkap}}</center></td>
                   <td><center>{{$u->alamat_ktp}}</center></td>
-                  <td><center>
-                    <a href="{{url('detail_pelamar')}}/{{$u->users_id}}"><button class="btn btn-primary btn-circle" type="button"><i class="fa fa-list"></i></button></a>
-                    <a href="{{url('terima_pelamar')}}/{{$u->users_id}}"><button class="btn btn-info btn-circle" type="button"><i class="fa fa-check"></i></button></a>
-                    <a href="{{url('tolak_pelamar')}}/{{$u->users_id}}"><button class="btn btn-warning btn-circle" type="button"><i class="fa fa-times"></i></button></a>
-                  </center>
-                </td>
-                @php
-                $i++;
-                @endphp
-                @endforeach
-              </tr>
-            </tbody>
-          </table>
-        </div>
+                  <td>
+                    <center>
+                      <a href="{{url('terima_pelamar_wawancara')}}/{{$u->users_id}}"><button type="button" class="btn btn-info btn-circle" {{ $u->status_diterima != '2' ? 'disabled' : '' }}><i class="fa fa-check"></i></button></a>
+                      <a href="{{url('tolak_pelamar')}}/{{$u->users_id}}"><button type="button" class="btn btn-warning btn-circle" {{ $u->status_diterima != '2' ? 'disabled' : '' }}><i class="fa fa-times"></i></button></a>
+                    </center>
+                  </td>
+                  <td>
+                    <center>
+                      <a href="{{url('terima_pelamar_bidang')}}/{{$u->users_id}}"><button type="button" class="btn btn-info btn-circle" {{ $u->status_diterima != '3' ? 'disabled' : '' }}><i class="fa fa-check"></i></button></a>
+                      <a href="{{url('tolak_pelamar')}}/{{$u->users_id}}"><button type="button" class="btn btn-warning btn-circle" {{ $u->status_diterima != '3' ? 'disabled' : '' }}><i class="fa fa-times"></i></button></a>
+                    </center>
+                  </td>
+                  <td>
+                    <center>
+                      <a href="{{url('terima_pelamar_psikologi')}}/{{$u->users_id}}"><button type="button" class="btn btn-info btn-circle" {{ $u->status_diterima != '4' ? 'disabled' : '' }}><i class="fa fa-check"></i></button></a>
+                      <a href="{{url('tolak_pelamar')}}/{{$u->users_id}}"><button type="button" class="btn btn-warning btn-circle" {{ $u->status_diterima != '4' ? 'disabled' : '' }}><i class="fa fa-times"></i></button></a>
+                    </center>
+                  </td>
+                  <td>
+                    <center>
+                      <a href="{{url('terima_pelamar_kesehatan')}}/{{$u->users_id}}"><button type="button" class="btn btn-info btn-circle" {{ $u->status_diterima != '5' ? 'disabled' : '' }}><i class="fa fa-check"></i></button></a>
+                      <a href="{{url('tolak_pelamar')}}/{{$u->users_id}}"><button type="button" class="btn btn-warning btn-circle" {{ $u->status_diterima != '5' ? 'disabled' : '' }}><i class="fa fa-times"></i></button></a>
+                    </center>
+                  </td>
+                  <td>
+                    <center>
+                      <a data-toggle="modal" data-target="#input-nilai" data-id="{{$u->users_id}}"><button type="button" class="btn btn-info btn-circle" {{ $u->status_diterima != '6' ? 'disabled' : '' }}><i class="fa fa-check"></i></button></a>
+                      <a href="{{url('tolak_pelamar')}}/{{$u->users_id}}"><button type="button" class="btn btn-warning btn-circle" {{ $u->status_diterima != '6' ? 'disabled' : '' }}><i class="fa fa-times"></i></button></a>
+                    </center>
+                  </td>
+                  @php
+                  $i++;
+                  @endphp
+                  @include('admin.index_data_pegawai_extend_input_lokasi')
+                  @endforeach
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-        <div class="box-footer">
-          <h5></h5>
-        </div><!-- /.box-footer --> 
-      </div><!-- /.box -->
-    </div><!-- /.col -->
-  </div><!-- /.row -->
+          <div class="box-footer">
+            <h5></h5>
+          </div><!-- /.box-footer --> 
+        </div><!-- /.box -->
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div>
 </div>
 </div>
 </div>
 </div>
-</div>
-
-
-
 <div class="row" style="padding-bottom: 50px;"></div>
 
 
@@ -130,6 +156,16 @@
       "pageLength": 10,
       "retrieve" : true,
     });
+
+    $('#input-nilai').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); // Button that triggered the modal
+
+            var id = button.data('id');
+            console.log(id);
+
+            var modal = $(this);
+            modal.find('.modal-body #id').val(id);
+          });
 
   });
 

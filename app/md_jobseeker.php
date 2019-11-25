@@ -25,7 +25,7 @@ class md_jobseeker extends Model
   protected $identitas = ["NIK","nama_lengkap","nama_panggilan","tempat_lahir","tanggal_lahir",
   "jenis_kelamin","agama","alamat_ktp","alamat_domisili","negara_ktp","negara_domisili",
   "provinsi_ktp","provinsi_domisili","kabkota_ktp","kabkota_domisili","kecamatan_ktp","kecamatan_domisili",
-  "kode_pos_ktp","kode_pos_domisili","email","notelp","nohp","kategori_idcard","nomor_idcard","alasan_melamar","radio_bersedia_sift","alasan_sift","radio_bersedia_mutasi","alasan_mutasi","status_diterima"];
+  "kode_pos_ktp","kode_pos_domisili","email","notelp","nohp","kategori_idcard","nomor_idcard","alasan_melamar","radio_bersedia_sift","alasan_sift","radio_bersedia_mutasi","alasan_mutasi","status_diterima","status_ijazah","status_ktp","status_ksk","status_akte_lahir","status_skck","status_rekening","status_foto"];
 
   public function setStatusIdentitas(){
     $data = $this->attributes;

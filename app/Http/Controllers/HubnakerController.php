@@ -26,7 +26,7 @@ class HubnakerController extends Controller
 {
     public function index_pelamar_lulus()
     {
-        $jobseeker = md_jobseeker::where('status_diterima','=','2')->get();
+        $jobseeker = md_jobseeker::where('status_diterima','=','7')->get();
         return view('hubnaker.index_pelamar_lulus_seleksi', compact('jobseeker'));
     }
 

@@ -78,6 +78,9 @@
                   <th style="text-align : center;"> Nama </th>
                   <th style="text-align : center;"> Alamat </th>
                   <th style="text-align : center;"> Keterangan </th>
+                  <th style="text-align : center;"> Detail </th>
+                  <th style="text-align : center;"> Verifikasi </th>
+                  <!-- <th style="text-align : center;"> Aksi </th> -->
                 </tr>
               </thead>
               <tbody>
@@ -91,32 +94,51 @@
                   <td><center>{{$u->NIK}}</center></td>
                   <td><center>{{$u->nama_lengkap}}</center></td>
                   <td><center>{{$u->alamat_ktp}}</center></td>
-                  <td><center>
-                    @if($u->status_diterima == '1')
-                    <span class="label label-warning">Belum Diseleksi</span>
-                    @elseif($u->status_diterima == '2')
-                    <span class="label label-primary">Diterima</span>
-                    @else
-                    <span class="label label-danger">Tidak Diterima</span>
-                    @endif
-                  </center>
-                </td>
-                @php
-                $i++;
-                @endphp
-                @endforeach
-              </tr>
-            </tbody>
-          </table>
-        </div>
+                  <td>
+                    <center>
+                      @if($u->status_diterima == '1')
+                      <span class="label label-warning">Belum Diverifikasi</span>
+                      @elseif($u->status_diterima == '2')
+                      <span class="label label-info">Seleksi Wawancara</span>
+                      @elseif($u->status_diterima == '3')
+                      <span class="label label-info">Seleksi Bidang</span>
+                      @elseif($u->status_diterima == '4')
+                      <span class="label label-info">Tes Psikologi</span>
+                      @elseif($u->status_diterima == '5')
+                      <span class="label label-info">Tes Kesehatan</span>
+                      @elseif($u->status_diterima == '6')
+                      <span class="label label-info">Tes Penjelasan</span>
+                      @elseif($u->status_diterima == '7')
+                      <span class="label label-success">Diterima</span>
+                      @else
+                      <span class="label label-danger">Tidak Diterima</span>
+                      @endif
+                    </center>
+                  </td>
+                  <td><center><a href="{{url('detail_pelamar')}}/{{$u->users_id}}"><button class="btn btn-primary btn-circle" type="button"><i class="fa fa-list"></i></button></a></center></td>
+                  <td><center><a href="{{url('verifikasi_pelamar')}}/{{$u->users_id}}"><button type="button" class="btn btn-white btn-circle"><i class="fa fa-pencil"></i></button></a></center></td>
+                  <!-- <td>
+                    <center>
+                      <a href="#"><button type="button" class="btn btn-warning" {{ $u->status_diterima != '2' ? 'disabled' : '' }}>Undangan Wawancara</button></a>
+                      <a href="#"><button type="button" class="btn btn-danger" {{ $u->status_diterima != '4' ? 'disabled' : '' }}>Undangan Tes Psikologi</button></a>
+                    </center>
+                  </td> -->
+                  @php
+                  $i++;
+                  @endphp
+                  @endforeach
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-        <div class="box-footer">
-          <h5></h5>
-        </div><!-- /.box-footer --> 
-      </div><!-- /.box -->
-    </div><!-- /.col -->
-  </div><!-- /.row -->
-</div>
+          <div class="box-footer">
+            <h5></h5>
+          </div><!-- /.box-footer --> 
+        </div><!-- /.box -->
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div>
 </div>
 </div>
 </div>

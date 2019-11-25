@@ -20,6 +20,7 @@ use App\st_jobseeker_susunankeluarga;
 use App\User;
 use App\st_Kabkota;
 use App\st_Kecamatan;
+use App\st_site;
 use Excel;
 // use App\md_client;
 // use App\md_karyawan;
@@ -240,8 +241,12 @@ class HomeController extends Controller
 
     public function index_pegawai()
     {
-        $jobseeker = md_jobseeker::where('status_diterima','=','1')->get();
-        return view('admin.index_data_pegawai', compact('jobseeker'));
+        $jobseeker = md_jobseeker::where('status_diterima','!=','0')
+            ->where('status_diterima','!=','1')
+            ->where('status_diterima','!=','7')
+            ->get();
+        $site = st_site::all();
+        return view('admin.index_data_pegawai', compact('jobseeker','site'));
     }
 
     public function index_pelamar()
@@ -410,13 +415,14 @@ class HomeController extends Controller
 
     public function terima_pelamar(Request $request, $id)
     {
+        // dd($request->all());
         $jobseeker = md_jobseeker::findorFail($id);
         $users = User::where('id',$jobseeker->users_id)->first();
         $email = $users->email;
         $email_array = explode('@',$email);
 
         md_jobseeker::where('users_id',$id)->update(array(
-            'status_diterima'=>2
+            'status_diterima'=>7
             ));
 
         $karyawan = new md_karyawan();
@@ -425,6 +431,7 @@ class HomeController extends Controller
         $karyawan->gp = '3800000';
         $karyawan->tunj_transport = '600000';
         $karyawan->tunj_makan = '500000';
+        $karyawan->site_id = $request->site;
         $karyawan->save();
 
         $user = new md_user();
@@ -442,6 +449,42 @@ class HomeController extends Controller
         return redirect()->back()->with('status', 'Berhasil!');
     }
 
+    public function terima_pelamar_wawancara(Request $request, $id)
+    {
+        md_jobseeker::where('users_id',$id)->update(array(
+            'status_diterima'=>3
+            ));
+
+        return redirect()->back()->with('status', 'Berhasil!');
+    }
+
+    public function terima_pelamar_bidang(Request $request, $id)
+    {
+        md_jobseeker::where('users_id',$id)->update(array(
+            'status_diterima'=>4
+            ));
+
+        return redirect()->back()->with('status', 'Berhasil!');
+    }
+
+    public function terima_pelamar_psikologi(Request $request, $id)
+    {
+        md_jobseeker::where('users_id',$id)->update(array(
+            'status_diterima'=>5
+            ));
+
+        return redirect()->back()->with('status', 'Berhasil!');
+    }
+
+    public function terima_pelamar_kesehatan(Request $request, $id)
+    {
+        md_jobseeker::where('users_id',$id)->update(array(
+            'status_diterima'=>6
+            ));
+
+        return redirect()->back()->with('status', 'Berhasil!');
+    }
+
     public function tolak_pelamar(Request $request, $id)
     {
         md_jobseeker::where('users_id',$id)->update(array(
@@ -453,8 +496,43 @@ class HomeController extends Controller
 
     public function index_pelamar_lulus()
     {
-        $jobseeker = md_jobseeker::where('status_diterima','=','2')->get();
+        $jobseeker = md_jobseeker::where('status_diterima','=','7')->get();
         return view('admin.index_pelamar_lulus', compact('jobseeker'));
+    }
+
+    public function verifikasi_pelamar($id)
+    {
+        $jobseeker = md_jobseeker::findorFail($id);
+        return view('admin.verifikasi_pelamar', compact('jobseeker'));
+    }
+
+    public function store_verifikasi_pelamar(Request $request, $id)
+    {
+        if($request->status_ijazah != 0 && $request->status_ktp != 0 && $request->status_ksk != 0 && $request->status_akte_lahir != 0 && $request->status_skck != 0 && $request->status_rekening != 0 && $request->status_foto != 0){
+            md_jobseeker::where('users_id',$id)->update(array(
+            'status_diterima'=>'2',
+            'status_ijazah'=>$request->status_ijazah,
+            'status_ktp'=>$request->status_ktp,
+            'status_ksk'=>$request->status_ksk,
+            'status_akte_lahir'=>$request->status_akte_lahir,
+            'status_skck'=>$request->status_skck,
+            'status_rekening'=>$request->status_rekening,
+            'status_foto'=>$request->status_foto
+            ));
+        }
+        else{
+            md_jobseeker::where('users_id',$id)->update(array(
+            'status_diterima'=>'0',
+            'status_ijazah'=>$request->status_ijazah,
+            'status_ktp'=>$request->status_ktp,
+            'status_ksk'=>$request->status_ksk,
+            'status_akte_lahir'=>$request->status_akte_lahir,
+            'status_skck'=>$request->status_skck,
+            'status_rekening'=>$request->status_rekening,
+            'status_foto'=>$request->status_foto
+            ));
+        }
+        return redirect()->route('pegawai.index');
     }
 
     public function getPayroll(){
