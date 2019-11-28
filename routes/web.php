@@ -42,6 +42,14 @@ Route::get('approvepengajuanapd/{id}','HomeController@approvePengajuanAPD');
 Route::get('daftar_pengajuan', 'HomeController@daftar_pengajuan');
 Route::get('serah_terima', 'HomeController@serah_terima');
 
+//SPPD
+Route::get('ppkd/create','SPPDController@createPPKD');
+Route::post('ppkd/store','SPPDController@storePPKD');
+Route::get('ppkd/list','SPPDController@listPPKD');
+Route::post('ppkd/acc','SPPDController@accPPKD');
+Route::post('ppkd/tolak','SPPDController@tolakPPKD');
+
+
 //PAYROLL
 Route::get('data_payroll','HomeController@data_payroll');
 Route::get('generate_payroll','HomeController@generate_payroll');
