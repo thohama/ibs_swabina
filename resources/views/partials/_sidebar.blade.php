@@ -39,7 +39,8 @@
                 or url('admin/daftar_permintaan_tenaga_kerja') == request()->url()
                 or url('daftar_pengajuan') == request()->url()
                 or url('serah_terima') == request()->url() 
-                or url('ppkd/create') == request()->url()) active @else '' @endif treeview">
+                or url('ppkd/create') == request()->url()
+                or url('sppd/create') == request()->url()) active @else '' @endif treeview">
                 <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Unit Kerja</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li class="@if(url('admin/form/permintaan_tenaga_kerja') == request()->url()
@@ -63,11 +64,15 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="@if(url('ppkd/create') == request()->url()) active @else '' @endif treeview">
+                    <li class="@if(url('ppkd/create') == request()->url()
+                        or url('sppd/create') == request()->url()) active @else '' @endif treeview">
                         <a href="#"><span class="nav-label">SPPD</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                             <li class="@if(url('ppkd/create') == request()->url()) active @else '' @endif">
                                 <a href="{{ url('ppkd/create') }}">Pengajuan PPKD</a>
+                            </li>
+                            <li class="@if(url('sppd/create') == request()->url()) active @else '' @endif">
+                                <a href="{{ url('sppd/create') }}">Pengajuan SPPD</a>
                             </li>
                         </ul>
                     </li>
@@ -151,7 +156,8 @@
                 </ul>
             </li>
             <li class="@if(url('penilaian_datakaryawan') == request()->url()
-                or url('ppkd/list') == request()->url()) active @else '' @endif treeview">
+                or url('ppkd/list') == request()->url()
+                or url('sppd/list') == request()->url()) active @else '' @endif treeview">
                 <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Atasan</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li class="@if(url('penilaian_datakaryawan') == request()->url()) active @else '' @endif treeview">
@@ -164,11 +170,15 @@
                     </li>
                 </ul>
                 <ul class="nav nav-second-level collapse">
-                    <li class="@if(url('ppkd/list') == request()->url()) active @else '' @endif treeview">
+                    <li class="@if(url('ppkd/list') == request()->url()
+                        or url('sppd/list') == request()->url()) active @else '' @endif treeview">
                         <a href="#"><span class="nav-label">SPPD</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                             <li class="@if(url('ppkd/list') == request()->url()) active @else '' @endif">
                                 <a href="{{ url('ppkd/list') }}">Approval PPKD</a>
+                            </li>
+                            <li class="@if(url('sppd/list') == request()->url()) active @else '' @endif">
+                                <a href="{{ url('sppd/list') }}">Approval SPPD</a>
                             </li>
                         </ul>
                     </li>

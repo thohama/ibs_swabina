@@ -331,7 +331,7 @@
             <div class="hr-line-dashed"></div>
             <div class="form-group row">
               <div class="col-sm-4 col-sm-offset-9">
-                <a href="{{url('manajemen-pekerja/data-pekerja')}}" class="btn btn-danger btn-flat" type="button">Kembali</a>
+                <a href="{{url('penilaian_datakaryawan')}}" class="btn btn-danger btn-flat" type="button">Kembali</a>
                 <button class="ladda-button ladda-button-demo btn btn-primary btn-flat simpan" type="submit" >
                   Simpan
                 </button>

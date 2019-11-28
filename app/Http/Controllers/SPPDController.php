@@ -87,6 +87,30 @@ class SPPDController extends Controller
         return redirect()->back()->with('success','Approval PPKD Berhasil!');
     }
 
+    public function createSPPD(){
+        $kar = DB::table('md_karyawan')
+            ->join('st_site','st_site.id','=','md_karyawan.site_id')
+            ->select('md_karyawan.*','st_site.nama as site')
+            ->orderBy('st_site.nama')
+            ->orderBy('nama')
+            ->get();
+        return view('sppd.create_sppd', compact('kar'));
+    }
+
+    public function listSPPD(){
+        $ppkd = DB::table('tbl_ppkd')
+            ->join('md_karyawan','tbl_ppkd.karyawan_id','=','md_karyawan.id')
+            ->join('st_site','st_site.id','=','md_karyawan.site_id')
+            ->join('md_kendaraan','md_kendaraan.id_kendaraan','=','tbl_ppkd.kendaraan_id')
+            ->where('tbl_ppkd.status','=',0)
+            ->where('tbl_ppkd.deleted_at','=', (NULL))
+            ->select('tbl_ppkd.*','md_karyawan.nama','st_site.nama as site','md_kendaraan.*')
+            ->orderby('tbl_ppkd.waktu_awal')
+            ->orderby('md_karyawan.nama')
+            ->get();
+        return view('sppd.approval_sppd',compact('ppkd'));
+    }
+
     public function penglemburJadwal(){
         $lembur = DB::table('lembur')
             ->join('md_karyawan','lembur.karyawan_id','=','md_karyawan.id')

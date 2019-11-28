@@ -48,6 +48,9 @@ Route::post('ppkd/store','SPPDController@storePPKD');
 Route::get('ppkd/list','SPPDController@listPPKD');
 Route::post('ppkd/acc','SPPDController@accPPKD');
 Route::post('ppkd/tolak','SPPDController@tolakPPKD');
+Route::get('sppd/create','SPPDController@createSPPD');
+Route::get('sppd/list','SPPDController@listSPPD');
+
 
 
 //PAYROLL
