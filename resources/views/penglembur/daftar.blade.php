@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title', 'Slip')
+@section('title', 'Lembur')
 
 @section('content')
     <div class="row wrapper border-bottom white-bg page-heading">

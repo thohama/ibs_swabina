@@ -44,7 +44,6 @@ class SPLController extends Controller
             $store->waktu_akhir = $waktu_akhir;
             $store->waktu_lembur = $request->waktu;
             $store->keterangan = $request->keterangan;
-//            $store->notes = $request->keterangan;
             $store->created_at = date("Y-m-d H:i:s");
             $store->created_by = $user;
             $store->updated_at = date("Y-m-d H:i:s");
@@ -57,6 +56,15 @@ class SPLController extends Controller
     }
 
     public function pengLemburDaftar(){
+        DB::table('lembur')
+            ->where('waktu_akhir','<',date('Y-m-d H:i:s'))
+            ->where('deleted_at','=',(NULL))
+            ->update([
+                'updated_at' => date("Y-m-d H:i:s"),
+                'updated_by' => Auth::user()->id,
+                'deleted_at' => date("Y-m-d H:i:s"),
+                'deleted_by' => Auth::user()->id
+            ]);
         $lembur = DB::table('lembur')
             ->join('md_karyawan','lembur.karyawan_id','=','md_karyawan.id')
             ->join('st_site','st_site.id','=','md_karyawan.site_id')

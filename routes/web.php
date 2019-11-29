@@ -90,6 +90,14 @@ Route::post('penglembur/store','SPLController@storePenglembur');
 Route::post('penglembur/acc','SPLController@accPenglembur');
 Route::post('penglembur/tolak','SPLController@tolakPenglembur');
 
+//absensi
+Route::get('absensi','AbsensiController@getFormIzin');
+Route::get('absensi/daftar','AbsensiController@absensiDaftar');
+Route::get('absensi/jadwal','AbsensiController@absensiJadwal');
+Route::get('absensi/history','AbsensiController@absensiHistory');
+Route::post('absensi/store','AbsensiController@storeAbsensi');
+Route::post('absensi/acc','AbsensiController@accAbsensi');
+Route::post('absensi/tolak','AbsensiController@tolakAbsensi');
 
 //setup
 Route::get('setup_komponen_gaji', 'SetupController@setup_komponen_gaji');

@@ -255,6 +255,86 @@
                 </ul>
             </li>
 
+{{--            <li class="@if(url('cuti') == request()->url()--}}
+{{--                or url('cuti/daftar') == request()->url()--}}
+{{--                or url('cuti/jadwal') == request()->url()--}}
+{{--                or url('cuti/history') == request()->url())--}}
+{{--                active @else '' @endif treeview">--}}
+{{--                <a href="#"><i class="fa fa-paper-plane"></i> <span class="nav-label">Absensi</span><span class="fa arrow"></span></a>--}}
+
+{{--                <ul class="nav nav-second-level collapse">--}}
+{{--                    <li class="@if(url('cuti') == request()->url()--}}
+{{--                        or url('cuti/daftar') == request()->url())--}}
+{{--                        active @else '' @endif @endiftreeview">--}}
+{{--                        <a href="#"><span class="nav-label">Cuti</span><span class="fa arrow"></span></a>--}}
+
+{{--                        <ul class="nav nav-third-level collapse">--}}
+{{--                            <li class="@if(url('cuti') == request()->url()--}}
+{{--                            or url('cuti/daftar') == request()->url())--}}
+{{--                            active @else '' @endif @endiftreeview">--}}
+{{--                            <a href="#"><span class="nav-label">SPC</span><span class="fa arrow"></span></a>--}}
+
+{{--                                <ul class="nav nav-third-level">--}}
+{{--                                    <li class="@if(url('cuti') == request()->url()) active @else '' @endif"><a href="{{ url('cuti') }}">Form Pengajuan</a></li>--}}
+{{--                                    <li class="@if(url('cuti/daftar') == request()->url()) active @else '' @endif"><a href="{{ url('cuti/daftar') }}">Daftar Pengajuan</a></li>--}}
+{{--                                </ul>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+
+{{--                        <ul class="nav nav-third-level collapse">--}}
+{{--                            <li class="@if(url('cuti/jadwal') == request()->url()--}}
+{{--                                or url('cuti/history') == request()->url())--}}
+{{--                                active @else '' @endif treeview">--}}
+{{--                                <a href="#"><span class="nav-label">Data Cuti</span><span class="fa arrow"></span></a>--}}
+
+{{--                                <ul class="nav nav-third-level">--}}
+{{--                                    <li class="@if(url('cuti/jadwal') == request()->url()) active @else '' @endif"><a href="{{ url('cuti/jadwal') }}">Jadwal Cuti</a></li>--}}
+{{--                                    <li class="@if(url('cuti/history') == request()->url()) active @else '' @endif"><a href="{{ url('cuti/history') }}">History</a></li>--}}
+{{--                                </ul>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
+{{--            </li>--}}
+
+            <li class="@if(url('absensi') == request()->url()
+                or url('absensi/daftar') == request()->url()
+                or url('absensi/jadwal') == request()->url()
+                or url('absensi/history') == request()->url())
+                active @else '' @endif treeview">
+                <a href="#"><i class="fa fa-paper-plane"></i> <span class="nav-label">Absensi</span><span class="fa arrow"></span></a>
+
+                <ul class="nav nav-second-level collapse">
+                    <li class="@if(url('absensi') == request()->url()
+                        or url('absensi/daftar') == request()->url()
+                        or url('absensi/history') == request()->url()
+                        or url('absensi/jadwal') == request()->url())
+                        active @else '' @endif @endiftreeview">
+                        <a href="#"><span class="nav-label">Perizinan</span><span class="fa arrow"></span></a>
+
+                        <ul class="nav nav-third-level">
+                            <li class="@if(url('absensi') == request()->url()) active @else '' @endif"><a href="{{ url('absensi') }}">Form Pengajuan</a></li>
+                            <li class="@if(url('absensi/daftar') == request()->url()) active @else '' @endif"><a href="{{ url('absensi/daftar') }}">Daftar Pengajuan</a></li>
+                            <li class="@if(url('absensi/jadwal') == request()->url()) active @else '' @endif"><a href="{{ url('absensi/jadwal') }}">Jadwal Perizinan</a></li>
+                            <li class="@if(url('absensi/history') == request()->url()) active @else '' @endif"><a href="{{ url('absensi/history') }}">History Perizinan</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav nav-second-level collapse">
+                    <li class="@if(url('cuti/jadwal') == request()->url()
+                        or url('cuti/history') == request()->url())
+                        active @else '' @endif treeview">
+                        <a href="#"><span class="nav-label">Data Cuti</span><span class="fa arrow"></span></a>
+
+                        <ul class="nav nav-third-level">
+                            <li class="@if(url('cuti/jadwal') == request()->url()) active @else '' @endif"><a href="{{ url('cuti/jadwal') }}">Jadwal Cuti</a></li>
+                            <li class="@if(url('cuti/history') == request()->url()) active @else '' @endif"><a href="{{ url('cuti/history') }}">History</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
             <li class="@if(url('/presensi') == request()->url()
                 or url('/presensi/generate') == request()->url()
                 or url('/presensi/generate/jadwal') == request()->url()

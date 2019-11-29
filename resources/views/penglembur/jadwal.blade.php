@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title', 'Slip')
+@section('title', 'Lembur')
 
 @section('content')
     <div class="row wrapper border-bottom white-bg page-heading">
@@ -44,7 +44,7 @@
                                         <th>Waktu Selesai</th>
                                         <th>Waktu Lembur</th>
                                         <th>Keterangan</th>
-                                        <th>Action</th>
+{{--                                        <th>Action</th>--}}
 {{--                                        <th>Status</th>--}}
                                     </tr>
                                 </thead>
@@ -66,7 +66,7 @@
                                             <td>Sesudah</td>
                                         @endif
                                         <td>{{ $l->keterangan }}</td>
-                                        <td style="text-align: center"><a href="{{url('/penglembur/done',$l->id)}}"><i class="fa fa-check-square-o"></i></a></td>
+{{--                                        <td style="text-align: center"><a href="{{url('/penglembur/done',$l->id)}}"><i class="fa fa-check-square-o"></i></a></td>--}}
 {{--                                        @if($l->acc == 1)--}}
 {{--                                            <td style="text-align: center"><button type="button" class="btn btn-success btn-sm">Approved</button></td>--}}
 {{--                                        @else($l->acc == 2)--}}
